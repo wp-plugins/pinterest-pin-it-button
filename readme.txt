@@ -9,7 +9,7 @@ This plugin simply places a Pinterest "Pin It" Button to the bottom or top of yo
 
 Currently under development. Get updates and more info at:
 
-http://pinterestplugin.com
+[pinterestplugin.com](http://pinterestplugin.com)
 
 == Description ==
 
