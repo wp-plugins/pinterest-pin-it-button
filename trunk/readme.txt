@@ -18,8 +18,8 @@ Get more info and sign up to be notified of important updates here:
 
 [pinterestplugin.com](http://pinterestplugin.com)
 
-
 See it in action here:
+
 [bruisesandbandaids.com](http://bruisesandbandaids.com/)
 
 Send me feedback or features you'd like to see here:
