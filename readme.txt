@@ -9,16 +9,19 @@ Simply adds a Pinterest "Pin It" Button to your posts helping your readers easil
 
 == Description ==
 
-The visual bookmarking site Pinterest is exploding in usage. Encourage your readers to pin your content with
+The visual bookmarking site Pinterest is exploding in growth! Encourage your readers to pin your content with
 this easy-to-use "Pin It" button plugin.
 
-Currently this plugin is in an early beta version with just a few features.
+Currently this plugin is in early development but features should be added regularly.
 
 Get more info and sign up to be notified of important updates here:
 [pinterestplugin.com](http://pinterestplugin.com)
 
 See it in action here:
-[bruisesandbandaids.com]http://bruisesandbandaids.com/
+[bruisesandbandaids.com](http://bruisesandbandaids.com/)
+
+Send me feedback or features you'd like to see here:
+[pinterestplugin.com/contact](http://pinterestplugin.com/contact/)
 
 **Features**
 
