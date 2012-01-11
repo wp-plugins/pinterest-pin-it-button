@@ -35,3 +35,11 @@ Send me feedback or features you'd like to see here:
 1. Upload `pinterest-pin-it-button.zip` to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Go to Settings > Pin It Button to configure options.
+
+== Changelog ==
+
+= 0.1.1 =
+* Fixed style sheet reference.
+
+= 0.1 =
+* Initial release
