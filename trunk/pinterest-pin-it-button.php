@@ -29,6 +29,7 @@
 /*** Public Rendering Functions ***/
 
 //Initialize page
+/*
 function pib_public_init()
 {
 	//Load CSS & JS files
@@ -36,6 +37,16 @@ function pib_public_init()
 }
 
 add_action('init', 'pib_public_init');
+*/
+
+function pib_add_js_css()
+{
+	$css_url = plugins_url('/css/pinterest-pin-it-button.css', __FILE__);
+	wp_register_style('pinterest-pin-it-button', $css_url);
+	wp_enqueue_style('pinterest-pin-it-button', $css_url);
+}
+
+add_action('wp_enqueue_scripts', 'pib_add_js_css');
 
 function add_pin_it_button($content)
 {
