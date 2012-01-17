@@ -14,17 +14,15 @@ this easy-to-use "Pin It" button plugin.
 
 Currently this plugin is in early development but features should be added regularly.
 
-Get more info and sign up to be notified of important updates here:
+For update notifications and more info:
 
 [pinterestplugin.com](http://pinterestplugin.com)
 
-See it in action here:
+Example of the plugin in use:
 
 [bruisesandbandaids.com](http://bruisesandbandaids.com/)
 
-Send me feedback or features you'd like to see here:
-
-[pinterestplugin.com/contact](http://pinterestplugin.com/contact/)
+[Feedback & Support](https://pinterestplugin.uservoice.com/)
 
 **Features**
 
