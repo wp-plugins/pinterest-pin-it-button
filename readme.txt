@@ -36,8 +36,11 @@ Example of the plugin in use:
 
 == Changelog ==
 
+= 0.1.2 =
+* Moved javascript that fires on button click to a separate file
+
 = 0.1.1 =
-* Fixed style sheet reference.
+* Fixed style sheet reference
 
 = 0.1 =
 * Initial release

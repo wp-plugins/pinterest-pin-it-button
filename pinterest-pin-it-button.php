@@ -1,9 +1,9 @@
 <?php
 /*
   Plugin Name: Pinterest "Pin It" Button
-  Plugin URI: http://pinterestplugin.com/pin-it-button
+  Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and images.
-  Version: 0.1.1
+  Version: 0.1.2
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
@@ -39,14 +39,18 @@ function pib_public_init()
 add_action('init', 'pib_public_init');
 */
 
-function pib_add_js_css()
+function pib_add_styles_scripts()
 {
 	$css_url = plugins_url('/css/pinterest-pin-it-button.css', __FILE__);
 	wp_register_style('pinterest-pin-it-button', $css_url);
-	wp_enqueue_style('pinterest-pin-it-button', $css_url);
+	wp_enqueue_style('pinterest-pin-it-button');
+    
+    $js_url = plugins_url('/js/pinterest-pin-it-button.js', __FILE__);
+    wp_register_script('pinterest-pin-it-button', $js_url);
+    wp_enqueue_script('pinterest-pin-it-button');
 }
 
-add_action('wp_enqueue_scripts', 'pib_add_js_css');
+add_action('wp_enqueue_scripts', 'pib_add_styles_scripts');
 
 function add_pin_it_button($content)
 {
@@ -57,12 +61,14 @@ function add_pin_it_button($content)
 	//TODO Pin count possible values: "horizontal", "vertical", "none" */
 	$pinCount = "none";
         
-    //(alternate) Create pin it button mimicking Pinterest official javascript bookmarklet
-    $bookmarkletJS = "javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());";
+    //OLD Create pin it button mimicking Pinterest official javascript bookmarklet
+    $bookmarkletJS = "javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r=' + Math.random()*99999999);document.body.appendChild(e)})());";
     
+    //Execute pin it javascript function with onclick event    
     $btnHtml = 
 		'<div class="pin-it-button-wrapper">' .
-		'<a href="' . $bookmarkletJS . '" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
+		//'<a href="' . $bookmarkletJS . '" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
+        '<a href="#" onclick="exec_pinmarklet();" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
         '</div>';
 	
 	//load our options array
