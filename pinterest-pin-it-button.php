@@ -68,7 +68,7 @@ function add_pin_it_button($content)
     $btnHtml = 
 		'<div class="pin-it-button-wrapper">' .
 		//'<a href="' . $bookmarkletJS . '" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
-        '<a href="#" onclick="exec_pinmarklet();" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
+        '<a href="javascript:exec_pinmarklet();" id="PinItButton" title="Pin it on Pinterest">Pin it</a>' .
         '</div>';
 	
 	//load our options array
