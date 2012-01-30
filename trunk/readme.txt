@@ -5,14 +5,12 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Simply adds a Pinterest "Pin It" Button to your posts helping your readers easily pin your stuff.
+Adds a Pinterest "Pin It" Button to your posts and pages helping your readers easily pin your images.
 
 == Description ==
 
 The visual bookmarking site Pinterest is exploding in growth! Encourage your readers to pin your content with
-this easy-to-use "Pin It" button plugin.
-
-Currently this plugin is in early development but features should be added regularly.
+this simple "Pin It" button.
 
 For update notifications and more info:
 
@@ -26,13 +24,20 @@ Example of the plugin in use:
 
 **Features**
 
-* Place button above or below content.
+* Place button on several pages types: (Home Page, Posts, Pages and Archives)
+* Place button above and/or below content
+* Place button inside content with a shortcode
 
 == Installation ==
 
 1. Upload `pinterest-pin-it-button.zip` to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. Go to Settings > Pin It Button to configure options.
+
+== Screenshots ==
+
+1. Settings screen
+2. Button display below a post
 
 == Changelog ==
 
@@ -52,5 +57,3 @@ Example of the plugin in use:
 
 = 0.1 =
 * Initial release
-
-== Screenshots ==
