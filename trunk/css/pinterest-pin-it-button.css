@@ -1,5 +1,7 @@
+/* Pinterest Pin It Button Public CSS */
+
 /* DIV surrounding generated iframe */
-.pin-it-button-wrapper {
+.pinit-button-wrapper {
     height: 25px; /* bigger than button height below */
     margin: 0;
     padding: 0 0 10px 0;
