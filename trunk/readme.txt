@@ -18,9 +18,9 @@ For update notifications and more info:
 
 Example of the plugin in use:
 
-[bruisesandbandaids.com](http://bruisesandbandaids.com/)
+[bruisesandbandaids.com](http://bruisesandbandaids.com/) (photography site)
 
-[Feedback & Support](https://pinterestplugin.uservoice.com/)
+[User Support Forum](https://pinterestplugin.uservoice.com/)
 
 **Features**
 
