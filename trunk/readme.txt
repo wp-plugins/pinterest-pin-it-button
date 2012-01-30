@@ -24,7 +24,7 @@ Example of the plugin in use:
 
 **Features**
 
-* Display button on various page types: (Home Page, Posts, Pages and Archives)
+* Display button on various page types: (home page, posts, pages, archives, etc.)
 * Display button above and/or below content
 * Display button inside content with a shortcode
 
@@ -40,6 +40,10 @@ Example of the plugin in use:
 2. Button display below a post
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Added checkbox option to display on "front page" (sometimes different than home page)
 
 = 1.0.0 =
 
