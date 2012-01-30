@@ -24,9 +24,9 @@ Example of the plugin in use:
 
 **Features**
 
-* Place button on several pages types: (Home Page, Posts, Pages and Archives)
-* Place button above and/or below content
-* Place button inside content with a shortcode
+* Display button on various page types: (Home Page, Posts, Pages and Archives)
+* Display button above and/or below content
+* Display button inside content with a shortcode
 
 == Installation ==
 
