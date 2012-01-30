@@ -3,7 +3,7 @@
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and images.
-  Version: 1.0.0
+  Version: 1.0.1
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
@@ -35,7 +35,7 @@ function pib_install() {
 	//Setup default settings
 	$pib_options = array(
 		'display_home_page' => 0,
-		//TODO? 'display_front_page' => 0,
+		'display_front_page' => 0,
 		'display_posts' => 1,
 		'display_pages' => 1,
 		//TODO? 'display_categories' => 0,
@@ -98,6 +98,10 @@ function pib_render_btn( $content )
     if ( is_home() && ( $pib_options['display_home_page'] ) ) {
         $render_btn = true;
     }
+	
+	if ( is_front_page() && ( $pib_options['display_front_page'] ) ) {
+        $render_btn = true;
+    }
     
     if ( is_single() && ( $pib_options['display_posts'] ) ) {
         $render_btn = true;
@@ -141,6 +145,10 @@ function pib_render_btn_excerpt( $content )
     
     //Determine if displayed on current page
     if ( is_home() && ( $pib_options['display_home_page'] ) ) {
+        $render_btn = true;
+    }
+
+	if ( is_front_page() && ( $pib_options['display_front_page'] ) ) {
         $render_btn = true;
     }
     
@@ -227,26 +235,37 @@ function pib_create_settings_page() {
                 <table class="form-table">
                     <tr valign="top">
                         <td>
-                            <input id="display_home_page" name="pib_options[display_home_page]" type="checkbox" <?php if ( $pib_options['display_home_page'] ) echo 'checked="checked"'; ?> />
-                            <label for="display_home_page">Home Page</label>
+                            <input id="display_home_page" name="pib_options[display_home_page]" type="checkbox" 
+								<?php if ( $pib_options['display_home_page'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_home_page">Home Page (or Latest Posts page)</label>
                         </td>
                     </tr>
                     <tr valign="top">
                         <td>
-                            <input id="display_posts" name="pib_options[display_posts]" type="checkbox" <?php if ( $pib_options['display_posts'] ) echo 'checked="checked"'; ?> />
-                            <label for="display_posts">Posts</label>
+                            <input id="display_front_page" name="pib_options[display_front_page]" type="checkbox" 
+								<?php if ( $pib_options['display_front_page'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_front_page">Front Page (different from Home Page only if set in Settings > Reading)</label>
+                        </td>
+                    </tr>					
+                    <tr valign="top">
+                        <td>
+                            <input id="display_posts" name="pib_options[display_posts]" type="checkbox" 
+								<?php if ( $pib_options['display_posts'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_posts">Individual Posts</label>
                         </td>
                     </tr>
                     <tr valign="top">
                         <td>
-                            <input id="display_pages" name="pib_options[display_pages]" type="checkbox" <?php if ( $pib_options['display_pages'] ) echo 'checked="checked"'; ?> />
-                            <label for="display_pages">Pages</label>
+                            <input id="display_pages" name="pib_options[display_pages]" type="checkbox" 
+								<?php if ( $pib_options['display_pages'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_pages">WordPress Static "Pages"</label>
                         </td>
                     </tr>
                     <tr valign="top">
                         <td>
-                            <input id="display_archives" name="pib_options[display_archives]" type="checkbox" <?php if ( $pib_options['display_archives'] ) echo 'checked="checked"'; ?> />
-                            <label for="display_archives">Archives (Category, Tag, Author and Date-based pages)</label>
+                            <input id="display_archives" name="pib_options[display_archives]" type="checkbox" 
+								<?php if ( $pib_options['display_archives'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_archives">Archives Page (Category, Tag, Author, time-based, etc.)</label>
                         </td>
                     </tr>
                 </table>
