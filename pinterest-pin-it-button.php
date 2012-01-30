@@ -237,7 +237,7 @@ function pib_create_settings_page() {
                         <td>
                             <input id="display_home_page" name="pib_options[display_home_page]" type="checkbox" 
 								<?php if ( $pib_options['display_home_page'] ) echo 'checked="checked"'; ?> />
-                            <label for="display_home_page">Home Page (or Latest Posts page)</label>
+                            <label for="display_home_page">Blog Home Page (or Latest Posts Page)</label>
                         </td>
                     </tr>
                     <tr valign="top">
