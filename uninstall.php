@@ -1,10 +1,12 @@
 <?php
-// If uninstall/delete not called from WordPress then exit
-if (!defined('ABSPATH') && !defined('WP_UNINSTALL_PLUGIN'))
-{
+//If uninstall/delete not called from WordPress then exit
+if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// Delete options array from options table
-delete_option('pib_options');
+//Remove option records from options table
+delete_option( 'pib_options' );
+
+//Remove any additional options and custom tables
+
 ?>

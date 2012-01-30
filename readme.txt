@@ -36,6 +36,14 @@ Example of the plugin in use:
 
 == Changelog ==
 
+= 1.0.0 =
+
+* Added checkbox options to select what types of pages the button should appear on
+* Display options above and below content are now checkboxes (one or both can be selected)
+* Added shortcode [pinit] to display button within content
+* Settings page is now under main admin menu (was under Settings menu)
+* Added icons to admin menu item and settings page title
+
 = 0.1.2 =
 * Moved javascript that fires on button click to a separate file
 
@@ -44,3 +52,5 @@ Example of the plugin in use:
 
 = 0.1 =
 * Initial release
+
+== Screenshots ==
