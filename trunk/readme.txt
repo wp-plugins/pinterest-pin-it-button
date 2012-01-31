@@ -30,9 +30,11 @@ Example of the plugin in use:
 
 == Installation ==
 
-1. Upload `pinterest-pin-it-button.zip` to the `/wp-content/plugins/` directory.
-1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Go to Settings > Pin It Button to configure options.
+1. Use the automatic installer in your WordPress admin
+1. Activate the plugin
+1. Configure the plugin by going to `Pin It Button` that appears in your admin menu 
+
+Alertnatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
 
 == Screenshots ==
 
