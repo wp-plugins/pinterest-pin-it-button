@@ -5,7 +5,7 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Adds a Pinterest "Pin It" Button to your posts and pages helping your readers easily pin your images.
+Add a Pinterest "Pin It" Button to your posts and pages helping your readers easily pin your images.
 
 == Description ==
 
