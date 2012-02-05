@@ -3,7 +3,7 @@
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and images.
-  Version: 1.0.1
+  Version: 1.0.2
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
@@ -24,6 +24,11 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+//Set global variables
+
+if ( ! defined( 'PIB_PLUGIN_BASENAME' ) )
+	define( 'PIB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+	
 //Plugin install/activation
 
 function pib_install() {
@@ -38,28 +43,40 @@ function pib_install() {
 		'display_front_page' => 0,
 		'display_posts' => 1,
 		'display_pages' => 1,
-		//TODO? 'display_categories' => 0,
 		'display_archives' => 0,
 		'display_above_content' => 0,
-		'display_below_content' => 1
+		'display_below_content' => 1,
+		'display_on_post_excerpts' => 0
 	);
 
 	//Save default option values
 	update_option( 'pib_options', $pib_options );
-    
-    //TODO Display admin notice to proceed to options
-    /*
-    function pib_plugin_activate_notice() {
-        echo "<div class='updated'><p>" . 
-            sprintf( __( '<a href="%1$s">Customize your Pinterest \"Pin It\" button settings</a>' ), "admin.php?page=pinterest-pin-it-button" ) . 
-            "</p></div>";
-    }
-
-    add_action('admin_notices', 'pib_plugin_activate_notice');
-    */
 }
 
 register_activation_hook( __FILE__, 'pib_install' );
+
+// TODO Display admin notice to proceed to options
+/*
+function pib_plugin_activate_notice() {
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+    
+    if(is_plugin_active(PIB_PLUGIN_BASENAME))
+
+    {
+        //ADD message to only Plugin Page
+        global $pagenow;
+        if($pagenow == 'plugins.php')
+            {
+                echo "<div class='updated'><p>" . 
+                    sprintf( __( '<a href="%1$s">Set where your "Pin It" Button is displayed</a>' ), "admin.php?page=".PIB_PLUGIN_BASENAME ) . 
+                    "</p></div>";
+            }
+    }
+}
+
+add_action('admin_notices', 'pib_plugin_activate_notice');
+*/
+
 
 /********************
   Public-Only Functions
@@ -77,9 +94,10 @@ add_action( 'wp_enqueue_scripts', 'pib_add_public_css_js' );
 //Button html to render
 
 function pib_button_html() {
+
     $btn_html = 
 		'<div class="pinit-button-wrapper">' .
-        '<a href="javascript:exec_pinmarklet();" id="PinItButton" title="Pin It on Pinterest">Pin it</a>' .
+        '<a href="javascript:exec_pinmarklet();" id="PinItButton" title="Pin It on Pinterest"></a>' .
         '</div>';
 
     return $btn_html;
@@ -131,10 +149,8 @@ function pib_render_btn( $content )
 
 add_filter( 'the_content', 'pib_render_btn' );
 
-//Render button on excerpt pages
+//Render button on excerpts if option checked
 //Test excerpt content on home/archives with Woothemes Canvas theme
-//TODO Add option to display on excerpts? Call the_excerpt filter within function checking for option value?
-//TODO Combine the_content/the_excerpt filters for rendering button? (repetative code)
 
 function pib_render_btn_excerpt( $content )
 {
@@ -143,18 +159,20 @@ function pib_render_btn_excerpt( $content )
 	//Load options array
 	$pib_options = get_option( 'pib_options' );
     
-    //Determine if displayed on current page
-    if ( is_home() && ( $pib_options['display_home_page'] ) ) {
-        $render_btn = true;
-    }
-
-	if ( is_front_page() && ( $pib_options['display_front_page'] ) ) {
-        $render_btn = true;
-    }
+    if ( $pib_options['display_on_post_excerpts'] ) {
     
-    if ( is_archive() && ( $pib_options['display_archives'] ) ) {
-        $render_btn = true;
-    }    
+        if ( is_home() && ( $pib_options['display_home_page'] ) ) {
+            $render_btn = true;
+        }
+
+        if ( is_front_page() && ( $pib_options['display_front_page'] ) ) {
+            $render_btn = true;
+        }
+        
+        if ( is_archive() && ( $pib_options['display_archives'] ) ) {
+            $render_btn = true;
+        }    
+    }
     
     if ( $render_btn ) {
         //Display above and/or below content
@@ -212,7 +230,6 @@ function pib_register_settings() {
 add_action( 'admin_init', 'pib_register_settings' );
 
 //Create settings page
-//TODO Later move to it's own PHP file? include_once(...)
 
 function pib_create_settings_page() {
 	//Load options array
@@ -285,43 +302,40 @@ function pib_create_settings_page() {
                             <label for="display_below_content">Below Content</label>
                         </td>
                     </tr>
+					<tr valign="top">
+                        <td>
+                            <input id="display_on_post_excerpts" name="pib_options[display_on_post_excerpts]" type="checkbox" <?php if ( $pib_options['display_on_post_excerpts'] ) echo 'checked="checked"'; ?> />
+                            <label for="display_on_post_excerpts">On Post Excerpts</label>
+                        </td>
+                    </tr>
                     <tr valign="top">
                         <td>
                             <input name="Submit" type="submit" value="Save Changes" class="button-primary" />
                         </td>
                     </tr>
                 </table>
-            </form>
-            
+            </form> 
             <h3>Use the shortcode <code style="font-size: 14px;">[pinit]</code> to display the button within the content.</h3>
         </div>
     <?php
 }
 
-//TODO Add a link to the settings page to the plugins list
+// Add a link to the settings page to the plugins list
 
-/*
-function add_settings_link( $links, $file ) {
-    static $this_plugin;
-    if( empty($this_plugin) ) $this_plugin = $this->filename;
-    if ( $file == $this_plugin ) {
-        $settings_link = '<a href="' . $this->plugin_options_url() . '">' . __('Settings', 'pinterest-pin-it-button' ) . '</a>';
-        array_unshift( $links, $settings_link );
-    }
-    return $links;
-}
-*/
+function pib_plugin_action_links( $links, $file ) {
+	if ( $file != PIB_PLUGIN_BASENAME )
+		return $links;
 
-/*
-function add_settings_link( $links ) {
-	$settings_link = '<a href="admin.php?page=pinterest-pin-it-button.php">'.__( 'Settings', 'pinterest-pin-it-button' ).'</a>';
+	$url = admin_url('admin.php?page='.PIB_PLUGIN_BASENAME);
+
+	$settings_link = '<a href="' . esc_attr( $url ) . '">'
+		. esc_html( __( 'Settings') ) . '</a>';
+
 	array_unshift( $links, $settings_link );
+
 	return $links;
 }
-*/
 
-//add_filter( 'plugin_action_links', 'add_settings_link', 10, 2 );
-//add_filter( 'plugin_action_links', array(&$this, 'add_action_link'), 10, 2 );
-
+add_filter( 'plugin_action_links', 'pib_plugin_action_links', 10, 2 );
 
 ?>
