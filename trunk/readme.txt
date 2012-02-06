@@ -24,7 +24,7 @@ Example of the plugin in use:
 
 **Features**
 
-* Display button on various page types: (blog home page, front page, posts, pages, archives, etc.)
+* Display button on various page types: blog home page, front page, posts, pages, archives
 * Display button above and/or below content
 * Optionally display button on post excerpts
 * Display button inside content with a shortcode
