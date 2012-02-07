@@ -20,7 +20,7 @@ Example of the plugin in use:
 
 [bruisesandbandaids.com](http://bruisesandbandaids.com/) (photography site)
 
-[User Support Forum](https://pinterestplugin.uservoice.com/)
+[User Support & Feature Requests Forum](https://pinterestplugin.uservoice.com/)
 
 **Features**
 
@@ -43,6 +43,11 @@ Alertnatively, you can download this plugin, unzip the contents, then FTP upload
 2. Button display below a post
 
 == Changelog ==
+
+= 1.0.3 =
+
+* ...
+* Changed the way the button click is called (moved JavaScript inject to jQuery .getScript())
 
 = 1.0.2 =
 
