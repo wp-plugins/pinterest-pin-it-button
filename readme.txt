@@ -11,9 +11,9 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 **Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable, Feb 1, 2012 [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
 
-*Pinterest Rate of Referral Now Close to Twitter, Google+* - The Wall Street Journal, Feb 3, 2012 [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
+**Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal, Feb 3, 2012 [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
 
-*Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever* - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
+**Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
@@ -35,23 +35,23 @@ Head to the offical plugin site at **[pinterestplugin.com](http://pinterestplugi
 
 1. Use the automatic installer in your WordPress admin
 1. Activate the plugin
-1. Configure the plugin by going to `Pin It Button` that appears in your admin menu 
+1. Configure the plugin by going to **Pin It Button** that appears in your admin menu 
 
 Alertnatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
 
 == Frequently Asked Questions ==
 
-*How do I display the button in places other than above or below the content?*
+**How do I display the button in places other than above or below the content?**
 
 * Use the shortcode `[pinit]` to display the button within content.
 * Use the function `<?php echo do_shortcode('[pinit]'); ?>` to display within template or theme files.
 
-*How do I get the "Pin It" button to line up next to my other social sharing icons?*
+**How do I get the "Pin It" button to line up next to my other social sharing icons?**
 
 * Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
 * Start with these [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
 
-*I'd like to report a bug or submit a feature request.
+**I'd like to report a bug or submit a feature request.**
 
 * Go to the [User Support & Feedback Forum](https://pinterestplugin.uservoice.com)
 
@@ -66,7 +66,7 @@ Alertnatively, you can download this plugin, unzip the contents, then FTP upload
 = 1.1.0 =
 
 * Added custom CSS area for advanced layout and styling
-* Added checkbox option to remove the button's surrounding <div> tag
+* Added checkbox option to remove the button's surrounding `<div>` tag
 * Button image and style updated to match Pinterest's current embed code
 * Added additional message and link to settings page at top after plugin is activated
 * Changed the way the button click is called to solve pinning issues in Internet Explorer
