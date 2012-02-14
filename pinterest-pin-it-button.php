@@ -409,8 +409,8 @@ function pib_create_settings_page() {
 							
 							<div class="inside">
                                 <ul>
-                                    <li><a href="http://pinterestplugin.com/">Official Plugin Site</a></li>
-                                    <li><a href="https://pinterestplugin.uservoice.com/">User Support &amp; Feature Requests</a></li>                                    
+                                    <li><a href="http://pinterestplugin.com/" target="_blank">Official Plugin Site</a></li>
+                                    <li><a href="https://pinterestplugin.uservoice.com/" target="_blank">User Support &amp; Feature Requests</a></li>                                    
                                 </ul>
 							</div>
 						</div>
@@ -442,7 +442,8 @@ function pib_create_settings_page() {
                                     foreach ( $rss_items as $item ) : ?>
                                     <li>
                                         <a href='<?php echo esc_url( $item->get_permalink() ); ?>'
-                                        title='<?php echo 'Posted ' . $item->get_date('j F Y | g:i a'); ?>'>
+                                        title='<?php echo 'Posted ' . $item->get_date('j F Y | g:i a'); ?>'
+                                        target="_blank">
                                         <?php echo esc_html( $item->get_title() ); ?></a>
                                     </li>
                                     <?php endforeach; ?>
