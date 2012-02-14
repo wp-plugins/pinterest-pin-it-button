@@ -17,9 +17,9 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
-Head to the offical plugin site at **[pinterestplugin.com](http://pinterestplugin.com)** for additional info and updates.
+Head to the offical plugin site at **[pinterestplugin.com]**(http://pinterestplugin.com) for additional info and updates.
 
-[Example photography site](http://bruisesandbandaids.com)
+[Sample Photography Blog](http://bruisesandbandaids.com)
 
 [User Support & Feature Requests](https://pinterestplugin.uservoice.com)
 
