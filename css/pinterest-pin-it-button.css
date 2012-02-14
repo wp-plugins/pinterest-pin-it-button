@@ -1,15 +1,38 @@
 /* Pinterest Pin It Button Public CSS */
 
 /* DIV surrounding generated iframe */
-.pinit-button-wrapper {
-    height: 25px; /* bigger than button height below */
+.pin-it-btn-wrapper,
+.pin-it-btn-shortcode-wrapper {
+    height: 30px;
     margin: 0;
-    padding: 0 0 10px 0;
+    padding: 0;
 }
 
 /* From Pinterest official html */
-#PinItButton {
+.pin-it-btn {
     position: absolute;
+    background: url(http://assets.pinterest.com/images/pinit6.png);
+    font: 11px Arial, sans-serif;
+    text-indent: -9999em;
+    font-size: .01em;
+    color: #CD1F1F;
+    height: 20px;
+    width: 43px;
+    background-position: 0 -7px;
+}
+
+.pin-it-btn:hover {
+    background-position: 0 -28px;
+}
+
+.pin-it-btn:active {
+    background-position: 0 -49px;
+}
+
+/* Old CSS from Pinterest
+/*
+.pin-it-btn {
+    position: relative;
     background: url(http://d3io1k5o0zdpqr.cloudfront.net/images/pinit.png);
     border: 1px solid #C9C5C5;
     border-color: #E8E4E4 #C9C5C5 #C9C5C5;
@@ -28,3 +51,4 @@
     background-position: 0 -8px;
 	display:block;
 }
+*/

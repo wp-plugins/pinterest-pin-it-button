@@ -5,22 +5,23 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Add a Pinterest "Pin It" Button to your posts and pages helping your readers easily pin your images.
+Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
 == Description ==
 
-The visual bookmarking site Pinterest is exploding in growth! Encourage your readers to pin your content with
-this simple "Pin It" button.
+*Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined* - Mashable, Feb 1, 2012 [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
 
-For update notifications and more info:
+*Pinterest Rate of Referral Now Close to Twitter, Google+* - The Wall Street Journal, Feb 3, 2012 [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
 
-[pinterestplugin.com](http://pinterestplugin.com)
+*Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever* - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
-Example of the plugin in use:
+Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
-[bruisesandbandaids.com](http://bruisesandbandaids.com/) (photography site)
+Head to the offical plugin site at *[pinterestplugin.com](http://pinterestplugin.com)* for additional info and updates.
 
-[User Support & Feature Requests Forum](https://pinterestplugin.uservoice.com/)
+[Example photography site](http://bruisesandbandaids.com)
+
+[User Support & Feature Requests](https://pinterestplugin.uservoice.com)
 
 **Features**
 
@@ -28,6 +29,7 @@ Example of the plugin in use:
 * Display button above and/or below content
 * Optionally display button on post excerpts
 * Display button inside content with a shortcode
+* Add custom CSS for fine-tuning button layout and styling
 
 == Installation ==
 
@@ -37,17 +39,39 @@ Example of the plugin in use:
 
 Alertnatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
 
+== Frequently Asked Questions ==
+
+*How do I display the button in places other than above or below the content?*
+
+* Use the shortcode `[pinit]` to display the button within content.
+* Use the function `<?php echo do_shortcode('[pinit]'); ?>` to display within template or theme files.
+
+*How do I get the "Pin It" button to line up next to my other social sharing icons?*
+
+* Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
+* Start with these [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
+
+*I'd like to report a bug or submit a feature request.
+
+* Go to the [User Support & Feedback Forum](https://pinterestplugin.uservoice.com)
+
 == Screenshots ==
 
-1. Settings screen
+1. Settings page
 2. Button display below a post
+3. Button display next to other sharing buttons
 
 == Changelog ==
 
-= 1.0.3 =
+= 1.1.0 =
 
-* ...
-* Changed the way the button click is called (moved JavaScript inject to jQuery .getScript())
+* Added custom CSS area for advanced layout and styling
+* Added checkbox option to remove the button's surrounding <div> tag
+* Button image and style updated to match Pinterest's current embed code
+* Added additional message and link to settings page at top after plugin is activated
+* Changed the way the button click is called to solve pinning issues in Internet Explorer
+* Now using table layout on settings page like WordPress dashboard page (with collapsible boxes)
+* Added mailing list signup form, other links, and rss feed in right column on settings page
 
 = 1.0.2 =
 
