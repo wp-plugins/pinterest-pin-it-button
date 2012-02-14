@@ -9,7 +9,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 == Description ==
 
-*Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined* - Mashable, Feb 1, 2012 [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
+**Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable, Feb 1, 2012 [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
 
 *Pinterest Rate of Referral Now Close to Twitter, Google+* - The Wall Street Journal, Feb 3, 2012 [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
 
@@ -17,7 +17,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
-Head to the offical plugin site at *[pinterestplugin.com](http://pinterestplugin.com)* for additional info and updates.
+Head to the offical plugin site at **[pinterestplugin.com](http://pinterestplugin.com)** for additional info and updates.
 
 [Example photography site](http://bruisesandbandaids.com)
 
