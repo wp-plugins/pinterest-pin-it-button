@@ -1,13 +1,12 @@
-//jQuery no-conflict mode
-var $j = jQuery.noConflict();
 
 //jQuery doc ready
-$j(function(){
+//See http://digwp.com/2011/09/using-instead-of-jquery-in-wordpress/
+jQuery(document).ready(function($) {
     //Set pin-it button click logic
-    $j(".pin-it-btn").click(function(event) {
+    $(".pin-it-btn").click(function(event) {
         event.preventDefault();
         //Use jQuery function to retrieve and execute JavaScript from Pinterest
-        $j.getScript("http://assets.pinterest.com/js/pinmarklet.js?r=" + Math.random()*99999999);
+        $.getScript("http://assets.pinterest.com/js/pinmarklet.js?r=" + Math.random()*99999999);
     });
 });
 

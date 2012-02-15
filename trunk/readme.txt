@@ -63,6 +63,10 @@ Alertnatively, you can download this plugin, unzip the contents, then FTP upload
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Updated jQuery coding method to avoid JavaScript conflicts with other plugins and themes some were getting
+
 = 1.1.0 =
 
 * Added custom CSS area for advanced layout and styling
