@@ -3,7 +3,7 @@
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and pages.
-  Version: 1.1.1
+  Version: 1.1.2
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
@@ -24,12 +24,6 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-//Start session if it doesn't exist
-
-if( ! session_id() ) {
-	session_start();
-}
-
 //Set global variables
 
 if ( ! defined( 'PIB_PLUGIN_BASENAME' ) )
@@ -40,6 +34,7 @@ define( 'BASE_BTN_HTML', '<a href="javascript:void(0)" class="pin-it-btn" title=
 //Plugin install/activation
 
 function pib_install() {
+	
 	//Deactivate plugin if WP version too low
     if ( version_compare( get_bloginfo( 'version' ), '3.0', '<' ) ) {
         deactivate_plugins( basename( __FILE__ ) );
@@ -47,7 +42,7 @@ function pib_install() {
 	
 	//Setup default settings
 	$pib_options = array(
-		'display_home_page' => 0,
+		'display_home_page' => 1,
 		'display_front_page' => 0,
 		'display_posts' => 1,
 		'display_pages' => 1,
@@ -61,40 +56,10 @@ function pib_install() {
 
 	//Save default option values
 	update_option( 'pib_options', $pib_options );
-	
-	//Set session variable to display admin notice
-	$_SESSION['msg'] = 1;	
 }
 
 register_activation_hook( __FILE__, 'pib_install' );
 
-//Display admin notice to proceed to options
-
-function pib_plugin_activate_notice() {
-    //Add message to only Plugin Page
-	global $current_screen;
-    
-    if ( $current_screen -> parent_base == 'plugins' ) {
-        if( $_SESSION['msg'] == 1 ) {
-            echo '<div class="updated"><p>' . 
-                sprintf( __( '<a href="%1$s" class="activate-notice-link">Update Your "Pin It" Button Settings</a>' ),
-                'admin.php?page=' . PIB_PLUGIN_BASENAME ) . 
-                '</p></div>';
-        }
-    }	
-}
-
-add_action('admin_notices', 'pib_plugin_activate_notice');
-
-//Destroy session variable when navigate to other page
-
-function pib_session_destroy() {
-	if ( $current_screen->parent_base != 'plugins' ) {
-	    session_destroy();
-	}
-}
-
-add_action('admin_menu', 'pib_session_destroy');
 
 /********************
   Public-Only Functions
@@ -168,7 +133,7 @@ function pib_render_btn( $content ) {
             $content .= pib_button_html();
         }
     }
-    
+	
 	return $content;
 }
 
@@ -377,31 +342,31 @@ function pib_create_settings_page() {
                 
                 <div class="pib-right-column postbox-container">
 					<div class="meta-box-sortables ui-sortable">
-						<div id="email-signup">
-							<h4>Like This Plugin?</h4>
-							
-							<p class="large-text">
-								Join the mailing list to be notified when new features are released.
-							</p>
-							
-							<!-- Begin MailChimp Signup Form -->
-							<div id="mc_embed_signup">
-								<form action="http://pinterestplugin.us1.list-manage.com/subscribe/post?u=bfa8cc8ba2614b0796d33a238&amp;id=80e1043ae4" method="post"
-									id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-									
-									<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-									
-									<div class="clear">
-										<input type="submit" value="Sign Up!" name="subscribe" id="mc-embedded-subscribe" class="awesome large red">
-									</div>
-								</form>
-							</div>
-							<!--End mc_embed_signup-->
-							
-							<p>
-								No spam. Unsubscribe anytime.
-							</p>
-						</div>
+                        <div id="email-signup">
+                            <h4>Like This Plugin?</h4>
+                            
+                            <p class="large-text">
+                                Join the mailing list to be notified when new features are released.
+                            </p>
+                            
+                            <!-- Begin MailChimp Signup Form -->
+                            <div id="mc_embed_signup">
+                                <form action="http://pinterestplugin.us1.list-manage.com/subscribe/post?u=bfa8cc8ba2614b0796d33a238&amp;id=80e1043ae4" method="post"
+                                    id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                                    
+                                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                                    
+                                    <div class="clear">
+                                        <input type="submit" value="Sign Up!" name="subscribe" id="mc-embedded-subscribe" class="awesome large red">
+                                    </div>
+                                </form>
+                            </div>
+                            <!--End mc_embed_signup-->
+                            
+                            <p>
+                                No spam. Unsubscribe anytime.
+                            </p>
+                        </div>
 
 						<div id="other-links" class="postbox pib-postbox">
 							<div class="handlediv" title="Click to toggle"><br /></div>

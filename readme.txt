@@ -63,6 +63,10 @@ Alertnatively, you can download this plugin, unzip the contents, then FTP upload
 
 == Changelog ==
 
+= 1.1.2 =
+
+* Bug fix: Removed use of session state storing for now as it caused errors for some
+
 = 1.1.1 =
 
 * Updated jQuery coding method to avoid JavaScript conflicts with other plugins and themes some were getting
