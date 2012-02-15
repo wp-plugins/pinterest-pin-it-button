@@ -4,6 +4,8 @@ if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
+//Note this will run on manual deactivate, but should not run when upgrading/overwriting plugin
+
 //Remove option records from options table
 delete_option( 'pib_options' );
 
