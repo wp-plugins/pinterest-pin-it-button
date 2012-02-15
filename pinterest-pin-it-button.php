@@ -3,7 +3,7 @@
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and pages.
-  Version: 1.1.0
+  Version: 1.1.1
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
