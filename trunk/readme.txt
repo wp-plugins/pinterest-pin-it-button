@@ -17,7 +17,7 @@ Take advantage of the exploding traffic Pinterest is generating by encouraging y
 
 **Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
-Head to the official plugin site at *[Pinterestlugin.com](http://pinterestplugin.com)* for additional info and updates.
+Head to the official plugin site at *[PinterestPlugin.com](http://pinterestplugin.com)* for additional info and updates.
 
 [Sample Photography Blog](http://bruisesandbandaids.com)
 
