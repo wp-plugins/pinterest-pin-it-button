@@ -8,6 +8,7 @@ if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 //Remove option records from options table
 delete_option( 'pib_options' );
+delete_option( 'pib_category_fields_option' );
 
 //Remove any additional options and custom tables
 

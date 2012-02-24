@@ -28,3 +28,9 @@ a.pin-it-btn:hover {
 a.pin-it-btn:active {
     background-position: 0 -49px;
 }
+
+/* Widgets */
+.pib_widget_button,
+.pib_widget_follow_button {
+    clear: both;
+}
