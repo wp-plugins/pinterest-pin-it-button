@@ -45,14 +45,19 @@ Take advantage of the exploding traffic Pinterest is generating by encouraging y
 
 Alernatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
 
-Note: If you overwrite the plugin using FTP upload, you may lose some settings you have made.
+Note: If you overwrite the plugin using FTP upload, you may lose some saved settings.
 
 == Frequently Asked Questions ==
 
-**The "Pin It" button is showing up, but clicking it does nothing. What can I try?
+**The "Pin It" button is showing up, but clicking it does nothing. What can I try?**
 
-* Make sure any caching is cleared. In W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
-* Disable other plugins one by one and see any of them fixes the issue. Please let me know if it does.
+To the best of our knowledge, in order please try the following:
+
+* Make sure your browser cache is cleared or test in a different browser.
+* Make sure any WordPress caching is emptied. In W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
+* Disable caching plugins.
+* Disable other social sharing plugins.
+* Disable other plugins one by one until the issue is fixed. If you find an incompatible plugin please let us know.
 * (More solutions added here as they're found.)
 
 **How do I display the button in places other than above or below the content?**
@@ -63,7 +68,7 @@ Note: If you overwrite the plugin using FTP upload, you may lose some settings y
 **How do I get the "Pin It" button to line up next to my other social sharing icons?**
 
 * Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
-* Start with these [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
+* See some of our [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
 
 **I'd like to report a bug or submit a feature request.**
 
