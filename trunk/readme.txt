@@ -11,7 +11,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 Add a Pinterest "Pin It" Button to your posts and pages.
 
-= "Pin It" Button Features =
+= "Pin It" Button Features: =
 
 * Display on various page types: blog home page, front page, posts, pages, archives
 * Display above and/or below content
