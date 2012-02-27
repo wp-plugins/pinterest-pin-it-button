@@ -3,7 +3,7 @@
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com/
   Description: Add a Pinterest "Pin It" button to your posts and pages.
-  Version: 1.2.0
+  Version: 1.2.1
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com/
 */
@@ -57,26 +57,6 @@ function pib_install() {
 
 	//Save default option values
 	update_option( 'pib_options', $pib_options );
-	
-	//Save default values for page/post meta boxes
-	global $wpdb;
-	$sql = "SELECT ID
-			FROM $wpdb->posts
-			WHERE post_type = 'post' || post_type = 'page'"; 
-			
-	$results = $wpdb->get_results( $sql, ARRAY_A );
-		
-	foreach( $results as $post_id ) 
-	{
-		$postid = $post_id['ID'];
-		update_post_meta( $postid, 'pib_sharing_enabled', 1 );	
-	}	
-	
-	$category_ids = get_all_category_ids();
-	foreach($category_ids as $term_id) {
-	 	 $tag_extra_fields[$term_id]['checkbox'] = 1;
-    	 update_option(PIB_CATEGORY_FIELDS, $tag_extra_fields);
-	}
 	
 }
 
@@ -496,10 +476,10 @@ add_action( 'admin_init', 'pib_sharing_add_meta_box' );
 //Renders the post/page meta box checkbox html
 
 function pib_sharing_meta_box_content( $post ) {
-	$pib_sharing_checked = get_post_meta( $post->ID, 'pib_sharing_enabled', 1 );
+	$pib_sharing_checked = get_post_meta( $post->ID, 'pib_sharing_disabled', 1 );
 
-	if ( $pib_sharing_checked || $pib_sharing_checked == true )
-		$pib_sharing_checked = 'checked="checked"';
+	if ( empty( $pib_sharing_checked ) || $pib_sharing_checked === false )
+		$pib_sharing_checked = ' checked="checked"';
 	else
 		$pib_sharing_checked = '';
 	?>
@@ -509,9 +489,9 @@ function pib_sharing_meta_box_content( $post ) {
 		<label for="pib_enable_post_sharing">Show "Pin It" button on this post/page.</label>
 		<p class="description">
 			<!-- <span style="font-size: 11px;"> -->
-			If checked displays the button for this post/page if <strong>Individual Posts</strong> (for posts) or <strong>WordPress Static "Pages"</strong> 
-			(for pages) is also checked in <a href='<?php echo 'admin.php?page=' . PIB_PLUGIN_BASENAME ?>'>"Pin It" Button Settings</a>.
-            If unchecked the button will always be hidden for this page or post.
+			If checked displays the button for this post/page (if <strong>Individual Posts</strong> (for posts) or <strong>WordPress Static "Pages"</strong> 
+			(for pages) is also checked in <a href='<?php echo 'admin.php?page=' . PIB_PLUGIN_BASENAME ?>'>"Pin It" Button Settings</a>).
+            If unchecked the button will <strong>always</strong> be hidden for this post/page.
 		</p>
 		<input type="hidden" name="pib_sharing_status_hidden" value="1" />
 	</p>
@@ -525,14 +505,14 @@ function pib_sharing_meta_box_save( $post_id ) {
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
 		return $post_id;
 
-	//Record sharing enable
+	// Record sharing disable
 	if ( isset( $_POST['post_type'] ) && ( 'post' == $_POST['post_type'] || 'page' == $_POST['post_type'] ) ) {
 		if ( current_user_can( 'edit_post', $post_id ) ) {
 			if ( isset( $_POST['pib_sharing_status_hidden'] ) ) {
-				if ( isset( $_POST['pib_enable_post_sharing'] ) )
-					update_post_meta( $post_id, 'pib_sharing_enabled', 1 );
+				if ( !isset( $_POST['pib_enable_post_sharing'] ) )
+					update_post_meta( $post_id, 'pib_sharing_disabled', 1 );
 				else
-					delete_post_meta( $post_id, 'pib_sharing_enabled' );
+					delete_post_meta( $post_id, 'pib_sharing_disabled' );
 			}
 		}
 	}
@@ -568,16 +548,26 @@ add_action( 'wp_head', 'pib_add_custom_css' );
 
 //Button html to render
 
-function pib_button_html() {
-    $pib_options = get_option( 'pib_options' );
-    
-	//Check that remove surrounding div checkbox is selected
-	if ( $pib_options['remove_div'] ) {
-        return BASE_BTN_HTML;
-	} else {
-        //Surround with div tag
-        return '<div class="pin-it-btn-wrapper">' . BASE_BTN_HTML . '</div>';
+function pib_button_html($postID) {
+	 
+	$pib_options = get_option( 'pib_options' );
+	
+	
+	if (get_post_meta($postID,'pib_sharing_disabled', 1)) {
+			
+			return "";
 	}
+	else {	
+	
+		//Check that remove surrounding div checkbox is selected
+			if ( $pib_options['remove_div'] ) {
+				return BASE_BTN_HTML;
+			} else {
+				//Surround with div tag
+				return '<div class="pin-it-btn-wrapper">' . BASE_BTN_HTML . '</div>';
+			}
+	}
+
 }
 
 //Register shortcode: [pinit]
@@ -593,47 +583,25 @@ add_shortcode( 'pinit', 'pib_button_shortcode_html' );
 function pib_render_btn( $content ) {
 	//Load options array
 	$pib_options = get_option( 'pib_options' );
- 
+ 	global $post;
+	$postID = $post->ID;
 			
     //Determine if displayed on current page
     if (
         ( is_home() && ( $pib_options['display_home_page'] ) ) ||
-        ( is_front_page() && ( $pib_options['display_front_page'] ) )
-		
+        ( is_front_page() && ( $pib_options['display_front_page'] ) ) ||
+		( is_single() && ( $pib_options['display_posts'] ) ) ||
+        ( is_page() && ( $pib_options['display_pages'] ) )
        ) {
         if ( $pib_options['display_above_content'] ) {
-            $content = pib_button_html() . $content;
+            $content = pib_button_html($postID) . $content;
         }
 
         if ( $pib_options['display_below_content'] ) {
-            $content .= pib_button_html();
+            $content .= pib_button_html($postID);
         }
     }
 	
-	//Determine if displayed on individual post or page from meta value
-	if( ( is_single() && ( $pib_options['display_posts'] ) ) ||
-        ( is_page() && ( $pib_options['display_pages'] ) ))  {
-		
-        global $wpdb;
-        $sql = "SELECT post_id
-            FROM $wpdb->postmeta
-            WHERE meta_key = 'pib_sharing_enabled' AND meta_value = '1'"; 
-            
-        $results = $wpdb->get_results( $sql, ARRAY_A );
-        
-        foreach( $results as $postid ) {
-            $postID = $postid['post_id'];
-            if(is_single($postID) || is_page($postID)) {	
-                if ( $pib_options['display_above_content'] ) {
-                    $content = pib_button_html() . $content;
-                }
-                
-                if ( $pib_options['display_below_content'] ) {
-                    $content .= pib_button_html();
-                }
-            }
-        }
-	}
 	 	
 	//Determine if displayed on Category on the base of category edit Screen Option
 	if( is_archive() && ( $pib_options['display_archives'] ) ) {
@@ -642,15 +610,15 @@ function pib_render_btn( $content ) {
 		$category_ids = get_all_category_ids();
 		foreach($category_ids as $term_id) {
 					 
-			if($tag_extra_fields[$term_id]['checkbox'] == 1) {
+			if($tag_extra_fields[$term_id]['checkbox'] != true) {
 						
 				if(is_category($term_id)) {	
 					if ( $pib_options['display_above_content'] ) {
-						$content = pib_button_html() . $content;
+						$content = pib_button_html($postID) . $content;
 					}
 							
 					if ( $pib_options['display_below_content'] ) {
-						$content .= pib_button_html();
+						$content .= pib_button_html($postID);
 					}
 				}
 			}				
@@ -668,7 +636,9 @@ add_filter( 'the_content', 'pib_render_btn' );
 function pib_render_btn_excerpt( $content ) {
 	//Load options array
 	$pib_options = get_option( 'pib_options' );
-    
+    global $post;
+	$postID = $post->ID;
+	
     if ( $pib_options['display_on_post_excerpts'] ) {
         if (
             ( is_home() && ( $pib_options['display_home_page'] ) ) ||
@@ -676,11 +646,11 @@ function pib_render_btn_excerpt( $content ) {
            
            ) {
             if ( $pib_options['display_above_content'] ) {
-                $content = pib_button_html() . $content;
+                $content = pib_button_html($postID) . $content;
             }
 
             if ( $pib_options['display_below_content'] ) {
-                $content .= pib_button_html();
+                $content .= pib_button_html($postID);
             }
         }
    
@@ -692,19 +662,20 @@ function pib_render_btn_excerpt( $content ) {
             $category_ids = get_all_category_ids();
             foreach($category_ids as $term_id) {
                      
-                if($tag_extra_fields[$term_id]['checkbox'] == 1) {
+                if($tag_extra_fields[$term_id]['checkbox'] != true) {
                             
                     
                     if(is_category($term_id)) {	
                         if ( $pib_options['display_above_content'] ) {
-                            $content = pib_button_html() . $content;
+                            $content = pib_button_html($postID) . $content;
                         }
                                 
                         if ( $pib_options['display_below_content'] ) {
-                            $content .= pib_button_html();
+                            $content .= pib_button_html($postID);
                         }
                     }
                 }
+				
                 
             }
 		}
@@ -724,11 +695,11 @@ function pib_category_fields($tag) {
 	$t_id = $tag->term_id;
     $tag_extra_fields = get_option(PIB_CATEGORY_FIELDS);
 	
-	
-	if ( $tag_extra_fields[$t_id]['checkbox'] == 1)
-		$pib_category_checked = 'checked="checked"';
-	else
-		$pib_category_checked = '';
+	 	if ( $tag_extra_fields[$t_id]['checkbox'] == true)
+			$pib_category_checked = '';
+		else
+			$pib_category_checked = 'checked="checked"';
+
     ?>
 		
     <table class="form-table">
@@ -743,11 +714,11 @@ function pib_category_fields($tag) {
                     <label for="pib_category_field">Show "Pin It" Button</label>
                 </th>
                 <td>
-                    <input name="pib_category_field" id="pib_category_field" type="checkbox" value="1" <?php echo $pib_category_checked; ?>>
+                    <input name="pib_category_field" id="pib_category_field" type="checkbox" value="true" <?php echo $pib_category_checked; ?>>
                     <p class="description">
                         If checked displays the button for this category (if <strong>Archives</strong> also checked in
                         <a href='<?php echo 'admin.php?page=' . PIB_PLUGIN_BASENAME ?>'>"Pin It" Button Settings</a>).
-                        If unchecked the button will always be hidden for this category.
+                        If unchecked the button will <strong>always</strong> be hidden for this category.
                     </p>
                 </td>
             </tr>
@@ -764,8 +735,14 @@ function update_pib_category_fields($term_id) {
   if($_POST['taxonomy'] == 'category'):
     $tag_extra_fields = get_option(PIB_CATEGORY_FIELDS);
     $tag_extra_fields[$term_id]['checkbox'] = strip_tags($_POST['pib_category_field']);
-    
-    update_option(PIB_CATEGORY_FIELDS, $tag_extra_fields);
+   if( $_POST['pib_category_field'] != true){
+   		$tag_extra_fields[$term_id]['checkbox'] = true;
+    	update_option(PIB_CATEGORY_FIELDS, $tag_extra_fields );
+	}
+	if( $_POST['pib_category_field'] == true){
+   		$tag_extra_fields[$term_id]['checkbox'] = "";
+    	update_option(PIB_CATEGORY_FIELDS, $tag_extra_fields );
+	}
   endif;
 }
 
