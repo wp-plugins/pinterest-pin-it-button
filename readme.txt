@@ -3,7 +3,7 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.1.2
+Stable tag: 1.2.1
 
 Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
@@ -81,6 +81,10 @@ To the best of our knowledge, in order please try the following:
 3. Button display next to other sharing buttons
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Fixed bug with hiding posts/pages/categories when upgrading from a previous version
 
 = 1.2.0 =
 
