@@ -3,7 +3,7 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.2.1
+Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
@@ -27,7 +27,7 @@ Add a Pinterest "Pin It" Button to your posts and pages.
 
 * Official Site: [PinterestPlugin.com](http://pinterestplugin.com)
 * Sample blog using plugin: http://bruisesandbandaids.com
-* [User Support & Feature Requests](https://pinterestplugin.uservoice.com)
+* [User Support & Feature Requests](http://pinterestplugin.com/user-support)
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
@@ -51,14 +51,16 @@ Note: If you overwrite the plugin using FTP upload, you may lose some saved sett
 
 **The "Pin It" button is showing up, but clicking it does nothing. What can I try?**
 
-To the best of our knowledge, in order please try the following:
+Here are some things to try. After each one re-test a couple pages on your site to see if that fixed it.
 
-* Make sure your browser cache is cleared or test in a different browser.
-* Make sure any WordPress caching is emptied. In W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
-* Disable caching plugins.
-* Disable other social sharing plugins.
-* Disable other plugins one by one until the issue is fixed. If you find an incompatible plugin please let us know.
-* (More solutions added here as they're found.)
+* Clear your browser cache.
+* Test in a different browser.
+* If using any WordPress caching plugin, please empty/clear it (examples: W3 Total Cache, WP-Cache and WP SuperCache).
+* If using W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
+* Disable other social sharing plugins being used.
+* Disable other plugins one by one until the issue is fixed. (Please let us know if you find and incompatible plugin.
+* Switch to a different theme temporarily, preferably the default WordPress TwentyEleven theme. Please let us know if you find an incompatible theme.
+* If you find a different solution that fixes the issue for you (or find an incompatible plugin or theme), please let us know.
 
 **How do I display the button in places other than above or below the content?**
 
@@ -72,7 +74,7 @@ To the best of our knowledge, in order please try the following:
 
 **I'd like to report a bug or submit a feature request.**
 
-* Go to the [User Support & Feedback Forum](https://pinterestplugin.uservoice.com)
+* Go to the [User Support & Feature Requests Forum](http://pinterestplugin.com/user-support)
 
 == Screenshots ==
 
