@@ -13,10 +13,10 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 ### "Pin It" Button Features: ###
 
+* Allow the *user to select the image from a popup* or pre-select an image to be pinned
+* Display a horizontal or vertical Pin Count
 * Display on various page types: blog home page, front page, posts, pages, archives
 * Display within content using a shortcode or on the sidebar using a widget
-* Pre-select an image to be pinned or allow the user to select
-* Display a horizontal or vertical Pin Count
 
 = Resources =
 
