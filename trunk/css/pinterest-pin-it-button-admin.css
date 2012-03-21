@@ -1,4 +1,4 @@
-/* Pinterest Pin It Button Admin CSS */
+/* Pinterest "Pin It" Button Admin CSS */
 
 .form-table {
     margin-bottom: 10px !important; 
@@ -25,11 +25,6 @@
     margin: 10px 10px 0 0;
 }
 
-#other-links ul li {
-    font-size: 15px;
-    line-height: 1.2em;
-}
-
 .pib-settings { 
 	width: 70%;
 }
@@ -38,22 +33,29 @@
     width: 30%;
 }
 
-.hndle {
-	color:#464646; 
-	background-color:#F1F1F1; 
-	font-size:15px;
-	padding:7px 10px;
-	display:block;
-    margin-top:0px; 
-	font-weight:normal;
-	cursor:default !important;
+.postbox .pib-hndle {
+	cursor:pointer;
 }
 
-.wrap { 
-	background-position:fixed;
+#pib-custom-css {
+    width: 100%;
 }
 
-/* Mailchimp embedded form */
+.pib-full-width-textbox { 
+    width: 100%;
+}
+
+td.pib-pad-cell-top {
+	padding-top: 7px;
+}
+
+label.pib-plain-label {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* BEGIN Mailchimp Embedded Form CSS */
 
 #email-signup {
     /* background-color: #464646; */
@@ -89,8 +91,9 @@
 #mc_embed_signup .clear {clear:none; display:inline;}
 #mc_embed_signup input.email {display:block; padding:8px 0; margin:0 4% 10px 0; text-indent:5px; width:58%; min-width:130px;}
 
-/*
-SUPER CONVERSION BUTTON
+/* END Mailchimp Embedded Form CSS */
+
+/* BEGIN Super Conversion Button CSS
 
 Conversion buttons made simple: 
 http://www.performable.com/buttons/ 
@@ -149,3 +152,5 @@ a.awesome:active {
    
 .red.awesome,.red.awesome:visited{background-color:#CC1100 !important;}
 .red.awesome:hover{background-color:#991100 !important;}
+
+/* END Super Conversion Button CSS */

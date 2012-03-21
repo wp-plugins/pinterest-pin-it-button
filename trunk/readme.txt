@@ -3,31 +3,33 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: trunk
+Stable tag: 1.3.0
 
 Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
 == Description ==
 
-Add a Pinterest "Pin It" Button to your posts and pages.
+Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. Includes a shortcode and widget.
 
-= "Pin It" Button Features: =
+### "Pin It" Button Features: ###
 
 * Display on various page types: blog home page, front page, posts, pages, archives
+* Display within content using a shortcode or the sidebar using a widget
+* Pre-select an image to be pinned or allow the user to select from a popup
+* Display a horizontal or vertical pin counter
+
+= Other Features =
+
+* Hide on selected posts, pages and categories
 * Display above and/or below content
 * Optionally display on post excerpts
-* Hide on selected posts and pages
-* Hide on selected categories
-* Display within content with a shortcode
-* Add custom CSS for fine-tuning layout and styling
-* Add "Pin It" button as a sidebar widget
-* Add a "Follow" on Pinterest button as a sidebar widget
+* Enter custom CSS for fine-tuning layout and styling
 
 = Resources =
 
-* Official Site: [PinterestPlugin.com](http://pinterestplugin.com)
-* Sample blog using plugin: http://bruisesandbandaids.com
-* [User Support & Feature Requests](http://pinterestplugin.com/user-support)
+* [View Live Demo &raquo;](http://bruisesandbandaids.com "Learn Your Camera on Manual | Newborn Photography Tips")
+* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com "Pinterest Plugins for WordPress")
+* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support  "Pinterest Plugins for WordPress User Support")
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
@@ -37,11 +39,16 @@ Take advantage of the exploding traffic Pinterest is generating by encouraging y
 
 **Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
+= More Pinterest Plugins =
+
+* [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
+* [Pinterest Block](http://wordpress.org/extend/plugins/pinterest-block/)
+
 == Installation ==
 
 1. Use the automatic installer in your WordPress admin.
 1. Activate the plugin.
-1. Configure the plugin by going to **Pin It Button** that appears in your admin menu .
+1. Configure the plugin by going to **Pin It Button** that appears in your admin menu.
 
 Alernatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
 
@@ -64,13 +71,18 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 **How do I display the button in places other than above or below the content?**
 
-* Use the shortcode `[pinit]` to display the button within content.
+* Use the shortcode `[pinit]` to display the button within content. See shortcode instructions on settings page for attributes you can specify.
 * Use the function `<?php echo do_shortcode('[pinit]'); ?>` to display within template or theme files.
 
 **How do I get the "Pin It" button to line up next to my other social sharing icons?**
 
 * Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
 * See some of our [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
+
+**I had an old version of the plugin that worked and now it doesn't. Can I get it back?
+
+* Yes, you can [download previous versions here](http://wordpress.org/extend/plugins/pinterest-pin-it-button/download/).
+* You'll need to deactivate and delete the current plugin, then go to Plugins > Add New > Upload to upload the zip file to your site.
 
 **I'd like to report a bug or submit a feature request.**
 
@@ -80,9 +92,26 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 1. Settings page
 2. Button display below a post
-3. Button display next to other sharing buttons
+3. Widget options
+4. Per page settings
+5. Advanced settings
 
 == Changelog ==
+
+= 1.3.0 =
+
+* Added a Pin Count option (horizontal or ertical)
+* Added new button style where image is pre-selected (like official Pinterest button)
+* Both button styles now embed iframe (like official Pinterest button)
+* Added fields for specifying URL, image URL and description for new button style *image pre-selected*
+* Added float option for alignment (none, left or right) to widget and shortcode
+* Can now remove shortcode surrounding div tag wrapper
+* Can now remove widget surrounding div tag wrapper
+* Moved "Follow" button widget to separate plugin: [Pinterest Follow Button Plugin](http://wordpress.org/extend/plugins/pinterest-follow-button/)
+* External JavaScript now loads in footer for better performance
+* Fixed bug where front page was still showing button even when Front Page was unchecked
+* Fixed bug where some settings weren't saved when upgrading the plugin
+* Fixed bug where tag, author, date and search archive pages were not displaying the button
 
 = 1.2.1 =
 
@@ -143,5 +172,5 @@ Here are some things to try. After each one re-test a couple pages on your site 
 = 0.1.1 =
 * Fixed style sheet reference
 
-= 0.1 =
+= 0.1.0 =
 * Initial release
