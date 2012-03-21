@@ -13,7 +13,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 ### "Pin It" Button Features: ###
 
-* Allow the *user to select the image from a popup* or pre-select an image to be pinned
+* Allow the **user to select the image from a popup** or pre-select an image to be pinned
 * Display a horizontal or vertical Pin Count
 * Display on various page types: blog home page, front page, posts, pages, archives
 * Display within content using a shortcode or on the sidebar using a widget
@@ -102,7 +102,7 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 * Added a Pin Count option (horizontal or vertical)
 * Added new button style where image is pre-selected (like official Pinterest button)
-* Added fields for specifying URL, image URL and description for new button style *image pre-selected*
+* Added fields for specifying URL, image URL and description for new button style **image pre-selected**
 * Added float option for alignment (none, left or right) to widget and shortcode
 * Can now remove shortcode surrounding div tag wrapper
 * Can now remove widget surrounding div tag wrapper
