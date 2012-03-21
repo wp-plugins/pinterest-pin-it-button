@@ -2,35 +2,32 @@
 
 /* DIV surrounding button */
 .pin-it-btn-wrapper,
-.pin-it-btn-shortcode-wrapper {
-    height: 30px;
-    margin: 0;
-    padding: 0;
+.pin-it-btn-wrapper-shortcode,
+.pin-it-btn-wrapper-widget {
+
 }
 
-/* From Pinterest official html */
-a.pin-it-btn {
-    position: absolute;
-    background: url(http://assets.pinterest.com/images/pinit6.png);
-    font: 11px Arial, sans-serif;
-    text-indent: -9999em;
-    font-size: .01em;
-    color: #CD1F1F;
-    height: 20px;
-    width: 43px;
-    background-position: 0 -7px;
+.pin-it-btn-wrapper {
+    padding-bottom: 10px;
 }
 
-a.pin-it-btn:hover {
-    background-position: 0 -28px;
+/* Latest "clear fix" method: http://css-tricks.com/snippets/css/clear-fix/ */
+.pib-clearfix:before,
+.pib-clearfix:after {
+    content:"";
+    display:table;
+}
+.pib-clearfix:after {
+    clear:both;
+}
+.pib-clearfix {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
 }
 
-a.pin-it-btn:active {
-    background-position: 0 -49px;
+.pib-float-left {
+    float: left;
 }
 
-/* Widgets */
-.pib_widget_button,
-.pib_widget_follow_button {
-    clear: both;
+.pib-float-right {
+    float: right;
 }
