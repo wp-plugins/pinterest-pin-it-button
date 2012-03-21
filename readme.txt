@@ -14,9 +14,15 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 ### "Pin It" Button Features: ###
 
 * Display on various page types: blog home page, front page, posts, pages, archives
-* Display within content using a shortcode or the sidebar using a widget
-* Pre-select an image to be pinned or allow the user to select from a popup
-* Display a horizontal or vertical pin counter
+* Display within content using a shortcode or on the sidebar using a widget
+* Pre-select an image to be pinned or allow the user to select
+* Display a horizontal or vertical Pin Count
+
+= Resources =
+
+* [View Live Demo &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/ "Learn Your Camera on Manual | Newborn Photography Tips")
+* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com "Pinterest Plugins for WordPress")
+* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support  "Pinterest Plugins for WordPress User Support")
 
 = Other Features =
 
@@ -24,12 +30,6 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 * Display above and/or below content
 * Optionally display on post excerpts
 * Enter custom CSS for fine-tuning layout and styling
-
-= Resources =
-
-* [View Live Demo &raquo;](http://bruisesandbandaids.com "Learn Your Camera on Manual | Newborn Photography Tips")
-* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com "Pinterest Plugins for WordPress")
-* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support  "Pinterest Plugins for WordPress User Support")
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
@@ -100,14 +100,14 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 = 1.3.0 =
 
-* Added a Pin Count option (horizontal or ertical)
+* Added a Pin Count option (horizontal or vertical)
 * Added new button style where image is pre-selected (like official Pinterest button)
-* Both button styles now embed iframe (like official Pinterest button)
 * Added fields for specifying URL, image URL and description for new button style *image pre-selected*
 * Added float option for alignment (none, left or right) to widget and shortcode
 * Can now remove shortcode surrounding div tag wrapper
 * Can now remove widget surrounding div tag wrapper
 * Moved "Follow" button widget to separate plugin: [Pinterest Follow Button Plugin](http://wordpress.org/extend/plugins/pinterest-follow-button/)
+* Both button styles now embed iframe (like official Pinterest button)
 * External JavaScript now loads in footer for better performance
 * Fixed bug where front page was still showing button even when Front Page was unchecked
 * Fixed bug where some settings weren't saved when upgrading the plugin
