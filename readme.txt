@@ -3,7 +3,7 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.3.0
+Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
@@ -106,7 +106,7 @@ Here are some things to try. After each one re-test a couple pages on your site 
 * Added float option for alignment (none, left or right) to widget and shortcode
 * Can now remove shortcode surrounding div tag wrapper
 * Can now remove widget surrounding div tag wrapper
-* Moved "Follow" button widget to separate plugin: [Pinterest Follow Button Plugin](http://wordpress.org/extend/plugins/pinterest-follow-button/)
+* Moved "Follow" button widget to separate plugin: [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
 * Both button styles now embed iframe (like official Pinterest button)
 * External JavaScript now loads in footer for better performance
 * Fixed bug where front page was still showing button even when Front Page was unchecked
