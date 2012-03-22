@@ -61,6 +61,7 @@ Note: If you overwrite the plugin using FTP upload, you may lose some saved sett
 Here are some things to try. After each one re-test a couple pages on your site to see if that fixed it.
 
 * Clear your browser cache.
+* Log out of your WordPress admin and refresh the page with the button(s).
 * Test in a different browser.
 * If using any WordPress caching plugin, please empty/clear it (examples: W3 Total Cache, WP-Cache and WP SuperCache).
 * If using W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
