@@ -64,11 +64,17 @@ Here are some things to try. After each one re-test a couple pages on your site 
 * Log out of your WordPress admin and refresh the page with the button(s).
 * Test in a different browser.
 * If using any WordPress caching plugin, please empty/clear it (examples: W3 Total Cache, WP-Cache and WP SuperCache).
-* If using W3 Total Cache, make sure Minify mode is set to Manual, not Auto.
+* See known plugin conflicts below.
 * Disable other social sharing plugins being used.
 * Disable other plugins one by one until the issue is fixed. (Please let us know if you find and incompatible plugin.
 * Switch to a different theme temporarily, preferably the default WordPress TwentyEleven theme. Please let us know if you find an incompatible theme.
 * If you find a different solution that fixes the issue for you (or find an incompatible plugin or theme), please let us know.
+
+** Known plugin conflicts**
+
+* W3 Total Cache: Make sure Minify mode is set to Manual, not Auto.
+* Google Analytics for WordPress: Make sure "Track outbound clicks as pageviews" is un-checked under Advanced Settings.
+
 
 **How do I display the button in places other than above or below the content?**
 
