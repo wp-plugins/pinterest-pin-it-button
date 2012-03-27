@@ -9,7 +9,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 == Description ==
 
-Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
+Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. 
 
 ### "Pin It" Button Features: ###
 
