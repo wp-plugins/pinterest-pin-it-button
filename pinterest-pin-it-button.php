@@ -2,7 +2,7 @@
 /*
   Plugin Name: Pinterest "Pin It" Button
   Plugin URI: http://pinterestplugin.com
-  Description: Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. Also includes a shortcode.
+  Description: Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. Includes shortcode and widget.
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com
   Version: 1.3.0
