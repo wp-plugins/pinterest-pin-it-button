@@ -9,9 +9,15 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 == Description ==
 
-Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. Includes a shortcode and widget.
+Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
 
 ### "Pin It" Button Features: ###
+
+* Specify image to pin or let the reader select
+* Add horizontal or vertical pin count
+* Display or hide on any page type
+* Custom CSS for aligning just right
+* Includes widget and full shortcode support
 
 * Allow the **user to select the image from a popup** or pre-select an image to be pinned
 * Display a horizontal or vertical Pin Count
@@ -24,12 +30,12 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 * [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com "Pinterest Plugins for WordPress")
 * [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support  "Pinterest Plugins for WordPress User Support")
 
-= Other Features =
+= More Features =
 
 * Hide on selected posts, pages and categories
 * Display above and/or below content
 * Optionally display on post excerpts
-* Enter custom CSS for fine-tuning layout and styling
+* Optionally specify URL, image and description for each button
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
