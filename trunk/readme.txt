@@ -15,7 +15,7 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 * Specify image to pin or let the reader select
 * Add horizontal or vertical pin count
-* Display or hide on any page type
+* Display or hide on any post, page or category
 * Custom CSS for aligning just right
 * Includes widget and full shortcode support
 
@@ -27,7 +27,6 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 = More Features =
 
-* Hide on selected posts, pages and categories
 * Display above and/or below content
 * Optionally display on post excerpts
 * Optionally specify URL, image and description for each button
