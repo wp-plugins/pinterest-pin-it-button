@@ -5,11 +5,11 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images.
+Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
 
 == Description ==
 
-Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. 
+Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
 
 ### "Pin It" Button Features: ###
 
@@ -21,9 +21,9 @@ Add a Pinterest "Pin It" Button to your posts and pages allowing your readers ea
 
 = Resources =
 
-* [View Live Demo &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/ "Learn Your Camera on Manual | Newborn Photography Tips")
-* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com "Pinterest Plugins for WordPress")
-* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support  "Pinterest Plugins for WordPress User Support")
+* [View Live Demo &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
+* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com)
+* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support)
 
 = More Features =
 
