@@ -2,7 +2,7 @@
 Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
-Tested up to: 3.3.1
+Tested up to: 3.3.2
 Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
@@ -23,7 +23,7 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 * [View Live Demo &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
 * [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com)
-* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/user-support)
+* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)
 
 = More Features =
 
@@ -33,26 +33,37 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
-**Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable, Feb 1, 2012 [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
+**Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
 
-**Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal, Feb 3, 2012 [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
+**Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
 
-**Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch, Feb 7, 2012 [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
+**Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
 = More Pinterest Plugins =
 
-* [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
-* [Pinterest Block](http://wordpress.org/extend/plugins/pinterest-block/)
+* [Top Pinned Posts](http://pinterestplugin.com/)
+* ["Follow" Button](http://pinterestplugin.com/follow-button)
+* [Pinterest Block](http://pinterestplugin.com/pinterest-block)
 
 == Installation ==
 
-1. Use the automatic installer in your WordPress admin.
-1. Activate the plugin.
-1. Configure the plugin by going to **Pin It Button** that appears in your admin menu.
+**Finding and installing through the WordPress admin:**
 
-Alernatively, you can download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory.
+1. If searching for this plugin in your WordPress admin, search for "pin it button".
+1. Find the plugin that's labeled *Pinterest "Pin It" Button" with "Pin It" in quotes.
+1. Also look for my name as the author (*Phil Derksen*). There are other "Pin It" button plugins which is why this can be confusing.
+1. Click "Install Now", then Activate, then head to the new menu item on the left labeled "Pin It Button".
 
-Note: If you overwrite the plugin using FTP upload, you may lose some saved settings.
+Here's a video walkthrough of the install process:
+
+http://www.youtube.com/watch?v=NsEGeVpmD0Y
+
+**Alternative installation methods:**
+
+* Download this plugin, then upload through the WordPress admin (Plugins > Add New > Upload)
+* Download this plugin, unzip the contents, then FTP upload to the `/wp-content/plugins/` directory
+
+Note: If you overwrite the plugin using an FTP upload, you may lose some saved settings.
 
 == Frequently Asked Questions ==
 
@@ -75,7 +86,6 @@ Here are some things to try. After each one re-test a couple pages on your site 
 * W3 Total Cache: Make sure Minify mode is set to Manual, not Auto.
 * Google Analytics for WordPress: Make sure "Track outbound clicks as pageviews" is un-checked under Advanced Settings.
 
-
 **How do I display the button in places other than above or below the content?**
 
 * Use the shortcode `[pinit]` to display the button within content. See shortcode instructions on settings page for attributes you can specify.
@@ -84,7 +94,7 @@ Here are some things to try. After each one re-test a couple pages on your site 
 **How do I get the "Pin It" button to line up next to my other social sharing icons?**
 
 * Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
-* See some of our [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css).
+* See some of our [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css/).
 
 **I had an old version of the plugin that worked and now it doesn't. Can I get it back?
 
@@ -93,7 +103,7 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 **I'd like to report a bug or submit a feature request.**
 
-* Go to the [User Support & Feature Requests Forum](http://pinterestplugin.com/user-support)
+* Go to the [User Support & Feature Requests Forum](http://pinterestplugin.com/support)
 
 == Screenshots ==
 
@@ -105,76 +115,66 @@ Here are some things to try. After each one re-test a couple pages on your site 
 
 == Changelog ==
 
-= 1.3.0 =
+= 1.3.1 =
+* Changed: Modified button JavaScript to be in line with Pinterest's current button embed JavaScript
+* Changed: Split up internal code files for easier maintenance and updates
+* Fixed: For the shortcode, if the attributes "url", "image_url" and/or "description" aren't specified, it will try and use the post's custom page url, image url and/or description if found. If not found it will default to the post's url, first image in post and post title.
+* Fixed: Changed the way defaults are set upon install so it shouldn't override previous settings
+* Fixed: Uninstall now removes custom post meta fields
 
-* Added a Pin Count option (horizontal or vertical)
-* Added new button style where image is pre-selected (like official Pinterest button)
-* Added fields for specifying URL, image URL and description for new button style **image pre-selected**
-* Added float option for alignment (none, left or right) to widget and shortcode
-* Can now remove shortcode surrounding div tag wrapper
-* Can now remove widget surrounding div tag wrapper
-* Moved "Follow" button widget to separate plugin: [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
-* Both button styles now embed iframe (like official Pinterest button)
-* External JavaScript now loads in footer for better performance
-* Fixed bug where front page was still showing button even when Front Page was unchecked
-* Fixed bug where some settings weren't saved when upgrading the plugin
-* Fixed bug where tag, author, date and search archive pages were not displaying the button
+= 1.3.0 =
+* Added: Added a Pin Count option (horizontal or vertical)
+* Added: Added new button style where image is pre-selected (like official Pinterest button)
+* Added: Added fields for specifying URL, image URL and description for new button style **image pre-selected**
+* Added: Added float option for alignment (none, left or right) to widget and shortcode
+* Added: Can now remove div tag wrapper surrounding shortcode
+* Added: Can now remove widget surrounding div tag wrapper
+* Changed: Moved "Follow" button widget to separate plugin: [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
+* Changed: Both button styles now embed iframe (like official Pinterest button)
+* Changed: External JavaScript now loads in footer for better performance
+* Fixed: Fixed bug where front page was still showing button even when Front Page was unchecked
+* Fixed: Fixed bug where some settings weren't saved when upgrading the plugin
+* Fixed: Fixed bug where tag, author, date and search archive pages were not displaying the button
 
 = 1.2.1 =
-
-* Fixed bug with hiding posts/pages/categories when upgrading from a previous version
+* Fixed: Fixed bug with hiding posts/pages/categories when upgrading from a previous version
 
 = 1.2.0 =
-
-* Added option to hide button per page/post
-* Added option to hide button per category
-* Added widget to display "Pin It" button
-* Added widget to display "Follow" on Pinterest button
-* Added sharing buttons to settings page to promote plugin
-* Fixed CSS where some blogs weren't displaying the button properly
+* Added: Added option to hide button per page/post
+* Added: Added option to hide button per category
+* Added: Added widget to display "Pin It" button
+* Added: Added widget to display "Follow" on Pinterest button
+* Fixed: Fixed CSS where some blogs weren't displaying the button properly
 
 = 1.1.3 =
-
-* Added option to hide button on individual posts and pages (on post/page editing screen)
+* Added: Added option to hide button on individual posts and pages (on post/page editing screen)
 
 = 1.1.2 =
-
-* Bug fix: Removed use of session state storing for now as it caused errors for some
+* Fixed: Removed use of session state storing for now as it caused errors for some
 
 = 1.1.1 =
-
-* Updated jQuery coding method to avoid JavaScript conflicts with other plugins and themes some were getting
+* Fixed: Updated jQuery coding method to avoid JavaScript conflicts with other plugins and themes some were getting
 
 = 1.1.0 =
-
-* Added custom CSS area for advanced layout and styling
-* Added checkbox option to remove the button's surrounding `<div>` tag
-* Button image and style updated to match Pinterest's current embed code
-* Added additional message and link to settings page at top after plugin is activated
-* Changed the way the button click is called to solve pinning issues in Internet Explorer
-* Now using table layout on settings page like WordPress dashboard page (with collapsible boxes)
-* Added mailing list signup form, other links, and rss feed in right column on settings page
+* Added: Added custom CSS area for advanced layout and styling
+* Added: Added checkbox option to remove the button's surrounding `<div>` tag
+* Added: Button image and style updated to match Pinterest's current embed code
+* Fixed: Changed the way the button click is called to solve pinning issues in Internet Explorer
 
 = 1.0.2 =
-
-* Added checkbox option to display/hide button on post excerpts
-* "Pin It" links generated by the shortcode should not show up when viewing the post in RSS readers
-* Settings link added to the plugin entry on the plugins page
+* Added: Added checkbox option to display/hide button on post excerpts
+* Fixed: "Pin It" links generated by the shortcode should not show up when viewing the post in RSS readers
 
 = 1.0.1 =
-
-* Added checkbox option to display/hide button on "front page" (sometimes different than home page)
+* Added: Added checkbox option to display/hide button on "front page" (sometimes different than home page)
 
 = 1.0.0 =
-
-* Added checkbox options to select what types of pages the button should appear on
-* Display options above and below content are now checkboxes (one or both can be selected)
-* Added shortcode [pinit] to display button within content
-* Settings page is now under main admin menu (was under Settings menu)
-* Added icons to admin menu item and settings page title
+* Added: Added checkbox options to select what types of pages the button should appear on
+* Added: Display options above and below content are now checkboxes (one or both can be selected)
+* Added: Added shortcode [pinit] to display button within content
 
 = 0.1.2 =
-* Moved javascript that fires on button click to a separate file
+* Changed: Moved javascript that fires on button click to a separate file
 
 = 0.1.1 =
 * Fixed style sheet reference
