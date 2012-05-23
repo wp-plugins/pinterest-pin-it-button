@@ -213,8 +213,8 @@ function pib_share_twitter() {
 
 function pib_share_pinterest() {
 	?>
-    <a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fpinterestplugin.com%2F&media=http%3A%2F%2Fpinterestplugin.com%2Fwp-content%2Fuploads%2F2012%2F02%2Fpinterest-pin-it-button-wordpress-plugin.jpg&description=Pinterest%20%22Pin%20It%22%20Button%20Plugin%20for%20WordPress%20--%20http%3A%2F%2Fpinterestplugin.com" class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
-    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+	<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fpinterestplugin.com%2F&media=http%3A%2F%2Fpinterestplugin.com%2Fimg%2Fpinterest-pin-it-button-plugin-for-wordpress.png&description=Add%20a%20Simple%20and%20Flexible%20%22Pin%20It%22%20Button%20to%20Your%20WordPress%20Site%20--%20http%3A%2F%2Fpinterestplugin.com%2F" class="pin-it-button" count-layout="horizontal">
+	<img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>	
 	<?php
 }
 
