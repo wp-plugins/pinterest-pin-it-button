@@ -67,9 +67,9 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Frequently Asked Questions ==
 
-**[New FAQ (things to try) &raquo;](http://pinterestplugin.com/pin-it-button-lite-faq)**
+[= New FAQ (things to try) &raquo; =](http://pinterestplugin.com/pin-it-button-lite-faq)
 
-**[User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)**
+[** User Support & Feature Requests &raquo; **](http://pinterestplugin.com/support)
 
 == Screenshots ==
 
