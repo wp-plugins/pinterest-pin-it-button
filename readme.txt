@@ -67,43 +67,9 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Frequently Asked Questions ==
 
-**The "Pin It" button is showing up, but clicking it does nothing. What can I try?**
+**[New FAQ (things to try) &raquo;](http://pinterestplugin.com/pin-it-button-lite-faq)**
 
-Here are some things to try. After each one re-test a couple pages on your site to see if that fixed it.
-
-* Clear your browser cache.
-* Log out of your WordPress admin and refresh the page with the button(s).
-* Test in a different browser.
-* If using any WordPress caching plugin, please empty/clear it (examples: W3 Total Cache, WP-Cache and WP SuperCache).
-* See known plugin conflicts below.
-* Disable other social sharing plugins being used.
-* Disable other plugins one by one until the issue is fixed. (Please let us know if you find and incompatible plugin.
-* Switch to a different theme temporarily, preferably the default WordPress TwentyEleven theme. Please let us know if you find an incompatible theme.
-* If you find a different solution that fixes the issue for you (or find an incompatible plugin or theme), please let us know.
-
-**Known plugin conflicts**
-
-* W3 Total Cache: Make sure Minify mode is set to Manual, not Auto.
-* Google Analytics for WordPress: Make sure "Track outbound clicks as pageviews" is un-checked under Advanced Settings.
-
-**How do I display the button in places other than above or below the content?**
-
-* Use the shortcode `[pinit]` to display the button within content. See shortcode instructions on settings page for attributes you can specify.
-* Use the function `<?php echo do_shortcode('[pinit]'); ?>` to display within template or theme files.
-
-**How do I get the "Pin It" button to line up next to my other social sharing icons?**
-
-* Add custom CSS on the settings screen and optionally remove the surrounding `<div>` tag.
-* See some of our [custom CSS examples](http://pinterestplugin.com/pin-it-button-custom-css/).
-
-**I had an old version of the plugin that worked and now it doesn't. Can I get it back?
-
-* Yes, you can [download previous versions here](http://wordpress.org/extend/plugins/pinterest-pin-it-button/download/).
-* You'll need to deactivate and delete the current plugin, then go to Plugins > Add New > Upload to upload the zip file to your site.
-
-**I'd like to report a bug or submit a feature request.**
-
-* Go to the [User Support & Feature Requests Forum](http://pinterestplugin.com/support)
+**[User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)**
 
 == Screenshots ==
 
