@@ -2,7 +2,7 @@
 Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.0
-Tested up to: 3.3.2
+Tested up to: 3.4.1
 Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
@@ -79,10 +79,14 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Changelog ==
 
+= 1.3.2 =
+* Fixed: iframe HTML files now include markup so they're not indexed by search engines
+* Fixed: Widget -- URL now defaults to home page and is not required if button style is "user selects image"
+
 = 1.3.1 =
 * Changed: Modified button JavaScript to be in line with Pinterest's current button embed JavaScript
 * Changed: Split up internal code files for easier maintenance and updates
-* Fixed: For the shortcode, if the attributes "url", "image_url" and/or "description" aren't specified, it will try and use the post's custom page url, image url and/or description if found. If not found it will default to the post's url, first image in post and post title.
+* Fixed: Shortcode -- If the attributes "url", "image_url" and/or "description" aren't specified, it will try and use the post's custom page url, image url and/or description if found. If not found it will default to the post's url, first image in post and post title.
 * Fixed: Changed the way defaults are set upon install so it shouldn't override previous settings
 * Fixed: Uninstall now removes custom post meta fields
 
@@ -91,8 +95,8 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 * Added: Added new button style where image is pre-selected (like official Pinterest button)
 * Added: Added fields for specifying URL, image URL and description for new button style **image pre-selected**
 * Added: Added float option for alignment (none, left or right) to widget and shortcode
-* Added: Can now remove div tag wrapper surrounding shortcode
-* Added: Can now remove widget surrounding div tag wrapper
+* Added: Shortcode -- Can now remove div tag wrapper
+* Added: Widget -- Can now remove div tag wrapper
 * Changed: Moved "Follow" button widget to separate plugin: [Pinterest "Follow" Button](http://wordpress.org/extend/plugins/pinterest-follow-button/)
 * Changed: Both button styles now embed iframe (like official Pinterest button)
 * Changed: External JavaScript now loads in footer for better performance
