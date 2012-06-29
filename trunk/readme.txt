@@ -9,15 +9,16 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 == Description ==
 
-Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
+Add a Simple "Pin It" Button to Your Posts in 2 Minutes
 
 ### "Pin It" Button Features: ###
 
-* Specify image to pin or let the reader select
-* Add horizontal or vertical pin count
-* Display or hide on any post, page or category
-* Custom CSS for aligning just right
-* Includes widget and full shortcode support
+* Specify image to pin on each post or...
+* Let the reader select an image from a popup
+* Show horizontal, vertical or no pin count
+* Show or hide the button on any post, page or category
+* Add custom CSS to align with other sharing buttons
+* Sidebar widget and shortcode included
 
 = Resources =
 
@@ -78,10 +79,6 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 5. Advanced settings
 
 == Changelog ==
-
-= 1.3.2 =
-* Fixed: iframe HTML files now include markup so they're not indexed by search engines
-* Fixed: Widget -- URL now defaults to home page and is not required if button style is "user selects image"
 
 = 1.3.1 =
 * Changed: Modified button JavaScript to be in line with Pinterest's current button embed JavaScript
