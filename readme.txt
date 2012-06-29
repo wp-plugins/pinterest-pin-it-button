@@ -9,7 +9,7 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 == Description ==
 
-Add a Simple "Pin It" Button to Your Posts in 2 Minutes
+Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
 ### "Pin It" Button Features: ###
 
