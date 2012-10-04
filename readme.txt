@@ -11,7 +11,7 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
-# "Pin It" Button Lite Features: #
+###"Pin It" Button Lite Features:###
 
 * Let the reader select an image from a popup (or)
 * Specify image to pin on each post
@@ -21,7 +21,7 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 * Sidebar widget and shortcode included
 * Option for no iframe (fixes display issues on some web hosts)
 
-### Additional Features Available in "Pin It" Button Pro: ###
+###Additional Features Available in "Pin It" Button Pro:###
 
 * 30 Custom Button Designs to choose from
 * Facebook, Twitter & Google +1 sharing button included
@@ -30,7 +30,7 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
 [Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com)
 
-## Resources ##
+**Resources**
 
 * [See the "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
 * [Premium Pinterest Plugins &raquo;](http://pinterestplugin.com)
@@ -38,11 +38,9 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
-** Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined ** - Mashable [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
-
-**Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
-
-**Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
+* **Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
+* **Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
+* **Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
 
 = More Pinterest Plugins =
 
