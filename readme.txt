@@ -1,9 +1,9 @@
-=== Pinterest "Pin It" Button ===
+=== Pinterest "Pin It" Button Lite ===
 Contributors: pderksen
 Tags: pinterest, pin it, social
-Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: trunk
+Requires at least: 3.1
+Tested up to: 3.4.2
+Stable tag: 1.4.0
 
 Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
 
@@ -11,26 +11,30 @@ Add a Pinterest "Pin It" Button to your site to let your visitors easily pin you
 
 Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
-### "Pin It" Button Features: ###
+## "Pin It" Button Lite Features: ##
 
-* Specify image to pin on each post or...
-* Let the reader select an image from a popup
+* Let the reader select an image from a popup (or)
+* Specify image to pin on each post
 * Show horizontal, vertical or no pin count
 * Show or hide the button on any post, page or category
 * Add custom CSS to align with other sharing buttons
 * Sidebar widget and shortcode included
+* Option for no iframe (fixes display issues on some web hosts)
+
+## Additional Features Available in "Pin It" Button Pro: ##
+
+* 30 Custom Button Designs to choose from
+* Facebook, Twitter & Google +1 sharing button included
+* Allow featured images to be pre-selected when pinning
+* Automatic Upgrades & Priority Support
+
+* [Upgrade to "Pin It" Button Pro &raquo;](http://pinterestplugin.com)
 
 = Resources =
 
-* [View Live Demo &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
-* [Pinterest Plugin Updates &raquo;](http://pinterestplugin.com)
+* [See the "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
+* [Premium Pinterest Plugins &raquo;](http://pinterestplugin.com)
 * [User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)
-
-= More Features =
-
-* Display above and/or below content
-* Optionally display on post excerpts
-* Optionally specify URL, image and description for each button
 
 Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
 
@@ -42,7 +46,8 @@ Take advantage of the exploding traffic Pinterest is generating by encouraging y
 
 = More Pinterest Plugins =
 
-* [Top Pinned Posts](http://pinterestplugin.com/)
+* ["Pin It" Button Pro](http://pinterestplugin.com/pin-it-button-pro/)
+* [Top Pinned Posts](http://pinterestplugin.com/top-pinned-posts/)
 * ["Follow" Button](http://pinterestplugin.com/follow-button)
 * [Pinterest Block](http://pinterestplugin.com/pinterest-block)
 
@@ -68,7 +73,7 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Frequently Asked Questions ==
 
-[Go to the new FAQ here &raquo;](http://pinterestplugin.com/pin-it-button-lite-faq)
+[FAQ maintained here &raquo;](http://pinterestplugin.com/pin-it-button-lite-faq)
 
 == Screenshots ==
 
@@ -79,6 +84,10 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 5. Advanced settings
 
 == Changelog ==
+
+= 1.4.0 =
+* Changed/Fixed: Iframe removed when button set to "User selects image". Fixes security issues and display errors on some web hosts.
+* Added: Displays new features available if upgrading "Pin It" Button Pro
 
 = 1.3.1 =
 * Changed: Modified button JavaScript to be in line with Pinterest's current button embed JavaScript

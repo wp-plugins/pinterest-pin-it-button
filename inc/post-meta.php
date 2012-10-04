@@ -21,7 +21,7 @@ function pib_sharing_meta_box_content( $post ) {
 	?>
 
     <p>
-        <em>Button style is inherited from setting saved in <a href="<?php echo admin_url( 'admin.php?page=' . PIB_PLUGIN_BASENAME ); ?>">"Pin It" Button Settings</a>.
+        <em>Button style is inherited from setting saved in <a href="<?php echo admin_url( 'admin.php?page=' . PIB_BASE_NAME ); ?>">"Pin It" Button Settings</a>.
 		Current style: <strong><?php echo $pib_button_style; ?></strong></em>
     </p>
 	<p>
@@ -56,7 +56,7 @@ function pib_sharing_meta_box_content( $post ) {
 		<label for="pib_enable_post_sharing">Show "Pin It" button on this post/page.</label>
 		<p class="description">
 			If checked displays the button for this post/page (if <strong>Individual Posts</strong> (for posts) or <strong>WordPress Static "Pages"</strong> 
-			(for pages) is also checked in <a href="<?php echo admin_url( 'admin.php?page=' . PIB_PLUGIN_BASENAME ); ?>">"Pin It" Button Settings</a>).
+			(for pages) is also checked in <a href="<?php echo admin_url( 'admin.php?page=' . PIB_BASE_NAME ); ?>">"Pin It" Button Settings</a>).
             If unchecked the button will <strong>always</strong> be hidden for this post/page.
 		</p>
 		<input type="hidden" name="pib_sharing_status_hidden" value="1" />
