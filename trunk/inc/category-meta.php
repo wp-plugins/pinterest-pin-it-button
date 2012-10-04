@@ -35,7 +35,7 @@ function pib_category_fields($tag) {
                         <?php echo $pib_category_checked; ?> />
                     <p class="description">
                         If checked displays the button for this category (if <strong>Archives</strong> also checked in
-                        <a href="<?php echo admin_url( 'admin.php?page=' . PIB_PLUGIN_BASENAME ); ?>">"Pin It" Button Settings</a>).
+                        <a href="<?php echo admin_url( 'admin.php?page=' . PIB_BASE_NAME ); ?>">"Pin It" Button Settings</a>).
                         If unchecked the button will <strong>always</strong> be hidden for this category.
                     </p>
                 </td>
