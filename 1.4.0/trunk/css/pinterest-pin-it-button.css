@@ -1,0 +1,188 @@
+/* Pinterest "Pin It" Button Public CSS */
+
+/* DIV surrounding button */
+.pin-it-btn-wrapper,
+.pin-it-btn-wrapper-shortcode,
+.pin-it-btn-wrapper-widget {
+}
+
+.pin-it-btn-wrapper {
+    padding-bottom: 10px;
+}
+
+/* Latest "clear fix" method: http://css-tricks.com/snippets/css/clear-fix/ */
+.pib-clearfix:before,
+.pib-clearfix:after {
+    content:"";
+    display: table;
+}
+.pib-clearfix:after {
+    clear: both;
+}
+.pib-clearfix {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.pib-float-left {
+    float: left;
+}
+
+.pib-float-right {
+    float: right;
+}
+
+/* DIV surrounding Share Bar */
+.pib-sharebar {
+	padding: 10px 0 5px;
+	margin: 0;
+	width: 100% !important;
+}
+
+.pib-sharebar ul,
+.pib-sharebar li {
+    margin: 0 !important;
+    padding: 0 !important;
+	list-style: none;
+	border: none;
+	background: none;
+    text-indent: 0;    
+}
+
+.pib-sharebar li {
+	float: left;
+	margin: 0 5px 5px 0 !important;
+	display: block;
+}
+
+.pib-sharebar li.pib-share-pinterest {
+    margin-right: 30px !important;
+}
+
+/*** BEGIN Count Bubble CSS ***/
+
+table.pib-count-table {
+	border: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	width: auto;
+}
+
+table.pib-count-table td {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+table.pib-count-table-horizontal td {
+	text-align: left;
+}
+
+table.pib-count-table-vertical td {
+	text-align: center;
+}
+
+img.pib-count-img {
+	border: 0 !important;
+	margin: 0 !important;
+	max-width: none !important;
+	padding: 0 !important;
+}
+
+.pib-count-cell {
+	display: none; /* Initially hidden */
+	position: relative;
+}
+
+table.pib-count-table-horizontal td.pib-count-cell {
+	padding-left: 4px !important;
+}
+
+table.pib-count-table-vertical td.pib-count-cell {
+	padding-bottom: 4px !important;
+}
+
+.pib-count-bubble {
+	background-color: #FCF9F9;
+	border: 1px solid #C9C5C5;
+	border-radius: 1px;        
+	color: #777;
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+}
+
+table.pib-count-table-horizontal .pib-count-bubble {
+	height: 10px;
+	font: 10px/10px Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 3px 5px 4px 5px;
+	text-align: left;
+	width: auto;
+}
+
+table.pib-count-table-vertical .pib-count-bubble {
+	font: 12px/12px Arial, Helvetica, sans-serif;
+	height: 21px;
+	margin: 0;
+	padding: 9px 0 0 0;
+	text-align: center;
+	width: 39px;
+}
+
+.pib-count-bubble:after,
+.pib-count-bubble:before {
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+table.pib-count-table-horizontal .pib-count-bubble:after,
+table.pib-count-table-horizontal .pib-count-bubble:before {
+	right: 100%;
+}
+
+table.pib-count-table-vertical .pib-count-bubble:after,
+table.pib-count-table-vertical .pib-count-bubble:before {
+	top: 100%;
+}
+
+.pib-count-bubble:after {
+	border-width: 3px;
+}
+
+table.pib-count-table-horizontal .pib-count-bubble:after {
+	border-right-color: #FCF9F9;
+	top: 50%;
+	margin-top: -3px;
+}
+
+table.pib-count-table-vertical .pib-count-bubble:after {
+	border-top-color: #FCF9F9;
+	left: 50%;
+	margin-left: -3px;
+}
+
+.pib-count-bubble:before {
+	border-width: 4px;
+}
+
+table.pib-count-table-horizontal .pib-count-bubble:before {
+	border-right-color: #C9C5C5;
+	top: 50%;
+	margin-top: -4px;
+}
+
+table.pib-count-table-vertical .pib-count-bubble:before {
+	border-top-color: #C9C5C5;
+	left: 50%;
+	margin-left: -4px;
+}
+
+/*** END Count Bubble CSS ***/
