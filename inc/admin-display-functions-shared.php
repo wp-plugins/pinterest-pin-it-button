@@ -43,14 +43,14 @@ function pib_settings_page() {
 										<td>
 											<input type="radio" id="user_selects_image" value="user_selects_image" name="pib_options[button_style]"
 												<?php checked( ( $pib_options['button_style'] == 'user_selects_image' ) || empty( $pib_options['button_style'] ) ); ?> />
-											<label for="user_selects_image"><?php _e( '<strong>User selects image</strong> from popup (no iframe)', 'pib' ); ?></label>
+											<label for="user_selects_image"><?php _e( '<strong>User selects image</strong> from popup', 'pib' ); ?></label>
 										</td>
 									</tr>
 									<tr valign="top">
 										<td>
 											<input type="radio" id="image_selected" value="image_selected" name="pib_options[button_style]" 
 												<?php checked( $pib_options['button_style'], 'image_selected' ); ?> />
-											<label for="image_selected"><?php _e( 'Image is <strong>pre-selected</strong> (embed code/iframe from Pinterest)', 'pib' ); ?></label>
+											<label for="image_selected"><?php _e( 'Image is <strong>pre-selected</strong>', 'pib' ); ?></label>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -386,24 +386,27 @@ function pib_settings_page() {
 								
 								<div class="inside">
 									<p>
-										Use the shortcode <code>[pinit]</code> to display the button within your content.
+										<?php _e( 'Use the shortcode', 'pib' ); ?> <code>[pinit]</code> <?php _e( 'to display the button within your content.', 'pib' ); ?>
 									</p>
 									<p>
-										Use the function <code><?php echo htmlentities( '<?php echo do_shortcode(\'[pinit]\'); ?>' ); ?></code>
-										to display within template or theme files.
+										<?php _e( 'Use the function', 'pib' ); ?> <code><?php echo htmlentities( '<?php echo do_shortcode(\'[pinit]\'); ?>' ); ?></code>
+										<?php _e( 'to display within template or theme files.', 'pib' ); ?>
 									</p>
 									<p><strong>Shortcode parameters</strong></p>
 									<p>
-										- count: none (default), horizontal, vertical<br/>
-										- url: URL of the web page to be pinned (defaults to current post/page URL, but <em>must specify</em> if on home or index page)<br/>
-										- image_url: URL of the image to be pinned (defaults to first image in post)<br/>
-										- description: description of the pin (defaults to post title)<br/>
-										- float: none (default), left, right<br/>
-										- remove_div: false (default), true -- if true removes surrounding div tag 
-											(<code><?php echo htmlentities( '<div class="pin-it-btn-wrapper-shortcode"></div>' ); ?></code>), which also removes float setting<br/>
-										- always_show_count: false (default), true -- if true will show count even if zero
+										- <?php _e( 'count: none (default), horizontal, vertical', 'pib' ); ?><br/>
+										- <?php _e( 'url: URL of the web page to be pinned (defaults to current post/page URL, but <em>must specify</em> if on home or index page)', 'pib' ); ?><br/>
+										- <?php _e( 'image_url: URL of the image to be pinned (defaults to first image in post)', 'pib' ); ?><br/>
+										- <?php _e( 'description: description of the pin (defaults to post title)', 'pib' ); ?><br/>
+										- <?php _e( 'float: none (default), left, right', 'pib' ); ?><br/>
+										- <?php _e( 'remove_div: false (default), true -- if true removes surrounding div tag ', 'pib' ); ?>
+											(<code><?php echo htmlentities( '<div class="pin-it-btn-wrapper-shortcode"></div>' ); ?></code>),
+                                            <?php _e( 'which also removes float setting', 'pib' ); ?><br/>
+										- <?php _e( 'always_show_count: false (default), true -- if true will show count even if zero', 'pib' ); ?><br/>
+                                        - <?php _e( 'social_buttons: false (default), true -- if true and enabled above, will show Facebook, Twitter & Google +1 buttons', 'pib' ); ?>
+                                            <?php pib_pro_label(); ?>
 									</p>
-									<p><strong>Examples</strong></p>
+									<p><strong><?php _e( 'Examples', 'pib' ); ?></strong></p>
 									<p>
 										<code>[pinit count="horizontal"]</code><br/>
 										<code>[pinit count="vertical" url="http://www.mysite.com" image_url="http://www.mysite.com/myimage.jpg" 

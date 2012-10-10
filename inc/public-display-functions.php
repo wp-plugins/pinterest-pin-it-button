@@ -14,12 +14,15 @@ function pib_add_public_css_js() {
         //Image pre-selected AND use Custom image button
         if ( (bool)$pib_options['use_custom_img_btn'] ) {
 			//Popup small sized window like original Pinterest create pin popup
-			wp_enqueue_script( 'pin-it-button-image-selected', PIB_JS_URL . 'pin-it-button-image-selected.js', array( 'jquery' ), '', true );
+            //***This JS file and others moved back to header (was output in footer previously) because of some theme incompatibilities
+            //(for starters: Portfolium by WP Shower)
+			wp_enqueue_script( 'pin-it-button-image-selected', PIB_JS_URL . 'pin-it-button-image-selected.js', array( 'jquery' ) );
         }
         
         //Image pre-selected AND use Stock button (embed code from Pinterest)
         else {
 			//Official iframe + official button image + image pre-selected (original embed code from Pinterest, output their pinit.js in footer)
+            //This won't work properly if theme doesn't implement wp_footer() hook
 			wp_enqueue_script( 'pinterest-assets', 'http' . ( is_ssl() ? 's' : '' ) . '://assets.pinterest.com/js/pinit.js', null, '', true );
         }    
     }
@@ -28,7 +31,7 @@ function pib_add_public_css_js() {
     //$pib_options['button_style'] == 'user_selects_image' (or blank)
     else {
         //Fire off Pinterest's pinmarklet.js
-        wp_enqueue_script( 'pin-it-button-user-selects-image', PIB_JS_URL . 'pin-it-button-user-selects-image.js', array( 'jquery' ), '', true );
+        wp_enqueue_script( 'pin-it-button-user-selects-image', PIB_JS_URL . 'pin-it-button-user-selects-image.js', array( 'jquery' ) );
         
         //User selects image AND use Custom image button
         if ( (bool)$pib_options['use_custom_img_btn'] ) {
@@ -46,8 +49,14 @@ function pib_add_public_css_js() {
         ( ( $pib_options['button_style'] != 'image_selected' ) || (bool)$pib_options['use_custom_img_btn'] ) &&
         ( isset( $pib_options['count_layout'] ) && ( $pib_options['count_layout'] != 'none' ) )
        ) {
-        wp_enqueue_script( 'pin-it-button-custom-btn-img', PIB_JS_URL . 'pin-it-button-custom-btn-img.js', array( 'jquery' ), '', true );
-    }    
+        wp_enqueue_script( 'pin-it-button-custom-btn-img', PIB_JS_URL . 'pin-it-button-custom-btn-img.js', array( 'jquery' ) );
+    }
+    
+    //Load other sharing button JS in head (for compatibility with themes not implementing wp_footer() hook)
+    if ( PIB_IS_PRO && (bool)$pib_options['use_other_sharing_buttons'] ) {
+        wp_enqueue_script( 'twitter-embed', PIB_JS_URL . 'twitter-embed.js' );
+        wp_enqueue_script( 'gplus-embed', PIB_JS_URL . 'gplus-embed.js' );
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'pib_add_public_css_js' );
@@ -135,18 +144,18 @@ function pib_button_base( $post_url, $image_url, $description, $count_layout, $a
        
 		if ( $pib_options['count_layout'] == 'horizontal' ) {
 		
-			$full_btn_html = '<table class="pib-count-table pib-count-table-horizontal"><tbody><tr>' .
-				'<td>' . $link_html . '</td>' .
-				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' .
-				'</tr></tbody></table>';
+			$full_btn_html = '<table class="pib-count-table pib-count-table-horizontal"><tbody><tr>' . "\n" .
+				'<td>' . $link_html . '</td>' . "\n" .
+				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' . "\n" .
+				'</tr></tbody></table>' . "\n";
 		}
 		elseif ( $pib_options['count_layout'] == 'vertical' ) {
 		
-			$full_btn_html = '<table class="pib-count-table pib-count-table-vertical"><tbody><tr>' .
-				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' .
-				'</tr><tr>' .
-				'<td>' . $link_html . '</td>' .
-				'</tr></tbody></table>';
+			$full_btn_html = '<table class="pib-count-table pib-count-table-vertical"><tbody><tr>' . "\n" .
+				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' . "\n" .
+				'</tr><tr>' . "\n" .
+				'<td>' . $link_html . '</td>' . "\n" .
+				'</tr></tbody></table>' . "\n";
 		}
 	}
 	else {
@@ -158,9 +167,10 @@ function pib_button_base( $post_url, $image_url, $description, $count_layout, $a
 
 //Button HTML to render
 
-function pib_button_html( $postID ) {
+function pib_button_html() {
     global $pib_options;
 	global $post;
+    $postID = $post->ID;
     
     //Return nothing if sharing disabled on current post
 	if ( get_post_meta( $postID, 'pib_sharing_disabled', 1 ) ) {			
@@ -210,13 +220,15 @@ function pib_button_html( $postID ) {
 
 //Share Bar HTML to render (pass through button unless Pro)
 
-function pib_sharebar_html( $postID ) {
+function pib_sharebar_html() {
     global $pib_options;
+	global $post;
+    $postID = $post->ID;
     
     if ( PIB_IS_PRO && (bool)$pib_options['use_other_sharing_buttons'] ) {
-        return pib_sharebar_html_pro( $postID );
+        return pib_sharebar_html_pro();
     } else {
-        return pib_button_html( $postID );
+        return pib_button_html();
     }
 }
 
@@ -224,8 +236,7 @@ function pib_sharebar_html( $postID ) {
 
 function pib_render_content( $content ) {
     global $pib_options;
- 	global $post;
-    
+ 	global $post;    
 	$postID = $post->ID;
 
     //Determine if button displayed on current page from main admin settings

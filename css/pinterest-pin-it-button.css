@@ -54,35 +54,48 @@
 	display: block;
 }
 
+.pib-sharebar li:before {
+  content: none !important;
+}
+
 .pib-sharebar li.pib-share-pinterest {
     margin-right: 30px !important;
 }
 
 /*** BEGIN Count Bubble CSS ***/
+/* Need to override theme styles as much as possible */
 
 table.pib-count-table {
-	border: 0;
-	border-collapse: collapse;
-	border-spacing: 0;
-	margin: 0;
-	padding: 0;
-	vertical-align: top;
-	width: auto;
+	border: 0 !important;
+	border-collapse: collapse !important;
+	border-spacing: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	vertical-align: top !important;
+	width: auto !important;
 }
 
 table.pib-count-table td {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	vertical-align: top;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	vertical-align: top !important;
 }
 
 table.pib-count-table-horizontal td {
-	text-align: left;
+	text-align: left !important;
 }
 
 table.pib-count-table-vertical td {
-	text-align: center;
+	text-align: center !important;
+}
+
+a.pin-it-button-no-iframe,
+a.pin-it-button-no-iframe:hover {
+    background: none !important;
+    border: 0 !important;
+    text-decoration: none !important;
+    width: auto !important;    
 }
 
 img.pib-count-img {
@@ -90,11 +103,12 @@ img.pib-count-img {
 	margin: 0 !important;
 	max-width: none !important;
 	padding: 0 !important;
+    width: auto !important;
 }
 
 .pib-count-cell {
 	display: none; /* Initially hidden */
-	position: relative;
+	position: relative !important;
 }
 
 table.pib-count-table-horizontal td.pib-count-cell {
@@ -106,31 +120,31 @@ table.pib-count-table-vertical td.pib-count-cell {
 }
 
 .pib-count-bubble {
-	background-color: #FCF9F9;
-	border: 1px solid #C9C5C5;
-	border-radius: 1px;        
-	color: #777;
-	display: inline-block;
-	position: relative;
-	vertical-align: top;
+	background-color: #FCF9F9 !important;
+	border: 1px solid #C9C5C5 !important;
+	border-radius: 1px !important;
+	color: #777 !important;
+	display: inline-block !important;
+	position: relative !important;
+	vertical-align: top !important;
 }
 
 table.pib-count-table-horizontal .pib-count-bubble {
-	height: 10px;
-	font: 10px/10px Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 3px 5px 4px 5px;
-	text-align: left;
-	width: auto;
+	height: 10px !important;
+	font: 10px/10px Arial, Helvetica, sans-serif !important;
+	margin: 0 !important;
+	padding: 3px 5px 4px 5px !important;
+	text-align: left !important;
+	width: auto !important;
 }
 
 table.pib-count-table-vertical .pib-count-bubble {
-	font: 12px/12px Arial, Helvetica, sans-serif;
-	height: 21px;
-	margin: 0;
-	padding: 9px 0 0 0;
-	text-align: center;
-	width: 39px;
+	font: 12px/12px Arial, Helvetica, sans-serif !important;
+	height: 21px !important;
+	margin: 0 !important;
+	padding: 9px 0 0 0 !important;
+	text-align: center !important;
+	width: 39px !important;
 }
 
 .pib-count-bubble:after,

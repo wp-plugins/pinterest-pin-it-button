@@ -3,7 +3,7 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.1
 Tested up to: 3.4.2
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 
 Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
 
@@ -82,6 +82,11 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 5. Advanced settings
 
 == Changelog ==
+
+= 1.4.1 =
+* Fixed: Various shortcode fixes.
+* Fixed: Moved some JavaScript files that were loaded in the footer to now load in the header to improve compatibility with themes not implementing wp_footer().
+* Fixed: Updated button CSS/styles to improve compatibility with more themes.
 
 = 1.4.0 =
 * Changed/Fixed: Iframe removed when button set to "User selects image". Fixes security issues and display errors on some web hosts.

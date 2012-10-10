@@ -12,9 +12,8 @@ define( 'PIB_BASE_URL', plugin_dir_url( __FILE__ ) );		// http://mysite.com/wp-c
 define( 'PIB_IMAGES_URL', PIB_BASE_URL . 'img/' );			// http://mysite.com/wp-content/plugins/pinterest-pin-it-button/img/
 define( 'PIB_CSS_URL', PIB_BASE_URL . 'css/' );
 define( 'PIB_JS_URL', PIB_BASE_URL . 'js/' );
-define( 'PIB_HTML_URL', PIB_BASE_URL . 'html/' );
 
-define( 'PIB_UPGRADE_URL', 'http://pinterestplugin.com/pin-it-button-pro' );
+define( 'PIB_UPGRADE_URL', 'http://pinterestplugin.com/pin-it-button-pro/' );
 define( 'PIB_DEFAULT_CUSTOM_BUTTON_IMAGE_URL', PIB_IMAGES_URL . 'pin-it-buttons/set01/a04.png' );
 
 $pib_options = get_option( 'pib_options' );
@@ -28,6 +27,7 @@ require_once( PIB_INC_DIR . 'admin-display-functions-shared.php' );
 require_once( PIB_INC_DIR . 'public-display-functions.php' );
 
 if ( PIB_IS_PRO ) {
+    require_once( PIB_INC_DIR . 'admin-general-functions-pro.php' );
     require_once( PIB_INC_DIR . 'admin-display-functions-pro.php' );
     require_once( PIB_INC_DIR . 'public-display-functions-pro.php' );
 }
@@ -45,6 +45,6 @@ require_once( PIB_INC_DIR . 'category-meta.php' );
 ***************************/
 
 function pib_debug_print( $value ) {
-    print_r( '<br/><br/>' );
+    echo '<br/><br/>';
 	print_r( $value );
 }

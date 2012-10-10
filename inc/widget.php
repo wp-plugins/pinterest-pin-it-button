@@ -29,7 +29,7 @@ class Pib_Widget extends WP_Widget {
         $pib_remove_div = (bool)$instance['remove_div'];
         $pib_always_show_count = (bool)$instance['always_show_count'];
         
-		$baseBtn = pib_button_base( $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout, $pib_always_show_count );
+		$base_btn = pib_button_base( $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout, $pib_always_show_count );
 		
 		echo $before_widget;
         
@@ -38,7 +38,7 @@ class Pib_Widget extends WP_Widget {
         }
 		
 		if ( $pib_remove_div ) {
-			echo $baseBtn;
+			echo $base_btn;
 		}
 		else {
 			//Surround with div tag
@@ -51,7 +51,7 @@ class Pib_Widget extends WP_Widget {
 				$float_class = 'pib-float-right';
 			}
 		
-			echo '<div class="pin-it-btn-wrapper-widget ' . $float_class . '">' . $baseBtn . '</div>';
+			echo '<div class="pin-it-btn-wrapper-widget ' . $float_class . '">' . $base_btn . '</div>';
 		}
 		
 		echo $after_widget;

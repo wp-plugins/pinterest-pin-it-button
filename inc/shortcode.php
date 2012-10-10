@@ -5,7 +5,8 @@
 function pib_button_shortcode_html( $attr ) {
 	global $pib_options;
 	global $post;
-
+    $postID = $post->ID;
+    
     /*
         For URL, image URL and Description, use in order:
         1) attribute value
@@ -16,17 +17,16 @@ function pib_button_shortcode_html( $attr ) {
     $url = $attr['url'];
     
     if ( empty( $url ) ) {
-        $url = get_post_meta( $post->ID, 'pib_url_of_webpage', true);
+        $url = get_post_meta( $postID, 'pib_url_of_webpage', true);
         if ( empty( $url ) ) {
-            $url = get_permalink( $post->ID );
+            $url = get_permalink( $postID );
         }
     }
-    $attr['url'] = $url;
-
+    
     $image_url = $attr['image_url'];
     
     if ( empty( $image_url ) ) {
-        $image_url = get_post_meta( $post->ID, 'pib_url_of_img', true);
+        $image_url = get_post_meta( $postID, 'pib_url_of_img', true);
         if ( empty( $image_url ) ) {
             //Get url of img and compare width and height
             $output = preg_match_all( '/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches );
@@ -34,26 +34,26 @@ function pib_button_shortcode_html( $attr ) {
             $image_url = $first_img;
         }
     }
-    $attr['image_url'] = $image_url;
     
     $description = $attr['description'];
     
     if ( empty( $description ) ) {
-        $description = get_post_meta( $post->ID, 'pib_description', true);
+        $description = get_post_meta( $postID, 'pib_description', true);
         if ( empty( $description ) ) {
-            $description = get_the_title( $post->ID );
+            $description = get_the_title( $postID );
         }
     }
-    $attr['description'] = $description;    
+        
+	$count = ( empty( $attr['count'] ) ? 'none' : $attr['count'] );
+	$remove_div = ( $attr['remove_div'] == 'true' );
+	$always_show_count = ( $attr['always_show_count'] == 'true' );
+    $social_buttons = ( $attr['social_buttons'] == 'true' );
     
-	$attr['count'] = ( empty( $attr['count'] ) ? 'none' : $attr['count'] );
-	$remove_div_bool = ( $attr['remove_div'] == 'true' );
-	$always_show_count_bool = ( $attr['always_show_count'] == 'true' );
-
-	$baseBtn = pib_button_base( $attr['url'], $attr['image_url'], $attr['description'], $attr['count'], $always_show_count_bool );
-
-	if ( $remove_div_bool ) {
-		return $baseBtn;
+	$base_btn = pib_button_base( $url, $image_url, $description, $count, $always_show_count );
+    
+    //Don't wrap with div or use float left/right if using other sharing buttons or "remove div" is checked
+	if ( $remove_div || $social_buttons ) {
+		return $base_btn;
 	}
 	else {
 		//Surround with div tag
@@ -66,8 +66,23 @@ function pib_button_shortcode_html( $attr ) {
 			$float_class = 'pib-float-right';
 		}
 	
-		return '<div class="pin-it-btn-wrapper-shortcode ' . $float_class . '">' . $baseBtn . '</div>';
+		return '<div class="pin-it-btn-wrapper-shortcode ' . $float_class . '">' . $base_btn . '</div>';
 	}
 }
 
-add_shortcode( 'pinit', 'pib_button_shortcode_html' );
+//Share Bar HTML to render (pass through button unless Pro)
+
+function pib_sharebar_shortcode_html( $attr ) {
+    global $pib_options;
+    global $post;
+    
+    $social_buttons = ( $attr['social_buttons'] == 'true' );
+    
+    if ( PIB_IS_PRO && $social_buttons && (bool)$pib_options['use_other_sharing_buttons'] ) {
+        return pib_sharebar_shortcode_html_pro( $attr, $post->ID );
+    } else {
+        return pib_button_shortcode_html( $attr );
+    }
+}
+
+add_shortcode( 'pinit', 'pib_sharebar_shortcode_html' );
