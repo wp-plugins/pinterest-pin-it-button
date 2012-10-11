@@ -3,7 +3,7 @@ Contributors: pderksen
 Tags: pinterest, pin it, social
 Requires at least: 3.1
 Tested up to: 3.4.2
-Stable tag: 1.4.1
+Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
 
