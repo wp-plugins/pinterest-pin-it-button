@@ -30,17 +30,20 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
 [Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com)
 
-**Resources**
+###Raves###
+
+* "The Pinterest 'Pin It' Button is a painless solution for bloggers just getting started with this social network." -- [WP Jedi](http://www.wpjedi.com/pinterest-pin-it-button-for-wordpress/)
+* Top 10 Plugins for February 2012 (the only Pinterest one) -- [ManageWP](http://managewp.com/top-10-wordpress-plugins-of-the-month-february)
+* "If you want to make it easy for Pinterest users to pin your articles, consider using this 'Pin It' button plugin." -- [WP Tavern](http://www.wptavern.com/pin-it-is-the-new-bookmark)
+* "If you're looking for something simple and obtrusive, the Pinterest 'Pin It' Button will suit you." -- [WPMU.org](http://wpmu.org/pinterest-plugins-wordpress/)
+
+= Resources =
 
 * [See the "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
 * [Premium Pinterest Plugins &raquo;](http://pinterestplugin.com)
 * [User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)
 
-Take advantage of the exploding traffic Pinterest is generating by encouraging your readers to pin your content using this simple "Pin It" button.
-
-* **Pinterest Drives More Traffic Than Google+, YouTube and LinkedIn Combined** - Mashable [[link]](http://mashable.com/2012/02/01/pinterest-traffic-study/)
-* **Pinterest Rate of Referral Now Close to Twitter, Google+** - The Wall Street Journal [[link]](http://blogs.wsj.com/tech-europe/2012/02/03/pinterest-rate-of-referral-now-close-to-twitter-google/)
-* **Pinterest Hits 10 Million U.S. Monthly Uniques Faster Than Any Standalone Site Ever** - TechCrunch [[link]](http://techcrunch.com/2012/02/07/pinterest-monthly-uniques/)
+[Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com)
 
 = More Pinterest Plugins =
 
