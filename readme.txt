@@ -15,7 +15,7 @@ Add a Simple Pinterest "Pin It" Button to Your Posts in 2 Minutes!
 
 * Let the reader select an image from a popup (Pinterest bookmarklet style)
 * (or) Specify the image to pin on each post (Pinterest default)
-* Show horizontal, vertical or no pin count (Counts fromk Pinterest per post/URL)
+* Show horizontal, vertical or no pin count (Pinterest counts per post/URL)
 * Show or hide the button on any post, page or category
 * Add custom CSS to align with other sharing buttons
 * Sidebar widget and shortcode options included
