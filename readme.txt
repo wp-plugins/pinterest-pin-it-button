@@ -1,6 +1,6 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen
-Tags: pinterest, pin it, social
+Tags: pinterest, pin it, pin it button, social
 Requires at least: 3.2
 Tested up to: 3.5-beta3
 Stable tag: trunk
@@ -37,16 +37,12 @@ Add a Simple Pinterest "Pin It" Button to Your Posts in 2 Minutes!
 * "If you want to make it easy for Pinterest users to pin your articles, consider using this 'Pin It' button plugin." -- [WP Tavern](http://www.wptavern.com/pin-it-is-the-new-bookmark)
 * "If you're looking for something simple and obtrusive, the Pinterest 'Pin It' Button will suit you." -- [WPMU.org](http://wpmu.org/pinterest-plugins-wordpress/)
 
-= Resources =
-
-* [See a demo the Pinterest "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/) (scroll to bottom of post)
-* [Upgrade Information &raquo;](http://pinterestplugin.com)
+[See a demo the Pinterest "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/) (scroll to bottom of post)
 
 [Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
 = More Pinterest Plugins =
 
-* [Pinterest "Pin It" Button Pro](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 * [Pinterest Top Pinned Posts](http://pinterestplugin.com/top-pinned-posts/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 * [Pinterest "Follow" Button](http://pinterestplugin.com/follow-button)
 * [Pinterest Block](http://pinterestplugin.com/pinterest-block)
