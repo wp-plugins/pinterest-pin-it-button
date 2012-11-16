@@ -1,17 +1,17 @@
-=== Pinterest "Pin It" Button Lite ===
+=== Pinterest "Pin It" Button ===
 Contributors: pderksen
 Tags: pinterest, pin it, social
-Requires at least: 3.1
-Tested up to: 3.4.2
+Requires at least: 3.2
+Tested up to: 3.5-beta3
 Stable tag: trunk
 
-Add a Pinterest "Pin It" Button to your site to let your visitors easily pin your awesome content!
+Add a Pinterest "Pin It" Button to your site and encourage your visitors pin your awesome content!
 
 == Description ==
 
-Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
+Add a Simple Pinterest "Pin It" Button to Your Posts in 2 Minutes!
 
-###"Pin It" Button Lite Features:###
+###Pinterest "Pin It" Button Features:###
 
 * Let the reader select an image from a popup (or)
 * Specify image to pin on each post
@@ -21,14 +21,14 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 * Sidebar widget and shortcode included
 * Option for no iframe (fixes display issues on some web hosts)
 
-###Additional Features Available in "Pin It" Button Pro:###
+###Additional Features Available in Pinterest "Pin It" Button PRO:###
 
 * 30 Custom Button Designs to choose from
 * Facebook, Twitter & Google +1 sharing button included
 * Allow featured images to be pre-selected when pinning
 * Automatic Upgrades & Priority Support
 
-[Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com)
+[Upgrade to Pinterest "Pin It" Button PRO! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
 ###Raves###
 
@@ -39,17 +39,16 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 
 = Resources =
 
-* [See the "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/)
-* [Premium Pinterest Plugins &raquo;](http://pinterestplugin.com)
-* [User Support & Feature Requests &raquo;](http://pinterestplugin.com/support)
+* [See a demo the Pinterest "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/) (scroll to bottom of post)
+* [Upgrade Information &raquo;](http://pinterestplugin.com)
 
-[Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com)
+[Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
 = More Pinterest Plugins =
 
-* ["Pin It" Button Pro](http://pinterestplugin.com/pin-it-button-pro/)
-* [Top Pinned Posts](http://pinterestplugin.com/top-pinned-posts/)
-* ["Follow" Button](http://pinterestplugin.com/follow-button)
+* [Pinterest "Pin It" Button Pro](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
+* [Pinterest Top Pinned Posts](http://pinterestplugin.com/top-pinned-posts/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
+* [Pinterest "Follow" Button](http://pinterestplugin.com/follow-button)
 * [Pinterest Block](http://pinterestplugin.com/pinterest-block)
 
 == Installation ==
@@ -60,10 +59,6 @@ Add a Simple "Pin It" Button to Your Posts in 2 Minutes!
 1. Find the plugin that's labeled *Pinterest "Pin It" Button" with "Pin It" in quotes.
 1. Also look for my name as the author (*Phil Derksen*). There are other "Pin It" button plugins which is why this can be confusing.
 1. Click "Install Now", then Activate, then head to the new menu item on the left labeled "Pin It Button".
-
-Here's a video walkthrough of the install process:
-
-http://www.youtube.com/watch?v=NsEGeVpmD0Y
 
 **Alternative installation methods:**
 
