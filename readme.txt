@@ -9,7 +9,7 @@ Easily add a Pinterest "Pin It" Button to your site and encourage your visitors 
 
 == Description ==
 
-Want to get more referral traffic from Pinterest? Do your visitors also spend a lot of time on Pinterest? Ride the Pinterest wave and add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
+Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 
 ###Pinterest "Pin It" Button Plugin Features:###
 
