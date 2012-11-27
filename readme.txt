@@ -2,7 +2,7 @@
 Contributors: pderksen
 Tags: pinterest, pin it, pin it button, social
 Requires at least: 3.2
-Tested up to: 3.5-beta3
+Tested up to: 3.5
 Stable tag: trunk
 
 Easily add a Pinterest "Pin It" Button to your site and encourage your visitors pin your awesome content!
@@ -19,7 +19,6 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 * Show or hide the button on any post, page or category
 * Add custom CSS to align with other sharing buttons
 * Sidebar widget and shortcode options included
-* Option for no iframe (faster loading, fixes display issues on some web hosts)
 
 ###Additional Features Available in Pinterest "Pin It" Button PRO:###
 
