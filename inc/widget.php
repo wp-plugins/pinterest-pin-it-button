@@ -27,9 +27,8 @@ class Pib_Widget extends WP_Widget {
 		$count_layout = empty( $instance['count_layout'] ) ? 'none' : $instance['count_layout'];
 		$float = empty( $instance['float'] ) ? 'none' : $instance['float'];
         $pib_remove_div = (bool)$instance['remove_div'];
-        $pib_always_show_count = (bool)$instance['always_show_count'];
         
-		$base_btn = pib_button_base( $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout, $pib_always_show_count );
+		$base_btn = pib_button_base( $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout );
 		
 		echo $before_widget;
         
@@ -68,7 +67,6 @@ class Pib_Widget extends WP_Widget {
 		$instance['count_layout'] = $new_instance['count_layout'];
 		$instance['float'] = $new_instance['float'];
         $instance['remove_div'] = ( $new_instance['remove_div'] ? 1 : 0 );
-        $instance['always_show_count'] = ( $new_instance['always_show_count'] ? 1 : 0 );
         
 		return $instance;
 	}
@@ -96,10 +94,6 @@ class Pib_Widget extends WP_Widget {
 				<option value="horizontal" <?php selected( $instance['count_layout'], 'horizontal' ); ?>><?php _e( 'Horizontal' ); ?></option>
 				<option value="vertical" <?php selected( $instance['count_layout'], 'vertical' ); ?>><?php _e( 'Vertical' ); ?></option>
 			</select>
-		</p>
-		<p>
-			<input class="checkbox" <?php checked( $instance['always_show_count'], true) ?> id="<?php echo $this->get_field_id( 'always_show_count' ); ?>" name="<?php echo $this->get_field_name( 'always_show_count' ); ?>" type="checkbox"/>
-			<label for="<?php echo $this->get_field_id( 'always_show_count' ); ?>"><?php _e( 'Always show pin count (even when zero)' ); ?></label>
 		</p>
 		<div class="pib-widget-text-fields">
             <p>

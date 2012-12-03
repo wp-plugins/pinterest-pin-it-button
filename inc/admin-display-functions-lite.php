@@ -13,7 +13,7 @@ function pib_custom_btn_img_examples_popup() {
             
             <div class="upgrade-text">
                 <?php _e( 'These button designs available in "Pin It" Button Pro.', 'pib' ); ?><br/>
-                <a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank" class="button-primary close"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'custom-button-popup', 'pro-upgrade' ); ?>" target="_blank" class="button-primary close"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                 &nbsp;&nbsp;<a href="#" class="close"><?php _e( 'Close', 'pib' ); ?></a>
             </div>                
         </div>
@@ -28,7 +28,7 @@ function pib_upgrade_banner_top() {
     ?>
 
     <div class="pib-admin-upgrade-banner-top">
-        <a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank">
+        <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'banner-top', 'pro-upgrade' ); ?>" target="_blank">
             <img src="//d2ghr62k8k1ljk.cloudfront.net/img/pin-it-button-pro-upgrade-banner.png" alt="<?php _e( 'Upgrade to the Pin It Button Pro Plugin', 'pib' ); ?>" />
         </a>
     </div>
@@ -72,7 +72,7 @@ function pib_settings_sidebar_lite() {
         
         <div class="inside">
             <p>
-                &raquo; <a href="http://pinterestplugin.com/support" target="_blank" class="external">
+                &raquo; <a href="http://pinterestplugin.com/support<?php echo pib_campaign_url( 'sidebar-link', 'support-pib-lite' ); ?>" target="_blank" class="external">
                 <?php _e( 'Support & Knowledge Base', 'pib' ); ?></a>
             </p>
             <p>
@@ -87,10 +87,10 @@ function pib_settings_sidebar_lite() {
         
         <div class="inside">
             <ul>
-                <li>&raquo; <a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank" class="external">"Pin It" Button Pro</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/top-pinned-posts/" target="_blank" class="external">Top Pinned Posts</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/follow-button" target="_blank" class="external">"Follow" Button</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/pinterest-block" target="_blank" class="external">Pinterest Block</a></li>
+                <li>&raquo; <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'sidebar-link', 'pro-upgrade' ); ?>" target="_blank" class="external">"Pin It" Button Pro</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/top-pinned-posts/<?php echo pib_campaign_url( 'sidebar-link', 'top-pinned-posts' ); ?>" target="_blank" class="external">Top Pinned Posts</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/follow-button<?php echo pib_campaign_url( 'sidebar-link', 'follow-button' ); ?>" target="_blank" class="external">"Follow" Button</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/pinterest-block<?php echo pib_campaign_url( 'sidebar-link', 'pinterest-block' ); ?>" target="_blank" class="external">Pinterest Block</a></li>
             </ul>
         </div>
     </div>
@@ -128,7 +128,7 @@ function pib_share_twitter() {
 function pib_share_pinterest() {
 	?>
 	<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Fpinterestplugin.com%2F&media=http%3A%2F%2Fpinterestplugin.com%2Fimg%2Fpinterest-pin-it-button-plugin-for-wordpress.png&description=Add%20a%20Simple%20and%20Flexible%20%22Pin%20It%22%20Button%20to%20Your%20WordPress%20Site%20--%20http%3A%2F%2Fpinterestplugin.com%2F" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
-	<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+	<script src="//assets.pinterest.com/js/pinit.js"></script>
 	<?php
 }
 
@@ -165,8 +165,8 @@ add_action( 'admin_enqueue_scripts', 'pib_add_admin_css_js_pointer' );
 function pib_admin_print_footer_scripts() {
     //Check option to hide pointer after initial display
     if ( !get_option( 'pib_hide_pointer' ) ) {
-        $pointer_content = '<h3>' . _( 'Ready to be Pinned?', 'pib' ) . '</h3>';
-        $pointer_content .= '<p>' . _( 'Congratulations. You have just installed the Pinterest "Pin It" Button Plugin. ' .
+        $pointer_content = '<h3>' . __( 'Ready to be Pinned?', 'pib' ) . '</h3>';
+        $pointer_content .= '<p>' . __( 'Congratulations. You have just installed the Pinterest "Pin It" Button Plugin. ' .
             'Now just configure your settings and start getting Pinned!', 'pib' ) . '</p>';
          
         $url = admin_url( 'admin.php?page=' . PIB_BASE_NAME );

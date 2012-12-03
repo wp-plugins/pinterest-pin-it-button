@@ -1,7 +1,5 @@
 <?php
 
-//Register shortcode: [pinit url="" image_url="" description="" float="none" remove_div="false" always_show_count="false"]
-
 function pib_button_shortcode_html( $attr ) {
 	global $pib_options;
 	global $post;
@@ -46,10 +44,9 @@ function pib_button_shortcode_html( $attr ) {
         
 	$count = ( empty( $attr['count'] ) ? 'none' : $attr['count'] );
 	$remove_div = ( $attr['remove_div'] == 'true' );
-	$always_show_count = ( $attr['always_show_count'] == 'true' );
     $social_buttons = ( $attr['social_buttons'] == 'true' );
     
-	$base_btn = pib_button_base( $url, $image_url, $description, $count, $always_show_count );
+	$base_btn = pib_button_base( $url, $image_url, $description, $count );
     
     //Don't wrap with div or use float left/right if using other sharing buttons or "remove div" is checked
 	if ( $remove_div || $social_buttons ) {

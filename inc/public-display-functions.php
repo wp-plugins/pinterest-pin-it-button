@@ -14,15 +14,12 @@ function pib_add_public_css_js() {
         //Image pre-selected AND use Custom image button
         if ( (bool)$pib_options['use_custom_img_btn'] ) {
 			//Popup small sized window like original Pinterest create pin popup
-            //***This JS file and others moved back to header (was output in footer previously) because of some theme incompatibilities
-            //(for starters: Portfolium by WP Shower)
-			wp_enqueue_script( 'pin-it-button-image-selected', PIB_JS_URL . 'pin-it-button-image-selected.js', array( 'jquery' ) );
+			wp_enqueue_script( 'pin-it-button-image-selected', PIB_JS_URL . 'pin-it-button-image-selected.js', array( 'jquery' ), '', true );
         }
         
         //Image pre-selected AND use Stock button (embed code from Pinterest)
         else {
-			//Official iframe + official button image + image pre-selected (original embed code from Pinterest, output their pinit.js in footer)
-            //This won't work properly if theme doesn't implement wp_footer() hook
+			//No longer users iframe
 			wp_enqueue_script( 'pinterest-assets', 'http' . ( is_ssl() ? 's' : '' ) . '://assets.pinterest.com/js/pinit.js', null, '', true );
         }    
     }
@@ -31,7 +28,7 @@ function pib_add_public_css_js() {
     //$pib_options['button_style'] == 'user_selects_image' (or blank)
     else {
         //Fire off Pinterest's pinmarklet.js
-        wp_enqueue_script( 'pin-it-button-user-selects-image', PIB_JS_URL . 'pin-it-button-user-selects-image.js', array( 'jquery' ) );
+        wp_enqueue_script( 'pin-it-button-user-selects-image', PIB_JS_URL . 'pin-it-button-user-selects-image.js', array( 'jquery' ), '', true );
         
         //User selects image AND use Custom image button
         if ( (bool)$pib_options['use_custom_img_btn'] ) {
@@ -49,13 +46,13 @@ function pib_add_public_css_js() {
         ( ( $pib_options['button_style'] != 'image_selected' ) || (bool)$pib_options['use_custom_img_btn'] ) &&
         ( isset( $pib_options['count_layout'] ) && ( $pib_options['count_layout'] != 'none' ) )
        ) {
-        wp_enqueue_script( 'pin-it-button-custom-btn-img', PIB_JS_URL . 'pin-it-button-custom-btn-img.js', array( 'jquery' ) );
+        wp_enqueue_script( 'pin-it-button-custom-btn-img', PIB_JS_URL . 'pin-it-button-custom-btn-img.js', array( 'jquery' ), '', true );
     }
     
     //Load other sharing button JS in head (for compatibility with themes not implementing wp_footer() hook)
     if ( PIB_IS_PRO && (bool)$pib_options['use_other_sharing_buttons'] ) {
-        wp_enqueue_script( 'twitter-embed', PIB_JS_URL . 'twitter-embed.js' );
-        wp_enqueue_script( 'gplus-embed', PIB_JS_URL . 'gplus-embed.js' );
+        wp_enqueue_script( 'twitter-embed', PIB_JS_URL . 'twitter-embed.js', null, '', true );
+        wp_enqueue_script( 'gplus-embed', PIB_JS_URL . 'gplus-embed.js', null, '', true );
     }
 }
 
@@ -77,7 +74,7 @@ add_action( 'wp_head', 'pib_add_custom_css' );
 
 //Function for rendering "Pin It" button base html
 
-function pib_button_base( $post_url, $image_url, $description, $count_layout, $always_show_count ) {
+function pib_button_base( $post_url, $image_url, $description, $count_layout ) {
     global $pib_options;
 	
 	$btn_class = '';
@@ -95,6 +92,8 @@ function pib_button_base( $post_url, $image_url, $description, $count_layout, $a
     else {
         //Default non-sprite button image url from Pinterest
         $btn_img_url = '//assets.pinterest.com/images/PinExt.png';
+        //New image added on 11/15/2012 if needed:
+        //$btn_img_url = '//assets.pinterest.com/images/pidgets/pin_it_button.png';
     }
     
     //Image pre-selected
@@ -119,37 +118,37 @@ function pib_button_base( $post_url, $image_url, $description, $count_layout, $a
     }
 	
     //HTML from Pinterest Goodies 3/19/2012
-    //<a href="http://pinterest.com/pin/create/button/?url=[PAGE]&media=[IMG]&description=[DESC]" class="pin-it-button" count-layout="horizontal" always-show-count="true">
+    //<a href="http://pinterest.com/pin/create/button/?url=[PAGE]&media=[IMG]&description=[DESC]" class="pin-it-button" count-layout="horizontal">
     //<img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
     //rel="nobox" is to prevent lightbox popup
-	
+    
 	$inner_btn_html = '<img border="0" class="pib-count-img" src="' . $btn_img_url . '" title="Pin It" />';
 	$full_btn_html = '';
     
     //Link href always needs all the parameters in it for the count bubble to work
-    $link_href = 'http://pinterest.com/pin/create/button/?url=' . rawurlencode( $post_url ) . '&media=' . rawurlencode( $image_url ) . 
+    //Link set to "//pinterest.com" as they allow http or https and SSL sites like this better (reported bug)
+    $link_href = '//pinterest.com/pin/create/button/?url=' . rawurlencode( $post_url ) . '&media=' . rawurlencode( $image_url ) . 
         '&description='. rawurlencode( $description );
 	
 	//Full link html with attributes
     $link_html = '<a href="' . $link_href . '" ' .
-        'count-layout="' . $count_layout . '" class="' . $btn_class . '" rel="nobox" ' .
-		( $always_show_count ? 'always-show-count="true"' : '') . '>' .
+        'count-layout="' . $count_layout . '" class="' . $btn_class . '" rel="nobox">' .
         $inner_btn_html . '</a>';
 
 	//Count bubble HTML for non-iframe buttons (if count layout specified)
     if (
         ( ( $pib_options['button_style'] == 'user_selects_image' ) || (bool)$pib_options['use_custom_img_btn'] ) &&
-        ( isset( $pib_options['count_layout'] ) && ( $pib_options['count_layout'] != 'none' ) )
+        ( $count_layout != 'none' )
        ) {
        
-		if ( $pib_options['count_layout'] == 'horizontal' ) {
+		if ( $count_layout == 'horizontal' ) {
 		
 			$full_btn_html = '<table class="pib-count-table pib-count-table-horizontal"><tbody><tr>' . "\n" .
 				'<td>' . $link_html . '</td>' . "\n" .
 				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' . "\n" .
 				'</tr></tbody></table>' . "\n";
 		}
-		elseif ( $pib_options['count_layout'] == 'vertical' ) {
+		elseif ( $count_layout == 'vertical' ) {
 		
 			$full_btn_html = '<table class="pib-count-table pib-count-table-vertical"><tbody><tr>' . "\n" .
 				'<td class="pib-count-cell"><div class="pib-count-bubble"></div></td>' . "\n" .
@@ -204,9 +203,8 @@ function pib_button_html() {
     if ( empty( $description ) ) { $description = get_the_title( $postID ); }
     
 	$count_layout = $pib_options['count_layout'];
-	$always_show_count = (bool)$pib_options['always_show_count'];
 
-    $base_btn = pib_button_base( $post_url, $image_url, $description, $count_layout, $always_show_count );
+    $base_btn = pib_button_base( $post_url, $image_url, $description, $count_layout );
     
     //Don't wrap with div if using other sharing buttons or "remove div" is checked
     if ( (bool)$pib_options['use_other_sharing_buttons'] || (bool)$pib_options['remove_div'] ) {
@@ -329,3 +327,13 @@ function pib_render_content_excerpt( $content ) {
 }
 
 add_filter( 'the_excerpt', 'pib_render_content_excerpt' );
+
+//Add thumbnail support to theme if needed
+
+function pib_add_thumbnail_support() {
+	if ( !current_theme_supports( 'post-thumbnails' ) ) {
+		add_theme_support( 'post-thumbnails' );
+	}
+}
+
+add_action('init', 'pib_add_thumbnail_support');

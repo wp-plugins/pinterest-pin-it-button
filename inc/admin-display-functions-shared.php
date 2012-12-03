@@ -22,6 +22,8 @@ function pib_settings_page() {
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
                     <?php ( PIB_IS_PRO ? pib_settings_sidebar_pro() : pib_settings_sidebar_lite() ); ?>
 				</div>
+                
+                <?php //pib_debug_options(); ?>
             </div>
 			
 			<div id="post-body">
@@ -36,7 +38,7 @@ function pib_settings_page() {
 							
 							<div class="postbox pib-postbox">
 								<?php pib_handlediv(); ?>
-								<h3 class="hndle pib-hndle"><?php _e( 'Button Click Action & Pin Count Bubble', 'pib' ); ?></h3>
+								<h3 class="hndle pib-hndle"><?php _e( 'Button Style & Pin Count', 'pib' ); ?></h3>
 
 								<table class="form-table inside">
 									<tr valign="top">
@@ -50,7 +52,7 @@ function pib_settings_page() {
 										<td>
 											<input type="radio" id="image_selected" value="image_selected" name="pib_options[button_style]" 
 												<?php checked( $pib_options['button_style'], 'image_selected' ); ?> />
-											<label for="image_selected"><?php _e( 'Image is <strong>pre-selected</strong>', 'pib' ); ?></label>
+											<label for="image_selected"><?php _e( 'Image is <strong>pre-selected</strong> (defaults to first image in post)', 'pib' ); ?></label>
 										</td>
 									</tr>
 									<tr valign="top">
@@ -65,30 +67,24 @@ function pib_settings_page() {
 									</tr>
 									<tr valign="top">
 										<td>
-											<input type="checkbox" id="always_show_count" name="pib_options[always_show_count]" value="1" 
-                                                <?php checked( (bool)$pib_options['always_show_count'] ); ?> />
-											<label for="always_show_count"><?php _e( 'Always show pin count', 'pib' ); ?></label>
-										</td>
-									</tr>								
-									<tr valign="top">
-										<td>
-											<input type="checkbox" id="use_featured_image" name="pib_options[use_featured_image]" value="1" 
-                                                <?php checked( (bool)$pib_options['use_featured_image'] ); ?>
+											<input type="checkbox" id="use_featured_image" name="pib_options[use_featured_image]" value="1"                                            
+                                                <?php checked( (bool)$pib_options['use_featured_image'] ); ?>                                                
+                                                <?php //TODO checked( '1', $pib_options['use_featured_image'] ); ?>                                                
                                                 <?php pib_lite_disabled_attr(); ?> />
 											<label for="use_featured_image" class="<?php pib_lite_disabled_class(); ?>">
-                                                <?php _e( 'Use featured image (pre-selected only)', 'pib' ); ?></label>
+                                                <?php _e( 'For pre-selected image, use <strong>featured image</strong> if available', 'pib' ); ?></label>
                                             <?php pib_pro_label(); ?>
 										</td>
 									</tr>								
 									<tr valign="top">
 										<td class="pib-pad-cell-top">
-                                            <?php _e( 'To override defaults for the website address (URL) to pin, image to pin and/or pin description for a post, ' .
-                                                'go to the edit screen for the post (usually at the bottom).', 'pib' ); ?>
+                                            <?php _e( 'You may individually override what website address (URL), image and description will be pinned for each post. ' .
+                                                'Go to the post (or page) <strong>edit screen</strong> and scroll to the bottom.', 'pib' ); ?>
 										</td>
 									</tr>
 									<tr valign="top">
 										<td>
-                                            <?php _e( 'Button style setting applies to <strong>all</strong> "Pin It" buttons including widgets and shortcodes. ', 'pib' ); ?>											
+                                            <?php _e( 'Button style settings apply to <strong>all</strong> "Pin It" buttons including widgets and shortcodes. ', 'pib' ); ?>											
 										</td>
 									</tr>                                
 								</table>
@@ -158,7 +154,7 @@ function pib_settings_page() {
 										<td>
                                             <div class="pib-upgrade-to-pro">
                                                 <?php _e( 'Available in "Pin It" Button Pro. ', 'pib' ); ?>
-                                                <a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade-link-custom-button', 'pro-upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                                             </div>
 										</td>
 									</tr>
@@ -235,7 +231,7 @@ function pib_settings_page() {
 										<td class="pib-pad-cell-top">
                                             <div class="pib-upgrade-to-pro">
                                                 <?php _e( 'Available in "Pin It" Button Pro.', 'pib' ); ?>
-                                                <a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade-link-social-buttons', 'pro-upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                                             </div>
 										</td>
 									</tr>
@@ -347,6 +343,23 @@ function pib_settings_page() {
 									</tr>								
 								</table>
 							</div>
+                            
+							<div class="postbox pib-postbox">                         
+								<?php pib_handlediv(); ?>
+								<h3 class="hndle pib-hndle"><?php _e( 'Admin Settings', 'pib' ); ?></h3>
+								
+								<table class="form-table inside">
+									<tr valign="top">
+										<td>
+											<input id="uninstall_save_settings" name="pib_options[uninstall_save_settings]" type="checkbox" value="1"
+												<?php checked( (bool)$pib_options['uninstall_save_settings'] ); ?> />
+											<label for="uninstall_save_settings">
+                                                <?php _e( 'Save settings when uninstalling plugin? Useful when upgrading to Pro or reinstalling later.', 'pib' ); ?>
+                                            </label>
+										</td>
+									</tr>
+								</table>
+							</div>                            
 							
 							<div class="postbox pib-postbox">                         
 								<?php pib_handlediv(); ?>
@@ -370,10 +383,6 @@ function pib_settings_page() {
 											<label for="remove_div">
                                                 <?php _e( 'Remove div tag surrounding regular button', 'pib' ); ?> (<code><?php echo htmlentities('<div class="pin-it-btn-wrapper"></div>'); ?></code>).
                                                 <?php _e( 'Already removed if other social sharing buttons enabled.', 'pib' ); ?>
-                                                
-                                                <?php if ( !PIB_IS_PRO ): ?>
-                                                    (<strong><a href="<?php echo PIB_UPGRADE_URL; ?>" target="_blank" class="external"><?php _e( 'Pro Feature', 'pib' ); ?></a></strong>)
-                                                <?php endif; ?>
                                             </label>
 										</td>
 									</tr>
@@ -402,7 +411,6 @@ function pib_settings_page() {
 										- <?php _e( 'remove_div: false (default), true -- if true removes surrounding div tag ', 'pib' ); ?>
 											(<code><?php echo htmlentities( '<div class="pin-it-btn-wrapper-shortcode"></div>' ); ?></code>),
                                             <?php _e( 'which also removes float setting', 'pib' ); ?><br/>
-										- <?php _e( 'always_show_count: false (default), true -- if true will show count even if zero', 'pib' ); ?><br/>
                                         - <?php _e( 'social_buttons: false (default), true -- if true and enabled above, will show Facebook, Twitter & Google +1 buttons', 'pib' ); ?>
                                             <?php pib_pro_label(); ?>
 									</p>
@@ -432,17 +440,6 @@ function pib_settings_page() {
     <?php
 }
 
-//Add Settings link to the left of Deactivate on plugins list page
-
-function pib_plugin_settings_link( $links ) {
-	$url = admin_url( 'admin.php?page=' . PIB_BASE_NAME );
-	$settings_link = '<a href="' . $url . '">Settings</a>';
-	array_unshift( $links, $settings_link );
-	return $links;
-}
-
-add_filter( 'plugin_action_links_' . PIB_BASE_NAME, 'pib_plugin_settings_link' );
-
 //Handle div tag html
 
 function pib_handlediv() {
@@ -462,7 +459,7 @@ function pib_newsletter_subscribe() {
         
         <div class="inside">
             <p><?php _e( 'Subscribe to get notified of important updates and news for our Pinterest plugins.', 'pib' ); ?></p>
-            &raquo; <a href="http://pinterestplugin.com/newsletter-from-plugin" target="_blank" class="external">
+            &raquo; <a href="http://pinterestplugin.com/newsletter<?php echo pib_campaign_url( 'sidebar-link', 'newsletter' ); ?>" target="_blank" class="external">
                 <?php _e( 'Get Updates', 'pib' ); ?></a>
         </div>
     </div>
@@ -480,7 +477,7 @@ function pib_plugin_news() {
         <h3 class="hndle pib-hndle"><?php _e( 'Pinterest Plugin News', 'pib' ); ?></h3>
         
         <div class="inside">
-            <? echo pib_rss_news(); ?>
+            <?php pib_rss_news(); ?>
         </div>
     </div>
     
@@ -516,7 +513,7 @@ function pib_rss_news() {
 			// Loop through each feed item and display each item as a hyperlink.
 			foreach ( $rss_items as $item ): ?>
 				<li>
-					&raquo; <a href="<?php echo esc_url( $item->get_permalink() ); ?>" target="_blank" class="external">
+					&raquo; <a href="<?php echo esc_url( $item->get_permalink() ) . pib_campaign_url( 'sidebar-link', 'blog-post-link' ); ?>" target="_blank" class="external">
 						<?php echo esc_html( $item->get_title() ); ?></a>
 				</li>
 			<?php endforeach; ?>
@@ -550,4 +547,20 @@ function pib_pro_label() {
     if ( !PIB_IS_PRO ) { 
         echo '<span class="pib-pro-label">' . __( 'Pro Feature', 'pib' ) . '</span>'; 
     }
+}
+
+//Debug options
+
+function pib_debug_options() {
+    global $pib_options;    
+    ?>
+    
+    <h4>Debug Options</h4>
+    <p>
+        <?php foreach ( $pib_options as $option => $value ): ?>
+            <?php echo $option . ': ' . $value; ?><br/>
+        <?php endforeach; ?>
+    </p>
+    
+    <?php
 }

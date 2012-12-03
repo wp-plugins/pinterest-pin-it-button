@@ -59,7 +59,11 @@
 }
 
 .pib-sharebar li.pib-share-pinterest {
-    margin-right: 30px !important;
+    margin-right: 50px !important;
+}
+
+.pib-sharebar li.pib-share-pinterest a {
+    vertical-align: top !important;
 }
 
 /*** BEGIN Count Bubble CSS ***/
@@ -104,6 +108,8 @@ img.pib-count-img {
 	max-width: none !important;
 	padding: 0 !important;
     width: auto !important;
+    -webkit-box-shadow: 0 0 0 !important; 
+    box-shadow: 0 0 0 !important; 
 }
 
 .pib-count-cell {

@@ -76,6 +76,17 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Changelog ==
 
+= 1.4.2 =
+* Tested with WordPress 3.5.
+* Added: Option to save settings upon plugin uninstall.
+* Changed: Removed "Always show pin count" option as it's no longer supported by Pinterest.
+* Changed: Iframe option removed as it's no longer supported by Pinterest.
+* Changed: Moved some JavaScript files to load in the footer rather than the header to improve page speed load and compatibility with Pinterest code. Theme must implement wp_footer() to function properly.
+* Fixed: Count="vertical" shortcode fixed.
+* Fixed: Updated button CSS/styles to improve compatibility with more themes.
+* Fixed: Checks theme support for post thumbnails and adds if needed.
+* Fixed: Various minor bug fixes.
+
 = 1.4.1 =
 * Fixed: Various shortcode fixes.
 * Fixed: Moved some JavaScript files that were loaded in the footer to now load in the header to improve compatibility with themes not implementing wp_footer().
