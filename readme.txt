@@ -64,7 +64,7 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Frequently Asked Questions ==
 
-[FAQ maintained here &raquo;](http://pinterestplugin.com/pin-it-button-lite-faq)
+[FAQ maintained here &raquo;](http://pinterestplugin.com/pin-it-button-faq)
 
 == Screenshots ==
 
@@ -75,6 +75,9 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 5. Advanced settings
 
 == Changelog ==
+
+= 1.4.3 =
+* Fixed bug where Create Pin popup wasn't working in some cases.
 
 = 1.4.2 =
 * Tested with WordPress 3.5.

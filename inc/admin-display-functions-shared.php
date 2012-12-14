@@ -69,7 +69,6 @@ function pib_settings_page() {
 										<td>
 											<input type="checkbox" id="use_featured_image" name="pib_options[use_featured_image]" value="1"                                            
                                                 <?php checked( (bool)$pib_options['use_featured_image'] ); ?>                                                
-                                                <?php //TODO checked( '1', $pib_options['use_featured_image'] ); ?>                                                
                                                 <?php pib_lite_disabled_attr(); ?> />
 											<label for="use_featured_image" class="<?php pib_lite_disabled_class(); ?>">
                                                 <?php _e( 'For pre-selected image, use <strong>featured image</strong> if available', 'pib' ); ?></label>
@@ -154,7 +153,7 @@ function pib_settings_page() {
 										<td>
                                             <div class="pib-upgrade-to-pro">
                                                 <?php _e( 'Available in "Pin It" Button Pro. ', 'pib' ); ?>
-                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade-link-custom-button', 'pro-upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade_link_custom_button', 'pro_upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                                             </div>
 										</td>
 									</tr>
@@ -166,7 +165,7 @@ function pib_settings_page() {
 							<div class="postbox pib-postbox">
 								<?php pib_handlediv(); ?>
 								<h3 class="hndle pib-hndle">
-                                    <?php _e( 'Facebook, Twitter & Google +1 Buttons', 'pib' ); ?>
+                                    <?php _e( 'Share Bar (Facebook, Twitter & Google +1 Buttons)', 'pib' ); ?>
                                     <?php pib_pro_label(); ?>
                                 </h3>
 
@@ -175,7 +174,7 @@ function pib_settings_page() {
                                     <?php if ( PIB_IS_PRO ): ?>
                                 
 									<tr valign="top">
-										<td>
+										<td colspan="2">
 											<input type="checkbox" id="use_other_sharing_buttons" name="pib_options[use_other_sharing_buttons]" value="1" 
                                                 <?php checked( (bool)$pib_options['use_other_sharing_buttons'] ); ?> />
 											<label for="use_other_sharing_buttons">
@@ -187,9 +186,10 @@ function pib_settings_page() {
                                     <?php endif; ?>
                                     
 									<tr valign="top">
-										<td class="pib-pad-cell-top">
-                                            <label id="share_btn_label" class="pib-plain-label"><?php _e( 'Button order (left to right):', 'pib' ); ?></label>                                            
-                                            
+                                        <th scope="row">
+                                            <label id="share_btn_label" class="pib-plain-label"><?php _e( 'Button order (left to right):', 'pib' ); ?></label>
+                                        </th>
+                                        <td class="pib-pad-cell-top">
                                             <select id="share_btn_1" name="pib_options[share_btn_1]">
                                                 <option value="none" <?php selected( ( $pib_options['share_btn_1'] == 'none' ) || empty( $pib_options['share_btn_1'] ) ); ?>>-- <?php _e( 'None', 'pib' ); ?> --</option>
                                                 <option value="pinterest" <?php selected( $pib_options['share_btn_1'], 'pinterest' ); ?>>Pinterest</option>
@@ -221,17 +221,18 @@ function pib_settings_page() {
                                                 <option value="twitter" <?php selected( $pib_options['share_btn_4'], 'twitter' ); ?>>Twitter</option>
                                                 <option value="gplus" <?php selected( $pib_options['share_btn_4'], 'gplus' ); ?>>Google +1</option>
                                             </select>
-                                            
 										</td>
 									</tr>
+                                    
+                                    <?php if ( PIB_IS_PRO ) { pib_sharebar_more_options(); } ?>
                                     
                                     <?php if ( !PIB_IS_PRO ): ?>
                                     
 									<tr valign="top">
-										<td class="pib-pad-cell-top">
+										<td class="pib-pad-cell-top" colspan="2">
                                             <div class="pib-upgrade-to-pro">
                                                 <?php _e( 'Available in "Pin It" Button Pro.', 'pib' ); ?>
-                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade-link-social-buttons', 'pro-upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                                                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'upgrade_link_social_buttons', 'pro_upgrade' ); ?>" target="_blank" class="external"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                                             </div>
 										</td>
 									</tr>
@@ -354,7 +355,7 @@ function pib_settings_page() {
 											<input id="uninstall_save_settings" name="pib_options[uninstall_save_settings]" type="checkbox" value="1"
 												<?php checked( (bool)$pib_options['uninstall_save_settings'] ); ?> />
 											<label for="uninstall_save_settings">
-                                                <?php _e( 'Save settings when uninstalling plugin? Useful when upgrading to Pro or reinstalling later.', 'pib' ); ?>
+                                                <?php _e( '<strong>Save settings</strong> when uninstalling this plugin? Useful when upgrading to Pro or re-installing later.', 'pib' ); ?>
                                             </label>
 										</td>
 									</tr>
@@ -459,7 +460,7 @@ function pib_newsletter_subscribe() {
         
         <div class="inside">
             <p><?php _e( 'Subscribe to get notified of important updates and news for our Pinterest plugins.', 'pib' ); ?></p>
-            &raquo; <a href="http://pinterestplugin.com/newsletter<?php echo pib_campaign_url( 'sidebar-link', 'newsletter' ); ?>" target="_blank" class="external">
+            &raquo; <a href="http://pinterestplugin.com/newsletter<?php echo pib_campaign_url( 'sidebar_link', 'newsletter' ); ?>" target="_blank" class="external">
                 <?php _e( 'Get Updates', 'pib' ); ?></a>
         </div>
     </div>
@@ -513,7 +514,7 @@ function pib_rss_news() {
 			// Loop through each feed item and display each item as a hyperlink.
 			foreach ( $rss_items as $item ): ?>
 				<li>
-					&raquo; <a href="<?php echo esc_url( $item->get_permalink() ) . pib_campaign_url( 'sidebar-link', 'blog-post-link' ); ?>" target="_blank" class="external">
+					&raquo; <a href="<?php echo esc_url( $item->get_permalink() ) . pib_campaign_url( 'sidebar_link', 'blog_post_link' ); ?>" target="_blank" class="external">
 						<?php echo esc_html( $item->get_title() ); ?></a>
 				</li>
 			<?php endforeach; ?>

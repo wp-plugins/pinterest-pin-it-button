@@ -5,7 +5,7 @@
   Description: Add a Pinterest "Pin It" Button to your posts and pages allowing your readers easily pin your images. Includes shortcode and widget.
   Author: Phil Derksen
   Author URI: http://pinterestplugin.com
-  Version: 1.4.2
+  Version: 1.4.3
   License: GPLv2
   Copyright 2012 Phil Derksen (phil@pinterestplugin.com)
 */

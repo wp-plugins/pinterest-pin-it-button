@@ -65,9 +65,16 @@ function pib_add_custom_css() {
     
     $custom_css = trim( $pib_options['custom_css'] );
     
-	if ( !empty( $custom_css ) ) {
-        echo "\n" . '<style type="text/css">' . "\n" . $custom_css . "\n" . '</style>' . "\n";
-	}
+    //Add custom sharebar button width
+    $sharebar_btn_width = ( !empty( $pib_options['sharebar_btn_width'] ) ? $pib_options['sharebar_btn_width'] : '100' );
+    //Mark as !important
+    $sharebar_btn_width_css = '.pib-sharebar li { width: ' . $sharebar_btn_width . 'px; }';
+    
+    echo "\n" .
+        '<style type="text/css">' . "\n" .
+        $sharebar_btn_width_css . "\n" .
+        $custom_css . "\n" . //Put custom css last
+        '</style>' . "\n";
 }
 
 add_action( 'wp_head', 'pib_add_custom_css' );
@@ -126,8 +133,8 @@ function pib_button_base( $post_url, $image_url, $description, $count_layout ) {
 	$full_btn_html = '';
     
     //Link href always needs all the parameters in it for the count bubble to work
-    //Link set to "//pinterest.com" as they allow http or https and SSL sites like this better (reported bug)
-    $link_href = '//pinterest.com/pin/create/button/?url=' . rawurlencode( $post_url ) . '&media=' . rawurlencode( $image_url ) . 
+    //Note: leave "http:" here - will break some setups otherwise
+    $link_href = 'http://pinterest.com/pin/create/button/?url=' . rawurlencode( $post_url ) . '&media=' . rawurlencode( $image_url ) . 
         '&description='. rawurlencode( $description );
 	
 	//Full link html with attributes

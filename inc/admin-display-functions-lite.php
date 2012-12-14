@@ -13,7 +13,7 @@ function pib_custom_btn_img_examples_popup() {
             
             <div class="upgrade-text">
                 <?php _e( 'These button designs available in "Pin It" Button Pro.', 'pib' ); ?><br/>
-                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'custom-button-popup', 'pro-upgrade' ); ?>" target="_blank" class="button-primary close"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
+                <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'custom_button_popup', 'pro_upgrade' ); ?>" target="_blank" class="button-primary close"><?php _e( 'Upgrade Now', 'pib' ); ?></a>
                 &nbsp;&nbsp;<a href="#" class="close"><?php _e( 'Close', 'pib' ); ?></a>
             </div>                
         </div>
@@ -28,7 +28,7 @@ function pib_upgrade_banner_top() {
     ?>
 
     <div class="pib-admin-upgrade-banner-top">
-        <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'banner-top', 'pro-upgrade' ); ?>" target="_blank">
+        <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'banner_top', 'pro_upgrade' ); ?>" target="_blank">
             <img src="//d2ghr62k8k1ljk.cloudfront.net/img/pin-it-button-pro-upgrade-banner.png" alt="<?php _e( 'Upgrade to the Pin It Button Pro Plugin', 'pib' ); ?>" />
         </a>
     </div>
@@ -72,7 +72,7 @@ function pib_settings_sidebar_lite() {
         
         <div class="inside">
             <p>
-                &raquo; <a href="http://pinterestplugin.com/support<?php echo pib_campaign_url( 'sidebar-link', 'support-pib-lite' ); ?>" target="_blank" class="external">
+                &raquo; <a href="http://pinterestplugin.com/support<?php echo pib_campaign_url( 'sidebar_link', 'support_pib_lite' ); ?>" target="_blank" class="external">
                 <?php _e( 'Support & Knowledge Base', 'pib' ); ?></a>
             </p>
             <p>
@@ -87,10 +87,10 @@ function pib_settings_sidebar_lite() {
         
         <div class="inside">
             <ul>
-                <li>&raquo; <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'sidebar-link', 'pro-upgrade' ); ?>" target="_blank" class="external">"Pin It" Button Pro</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/top-pinned-posts/<?php echo pib_campaign_url( 'sidebar-link', 'top-pinned-posts' ); ?>" target="_blank" class="external">Top Pinned Posts</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/follow-button<?php echo pib_campaign_url( 'sidebar-link', 'follow-button' ); ?>" target="_blank" class="external">"Follow" Button</a></li>
-                <li>&raquo; <a href="http://pinterestplugin.com/pinterest-block<?php echo pib_campaign_url( 'sidebar-link', 'pinterest-block' ); ?>" target="_blank" class="external">Pinterest Block</a></li>
+                <li>&raquo; <a href="<?php echo PIB_UPGRADE_URL_BASE . pib_campaign_url( 'sidebar_link', 'pro_upgrade' ); ?>" target="_blank" class="external">"Pin It" Button Pro</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/top-pinned-posts/<?php echo pib_campaign_url( 'sidebar_link', 'top_pinned_posts' ); ?>" target="_blank" class="external">Top Pinned Posts</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/follow-button<?php echo pib_campaign_url( 'sidebar_link', 'follow_button' ); ?>" target="_blank" class="external">"Follow" Button</a></li>
+                <li>&raquo; <a href="http://pinterestplugin.com/pinterest-block<?php echo pib_campaign_url( 'sidebar_link', 'pinterest_block' ); ?>" target="_blank" class="external">Pinterest Block</a></li>
             </ul>
         </div>
     </div>

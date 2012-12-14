@@ -41,11 +41,14 @@ function pib_install() {
         
         'use_custom_img_btn' => 0,
         'custom_btn_img_url' => PIB_DEFAULT_CUSTOM_BUTTON_IMAGE_URL,
+        
         'use_other_sharing_buttons' => 0,
         'share_btn_1' => 'pinterest',
         'share_btn_2' => 'facebook',
         'share_btn_3' => 'twitter',
         'share_btn_4' => 'gplus',
+        'sharebar_btn_width' => '100',
+        'sharebar_hide_count' => 0
     );
     
     //Loop through global options and set them to defaults
@@ -114,5 +117,5 @@ add_filter( 'plugin_action_links_' . PIB_BASE_NAME, 'pib_plugin_settings_link' )
 //Google campaign tracking URL (querystring part)
 
 function pib_campaign_url( $medium, $campaign ) {
-    return '?utm_source=pib-' . ( PIB_IS_PRO ? 'pro' : 'lite' ) . '&utm_medium=' . $medium . '&utm_campaign=' . $campaign;
+    return '?utm_source=pib_' . ( PIB_IS_PRO ? 'pro' : 'lite' ) . '&utm_medium=' . $medium . '&utm_campaign=' . $campaign;
 }

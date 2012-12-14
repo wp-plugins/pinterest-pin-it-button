@@ -32,6 +32,8 @@
 }
 
 /* DIV surrounding Share Bar */
+/* Need to override WP styles with !important tags */
+
 .pib-sharebar {
 	padding: 10px 0 5px;
 	margin: 0;
@@ -55,19 +57,15 @@
 }
 
 .pib-sharebar li:before {
-  content: none !important;
+    content: none !important;
 }
 
-.pib-sharebar li.pib-share-pinterest {
-    margin-right: 50px !important;
-}
-
-.pib-sharebar li.pib-share-pinterest a {
+.pib-sharebar li.pib-sharebar-pinterest a {
     vertical-align: top !important;
 }
 
 /*** BEGIN Count Bubble CSS ***/
-/* Need to override theme styles as much as possible */
+/* Need to override theme styles as much as possible with !important tags */
 
 table.pib-count-table {
 	border: 0 !important;

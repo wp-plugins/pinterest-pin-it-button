@@ -12,9 +12,17 @@
     margin-bottom: 10px !important; 
 }
 
+/* Shrink WP admin cell height defaults */
 .form-table td {
     padding: 1px 10px;
 }
+
+/* Now back to WP admin cell height defaults */
+.form-table .pib-input-cell {
+    padding: 8px 10px;
+}
+
+/* TODO: Flip flop above 2 classes - use native CSS where possible */
 
 .form-table label {
     padding-left: 3px;
@@ -29,6 +37,15 @@
     width: 350px;
 }
 
+.form-table .pib-pad-cell-top {
+	padding-top: 7px;
+}
+
+.form-table .pib-plain-label {
+	margin: 0;
+	padding: 0;
+}
+
 .pib-admin-upgrade-banner-top {
     margin-top: 5px;
 }
@@ -37,7 +54,7 @@
 	border: 1px solid #ccc;
 }
 
-table#share_plugin_buttons td {
+#share_plugin_buttons td {
     padding-right: 10px;
     vertical-align: top;
 }
@@ -48,17 +65,6 @@ table#share_plugin_buttons td {
 
 #custom_css {
     width: 100%;
-}
-
-td.pib-pad-cell-top {
-	padding-top: 7px;
-}
-
-table.
-
-label.pib-plain-label {
-	margin: 0;
-	padding: 0;
 }
 
 .inside li .label {
