@@ -23,7 +23,8 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 ###Additional Features Available in Pinterest "Pin It" Button PRO:###
 
 * 30 Custom "Pin It" Button Designs to choose from
-* Facebook, Twitter & Google +1 sharing button included
+* Option to show "Pin It" button for each image on hover
+* Facebook, Twitter, Google +1 & LinkedIn sharing buttons included
 * Allow featured images to be pre-selected when pinning
 * Automatic Upgrades & Priority Support
 
@@ -75,6 +76,13 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 5. Advanced settings
 
 == Changelog ==
+
+= 1.4.4 = [TODO]
+* Center align option added (single button, widget and shortcode).
+* Now hides pin count bubble if a dash ("-") is returned from Pinterest when case their service is down.
+* Will now use new embed code from http://business.pinterest.com.
+* Various shortcode fixes.
+* Fixed all debug warnings logged by WP_DEBUG.
 
 = 1.4.3 =
 * Fixed bug where Create Pin popup wasn't working in some cases.
