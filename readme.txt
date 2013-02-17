@@ -77,13 +77,6 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Changelog ==
 
-= 1.4.4 = [TODO]
-* Center align option added (single button, widget and shortcode).
-* Now hides pin count bubble if a dash ("-") is returned from Pinterest when case their service is down.
-* Will now use new embed code from http://business.pinterest.com.
-* Various shortcode fixes.
-* Fixed all debug warnings logged by WP_DEBUG.
-
 = 1.4.3 =
 * Fixed bug where Create Pin popup wasn't working in some cases.
 
