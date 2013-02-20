@@ -20,15 +20,15 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 * Add custom CSS to align with other sharing buttons
 * Sidebar widget and shortcode options included
 
-###Additional Features Available in Pinterest "Pin It" Button PRO:###
+###More Features Available in Pro Version:###
 
 * 30 Custom "Pin It" Button Designs to choose from
-* Option to show "Pin It" button for each image on hover
+* Hover "Pin It" button per image
 * Facebook, Twitter, Google +1 & LinkedIn sharing buttons included
 * Allow featured images to be pre-selected when pinning
 * Automatic Upgrades & Priority Support
 
-[Upgrade to Pinterest "Pin It" Button PRO! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
+[Click Here to Upgrade to "Pin It" Button Pro! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
 ###Raves###
 
@@ -37,9 +37,9 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 * "If you want to make it easy for Pinterest users to pin your articles, consider using this 'Pin It' button plugin." -- [WP Tavern](http://www.wptavern.com/pin-it-is-the-new-bookmark)
 * "If you're looking for something simple and obtrusive, the Pinterest 'Pin It' Button will suit you." -- [WPMU.org](http://wpmu.org/pinterest-plugins-wordpress/)
 
-[See a demo the Pinterest "Pin It" Button &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/) (see bottom of the post)
+[See the "Pin It" Button in Action &raquo;](http://bruisesandbandaids.com/2011/newborn-photography-props/) (see bottom of post and image hover)
 
-[Upgrade to "Pin It" Button Pro Now! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
+[Click Here to Upgrade to "Pin It" Button Pro! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
 = More Pinterest Plugins =
 
