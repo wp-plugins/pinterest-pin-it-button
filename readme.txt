@@ -41,12 +41,6 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 
 [Click Here to Upgrade to "Pin It" Button Pro! &raquo;](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
-= More Pinterest Plugins =
-
-* [Pinterest Top Pinned Posts](http://pinterestplugin.com/top-pinned-posts/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
-* [Pinterest "Follow" Button](http://pinterestplugin.com/follow-button)
-* [Pinterest Block](http://pinterestplugin.com/pinterest-block)
-
 == Installation ==
 
 **Finding and installing through the WordPress admin:**
