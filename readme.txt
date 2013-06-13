@@ -1,6 +1,6 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen, pinterest-guy
-Tags: pinterest, pin it button, social button, pin it, social
+Tags: pinterest, pin it button, pinterest pin it button, pin it, social, social button
 Requires at least: 3.2
 Tested up to: 3.5.1
 Stable tag: trunk
