@@ -1,5 +1,5 @@
 === Pinterest "Pin It" Button ===
-Contributors: pderksen, pinterest-guy
+Contributors: pderksen
 Tags: pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
 Requires at least: 3.2
 Tested up to: 3.5.1
