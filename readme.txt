@@ -5,7 +5,7 @@ Requires at least: 3.2
 Tested up to: 3.5.1
 Stable tag: trunk
 
-Easily add a Pinterest "Pin It" Button to your site and encourage your visitors pin your awesome content!
+Add a Pinterest "Pin It" Button to your site and get your visitors to start pinning your awesome content!
 
 == Description ==
 
