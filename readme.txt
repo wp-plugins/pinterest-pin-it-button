@@ -24,7 +24,7 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 
 * 30 Custom "Pin It" Button Designs to choose from
 * Enable a Hover "Pin It" button over each image in any corner
-* Upload yor own custom "Pin It" buttons
+* Upload your own custom "Pin It" buttons
 * Facebook, Twitter, Google +1 & LinkedIn sharing buttons included
 * Allow featured images to be pre-selected when pinning
 * Automatic Upgrades & Priority Support
@@ -60,7 +60,15 @@ Note: If you overwrite the plugin using an FTP upload, you may lose some saved s
 
 == Frequently Asked Questions ==
 
-[FAQ maintained here &raquo;](http://pinterestplugin.com/pin-it-button-faq)
+= Troubleshooting =
+
+If the "Pin It" button doesn't get triggered on click (and your browser is redirected to a pinterest.com URL), please make sure that there is not extra code that is hijacking the click event (for example, a Google Analytics onclick event).
+
+A popular known plugin that does this is *Google Analytics for WordPress*. Try unchecking one or both of these options: 1) Track outbound clicks & downloads, 2) Check Advanced Settings, then make sure "Track outbound clicks as pageviews" is un-checked.
+
+Your theme must implement *wp_footer()* in the footer.php file, otherwise JavaScript will not load correctly. You can test if this is the issue by switching to a WordPress stock theme such as twenty-twelve temporarily.
+
+[Full FAQ maintained here &raquo;](http://pinterestplugin.com/pin-it-button-faq)
 
 == Screenshots ==
 
