@@ -23,7 +23,8 @@ Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 ###More Features Available in Pro Version:###
 
 * 30 Custom "Pin It" Button Designs to choose from
-* Hover "Pin It" button per image
+* Enable a Hover "Pin It" button over each image in any corner
+* Upload yor own custom "Pin It" buttons
 * Facebook, Twitter, Google +1 & LinkedIn sharing buttons included
 * Allow featured images to be pre-selected when pinning
 * Automatic Upgrades & Priority Support
