@@ -1,8 +1,8 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen
 Tags: pinterest, pin it button, pin button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
-Requires at least: 3.2
-Tested up to: 3.5.1
+Requires at least: 3.4.2
+Tested up to: 3.6
 Stable tag: trunk
 
 Add a Pinterest "Pin It" Button to your site and get your visitors to start pinning your awesome content!
