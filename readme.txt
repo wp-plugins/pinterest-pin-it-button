@@ -82,6 +82,7 @@ Your theme must implement **wp_footer()** in the footer.php file, otherwise Java
 
 = 1.4.3 =
 * Fixed bug where Create Pin popup wasn't working in some cases.
+* Tested with WordPress 3.6.2.
 
 = 1.4.2 =
 * Tested with WordPress 3.5.
