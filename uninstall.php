@@ -1,30 +1,40 @@
 <?php
 
-//If uninstall/delete not called from WordPress then exit
-if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+/**
+ * Fired when the plugin is uninstalled.
+ *
+ * @package PIB
+ * @author  Phil Derksen <pderksen@gmail.com>, Nick Young <mycorpweb@gmail.com>
+ */
+
+// If uninstall not called from WordPress, then exit.
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
 	exit;
-}
 
-//Delete plugin options only if value checked
+// Legacy category option not used anymore. Delete either way.
+delete_option( 'pib_category_fields_option' );
 
-global $pib_options;
+$general = get_option( 'pib_settings_general' );
 
-//Need to retrieve options here
-$pib_options = get_option( 'pib_options' );
-
-if ( !(bool)$pib_options['uninstall_save_settings'] ) {
-
-    //Remove option records from options table
-    delete_option( 'pib_options' );
-    delete_option( 'pib_category_fields_option' );
-
-    //Remove custom post meta fields
-    $posts = get_posts( array( 'numberposts' => -1 ) );
-
-    foreach( $posts as $post ) {
-        delete_post_meta( $post->ID, 'pib_sharing_disabled' );
-        delete_post_meta( $post->ID, 'pib_url_of_webpage' );
-        delete_post_meta( $post->ID, 'pib_url_of_img' );
-        delete_post_meta( $post->ID, 'pib_description' );
-    }
+// If the the option to save settings is checked then do nothing, otherwise delete all options and post meta
+if ( $general['uninstall_save_settings'] ) {
+	// Do nothing
+} else {
+	// Delete options
+	delete_option( 'pib_settings_general' );
+	delete_option( 'pib_settings_post_visibility' );
+	delete_option( 'pib_settings_styles' );
+	delete_option( 'pib_settings_misc' );
+	delete_option( 'pib_upgrade_has_run' );
+	delete_option( 'pib_version' );
+	delete_option( 'pib_show_admin_install_notice' );
+	
+	// Delete widget options
+	delete_option( 'widget_pib_button' );
+	
+	// Delete post meta
+	delete_post_meta_by_key( 'pib_sharing_disabled' );
+	delete_post_meta_by_key( 'pib_url_of_webpage' );
+	delete_post_meta_by_key( 'pib_url_of_img' );
+	delete_post_meta_by_key( 'pib_description' );
 }
