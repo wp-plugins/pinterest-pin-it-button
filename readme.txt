@@ -2,7 +2,7 @@
 Contributors: pderksen, nickyoung87
 Tags: pinterest, pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
 Requires at least: 3.5.2
-Tested up to: 3.6.1
+Tested up to: 3.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,50 +13,59 @@ Add a Pinterest "Pin It" Button to your site and get your visitors to start pinn
 
 Add a simple Pinterest "Pin It" Button to your posts in 2 minutes!
 
+No need to copy and paste code throughout your WordPress site.
+
 ###"Pin It" Button Lite Features###
 
-    * Let the reader select an image when pinning.
-    * Pre-select an image for the reader to pin.
-    * Default to the first image in the post.
-    * Specify a specific image to pin per post.
-    * Hide the "Pin It" button on specific posts and pages.
-    * Add a "Pin It" button to your sidebar or footer as a widget.
-    * Place "Pin It" buttons anywhere using shortcodes.
+* Let the reader select an image when pinning.
+* Pre-select an image for the reader to pin.
+* Default to the first image in the post.
+* Specify a specific image to pin per post.
+* Hide the "Pin It" button on specific posts and pages.
+* Add a "Pin It" button to your sidebar or footer as a widget.
+* Place "Pin It" buttons anywhere using shortcodes.
 
 ###Pro Version Features###
 
-    * Add "Pin It" buttons on image hover (in any corner).
-    * Add a "Pin It" button under each image.
-    * Pick from 30 custom "Pin It" button designs.
-    * Upload your own custom "Pin It" buttons.
-    * Twitter, Facebook, Google+ & LinkedIn sharing buttons included.
-    * Option to pin featured images.
-    * Show or hide on custom post types.
-    * WooCommerce compatibility
-    * Customer support and automatic updates
+* Add "Pin It" buttons on image hover (in any corner).
+* Add a "Pin It" button under each image.
+* Pick from 30 custom "Pin It" button designs.
+* Upload your own custom "Pin It" buttons.
+* Twitter, Facebook, Google+ & LinkedIn sharing buttons included.
+* Option to pin featured images.
+* Show or hide on custom post types.
+* WooCommerce compatibility
+* Customer support and automatic updates
 
 [Start Getting Pinned Like Crazy with "Pin It" Button Pro!](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
-Best of all, you don't need to copy and paste any code to place "Pin It" buttons throughout your WordPress site.
+###A Few Stats on Pinterest###
 
-We do all the code insertions for you, and in full compliance with the [official "Pin It" button widget builder](http://business.pinterest.com/widget-builder/#do_pin_it_button).
+* Pinterest has [70 million users](http://thenextweb.com/socialmedia/2013/07/10/semiocast-pinterest-now-has-70-million-users-and-is-steadily-gaining-momentum-outside-the-us/)
+* There are over [½ million verified business accounts on Pinterest](http://searchenginewatch.com/article/2282835/Pinterest-Tops-70-Million-Users-30-Pinned-Repinned-or-Liked-in-June-Study)
+* Pinterest has over [2.5 billion average monthly pageviews](http://readwrite.com/2013/05/09/why-pinterest-could-be-worth-far-more-than-25-billion)
+* Pinterest users spend an average of [98 minutes per month on Pinterest](http://rismedia.com/2013-05-23/pinterest-should-it-be-a-part-of-your-marketing-plan/)
+* The average amount per order that derives from Pinterest traffic is between [$140 and $180](http://www.richrelevance.com/blog/2013/04/direct-marketing-news-infographic-the-rising-king-of-social-sales/)
+* Pinterest Drives More Traffic to Publishers Than [Twitter, LinkedIn, Reddit Combined](http://mashable.com/2013/10/15/pinterest-referral-traffic/)
 
-###Raves###
+###Raves on the Interwebs###
 
+* "If you want complete (and easy) control over your Pin It button, you should definitely take a look..." -- [The Next Web](http://thenextweb.com/socialmedia/2012/03/04/20-awesome-tools-which-will-have-you-pinteresting-like-a-pro/)
 * "The Pinterest 'Pin It' Button is a painless solution for bloggers just getting started with this social network." -- [WP Jedi](http://www.wpjedi.com/pinterest-pin-it-button-for-wordpress/)
-* Top 10 Plugins for February 2012 (the only Pinterest one) -- [ManageWP](http://managewp.com/top-10-wordpress-plugins-of-the-month-february)
+* "This is the plugin that I found works best on my marketing blog for photographers." -- [ProBlogger](http://www.problogger.net/archives/2013/03/05/heavyweight-help-the-complete-guide-to-getting-started-on-pinterest/)
 * "If you want to make it easy for Pinterest users to pin your articles, consider using this 'Pin It' button plugin." -- [WP Tavern](http://www.wptavern.com/pin-it-is-the-new-bookmark)
+* "Discovery of the Week" -- [Social Media Examiner](http://www.socialmediaexaminer.com/pinterest-marketing-what-marketers-need-to-know-to-succeed/)
 * "If you're looking for something simple and obtrusive, the Pinterest 'Pin It' Button will suit you." -- [WPMU.org](http://wpmu.org/pinterest-plugins-wordpress/)
 
 [See a "Pin It" Button Pro Demo](http://bruisesandbandaids.com/2011/newborn-photography-props/) (shows off the share bar and image hover features)
 
 [Setup an Eye-Catching Button in Minutes with "Pin It" Button Pro!](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
-This plugin (and the Pro version) are in full compliance with current ["Pin It" button developer guidelines](http://developers.pinterest.com/pin_it/).
+This plugin (as well as the Pro version) is in full compliance with the [official "Pin It" button developer guidelines](http://developers.pinterest.com/pin_it/).
 
-We will do our best to keep both plugins up to date with the official developer guidelines.
+This plugin utilizes the code output from the [official "Pin It" button widget builder](http://business.pinterest.com/widget-builder/#do_pin_it_button).
 
-[Follow this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button).
+Want to take a peek at the source? [Check out this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button).
 
 == Installation ==
 
@@ -66,13 +75,13 @@ You can install this plugin one of three ways:
 1. In your Admin, go to menu Plugins > Add.
 1. Search for `pin it button`.
 1. Find the plugin that's labeled `Pinterest "Pin It" Button` with "Pin It" in quotes.
-1. Look for the author names `Phil Derksen` on the plugin.
+1. Look for the author name `Phil Derksen` on the plugin.
 1. Click to install.
 1. Activate the plugin.
 1. A new menu item `Pin It Button` will appear in your Admin.
 
 = 2. Download & Upload =
-1. Download the plugin (.zip file) on the right column of this page.
+1. Download the plugin (a zip file) on the right column of this page.
 1. In your Admin, go to menu Plugins > Add.
 1. Select the tab "Upload".
 1. Upload the .zip file you just downloaded.
@@ -111,6 +120,11 @@ CSS styling and shortcode help available within the plugin admin.
 7. Individual post (post meta) settings
 
 == Changelog ==
+
+= 2.0.1 =
+
+* Added an option to disable Pinterest's pinit.js JavaScript to avoid conflicts with other Pinterest plugins, themes and custom code (on new "Advanced" tab).
+* Tested up to WordPress 3.7.
 
 = 2.0.0 =
 

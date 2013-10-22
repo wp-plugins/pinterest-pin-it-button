@@ -50,7 +50,7 @@ function pib_register_settings() {
 				'name' => __( 'Allow Anonymous Usage Tracking', 'pib' ),
 				'desc' => __( 'If checked, this option will enable PressTrends, which is a simple usage tracker that allows us to see how our customers are using our plugins.', 'pib' ) . '<br/>' .
 					__( 'This anonymous data gives us insight on how we can improve our plugins for you. It will not track any user details, so your security and privacy are safe with us.', 'pib' ) . '<br/>' .
-					'<em>' . __( 'If you feel comfortable enabling this option we\'d appreciate your participation. Thanks!', 'pib' ) . '</em>',
+					'<p class="description">' . __( 'If you feel comfortable enabling this option we\'d appreciate your participation. Thanks!', 'pib' ) . '</p>',
 				'type' => 'checkbox'
 			)
 		),
@@ -105,6 +105,18 @@ function pib_register_settings() {
 				'desc' => __( 'Advanced. Will prevent the plugin\'s CSS file from being referenced. Custom CSS above will still be included.', 'pib' ),
 				'type' => 'checkbox'
 			)
+		),
+
+		/* Advanced Settings */
+		'advanced' => array(
+			'no_pinit_js' => array(
+				'id'   => 'no_pinit_js',
+				'name' => __( 'Disable pinit.js', 'pib' ),
+				'desc' => __( 'Disable output of <code>pinit.js</code>, the JavaScript file for all widgets from Pinterest.', 'pib' ) .
+					'<p class="description">' . __( 'Check this option if you have <code>pinit.js</code> referenced in another plugin, widget or your theme. ' .
+					'Ouputting <code>pinit.js</code> more than once on a page can cause conflicts.', 'pib' ) . '</p>',
+				'type' => 'checkbox'
+			),
 		)
 	);
 
@@ -119,6 +131,10 @@ function pib_register_settings() {
 
 	if ( false == get_option( 'pib_settings_styles' ) ) {
 		add_option( 'pib_settings_styles' );
+	}
+	
+	if( false == get_option( 'pib_settings_advanced' ) ){
+		add_option( 'pib_settings_advanced' );
 	}
 
 	/* Add the General Settings section */
@@ -177,11 +193,31 @@ function pib_register_settings() {
 			pib_get_settings_field_args( $option, 'styles' )
 		);
 	}
+	
+	/* Add the Advanced Settings section */
+	add_settings_section(
+		'pib_settings_advanced',
+		__( 'Advanced Settings', 'pib' ),
+		'__return_false',
+		'pib_settings_advanced'
+	);
+
+	foreach ( $pib_settings['advanced'] as $option ) {
+		add_settings_field(
+			'pib_settings_advanced[' . $option['id'] . ']',
+			$option['name'],
+			function_exists( 'pib_' . $option['type'] . '_callback' ) ? 'pib_' . $option['type'] . '_callback' : 'pib_missing_callback',
+			'pib_settings_advanced',
+			'pib_settings_advanced',
+			pib_get_settings_field_args( $option, 'advanced' )
+		);
+	}
 
 	/* Register all settings or we will get an error when trying to save */
 	register_setting( 'pib_settings_general',         'pib_settings_general',         'pib_settings_sanitize' );
 	register_setting( 'pib_settings_post_visibility', 'pib_settings_post_visibility', 'pib_settings_sanitize' );
 	register_setting( 'pib_settings_styles',          'pib_settings_styles',          'pib_settings_sanitize' );
+	register_setting( 'pib_settings_advanced',        'pib_settings_advanced',        'pib_settings_sanitize' );
 
 }
 add_action( 'admin_init', 'pib_register_settings' );
@@ -430,6 +466,7 @@ function pib_get_settings() {
 	$general_settings         = is_array( get_option( 'pib_settings_general' ) ) ? get_option( 'pib_settings_general' )  : array();
 	$post_visibility_settings =	is_array( get_option( 'pib_settings_post_visibility' ) ) ? get_option( 'pib_settings_post_visibility' )  : array();
 	$style_settings           = is_array( get_option( 'pib_settings_styles' ) ) ? get_option( 'pib_settings_styles' )  : array();
+	$advanced_settings        = is_array( get_option( 'pib_settings_advanced' ) ) ? get_option( 'pib_settings_advanced' )  : array();
 
-	return array_merge( $general_settings, $post_visibility_settings, $style_settings );
+	return array_merge( $general_settings, $post_visibility_settings, $style_settings, $advanced_settings );
 }
