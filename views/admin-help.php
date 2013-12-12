@@ -81,9 +81,27 @@ if ( ! defined( 'ABSPATH' ) )
 				</tr>
 				<tr>
 					<td>description</td>
-					<td><?php _e( 'Description of the pin', 'pib' ); ?></td>
+					<td><?php _e( 'Description of the pin. Ignored if button_type="any"', 'pib' ); ?></td>
 					<td><?php _e( 'Any string of text', 'pib' ); ?></td>
 					<td>Post/page title</td>
+				</tr>
+				<tr>
+					<td>size</td>
+					<td><?php _e( '"Pin It" button size', 'pib' ); ?></td>
+					<td>small, large</td>
+					<td>small</td>
+				</tr>
+				<tr>
+					<td>shape</td>
+					<td><?php _e( '"Pin It" button shape', 'pib' ); ?></td>
+					<td>rectangular, circular</td>
+					<td>rectangular</td>
+				</tr>
+				<tr>
+					<td>color</td>
+					<td><?php _e( '"Pin It" button color', 'pib' ); ?></td>
+					<td>gray, red, white</td>
+					<td>gray</td>
 				</tr>
 				<tr>
 					<td>align</td>
@@ -94,6 +112,12 @@ if ( ! defined( 'ABSPATH' ) )
 				<tr>
 					<td>remove_div</td>
 					<td><?php _e( 'If true removes surrounding div tag', 'pib' ); ?></td>
+					<td>true, false</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>always_show_count</td>
+					<td><?php _e( 'Will always show the count bubble, even for pages with zero pins', 'pib' ); ?></td>
 					<td>true, false</td>
 					<td>false</td>
 				</tr>

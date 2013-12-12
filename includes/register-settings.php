@@ -39,6 +39,43 @@ function pib_register_settings() {
 					'vertical'   => __( 'Above the Button', 'pib' )
 				)
 			),
+			'show_zero_count' => array(
+				'id'   => 'show_zero_count',
+				'name' => '',
+				'desc' => __( 'Show count bubble when there are zero pins.', 'pib' ),
+				'type' => 'checkbox'
+			),
+			'data_pin_size' => array(
+				'id'      => 'data_pin_size',
+				'name'    => __( 'Button Size', 'pib' ),
+				'desc'    => '',
+				'type'    => 'select',
+				'options' => array(
+					'small' => __( 'Small', 'pib' ),
+					'large' => __( 'Large', 'pib' )
+				)
+			),
+			'data_pin_shape' => array(
+				'id'      => 'data_pin_shape',
+				'name'    => __( 'Button Shape', 'pib' ),
+				'desc'    => '',
+				'type'    => 'select',
+				'options' => array(
+					'rectangular' => __( 'Rectangular', 'pib' ),
+					'circular'    => __( 'Circular', 'pib' )
+				)
+			),
+			'data_pin_color' => array( 
+				'id'      => 'data_pin_color',
+				'name'    => __( 'Button Color', 'pib' ),
+				'desc'    => __( 'Color ignored if button shape is <strong>Circular</strong>.', 'pib' ),
+				'type'    => 'select',
+				'options' => array(
+					'gray'  => __( 'Gray', 'pib' ),
+					'red'   => __( 'Red', 'pib' ),
+					'white' => __( 'White', 'pib' )
+				)
+			),
 			'uninstall_save_settings' => array(
 				'id'   => 'uninstall_save_settings',
 				'name' => __( 'Save Settings', 'pib' ),
@@ -49,8 +86,7 @@ function pib_register_settings() {
 				'id'   => 'presstrends_tracking',
 				'name' => __( 'Allow Anonymous Usage Tracking', 'pib' ),
 				'desc' => __( 'If checked, this option will enable PressTrends, which is a simple usage tracker that allows us to see how our customers are using our plugins.', 'pib' ) . '<br/>' .
-					__( 'This anonymous data gives us insight on how we can improve our plugins for you. It will not track any user details, so your security and privacy are safe with us.', 'pib' ) . '<br/>' .
-					'<p class="description">' . __( 'If you feel comfortable enabling this option we\'d appreciate your participation. Thanks!', 'pib' ) . '</p>',
+					__( 'This anonymous data gives us insight on how we can improve our plugins for you. It will not track any user details, so your security and privacy are safe with us.', 'pib' ),
 				'type' => 'checkbox'
 			)
 		),
@@ -111,12 +147,18 @@ function pib_register_settings() {
 		'advanced' => array(
 			'no_pinit_js' => array(
 				'id'   => 'no_pinit_js',
-				'name' => __( 'Disable pinit.js', 'pib' ),
+				'name' => __( 'Disable <code>pinit.js</code>', 'pib' ),
 				'desc' => __( 'Disable output of <code>pinit.js</code>, the JavaScript file for all widgets from Pinterest.', 'pib' ) .
 					'<p class="description">' . __( 'Check this option if you have <code>pinit.js</code> referenced in another plugin, widget or your theme. ' .
-					'Ouputting <code>pinit.js</code> more than once on a page can cause conflicts.', 'pib' ) . '</p>',
+						'Ouputting <code>pinit.js</code> more than once on a page can cause conflicts.', 'pib' ) . '</p>',
 				'type' => 'checkbox'
-			),
+			)/*,
+-			'use_async' => array(
+-				'id'   => 'use_async',
+-				'name' => __( 'Load <code>pinit.js</code> asynchronously', 'pib' ),
+-				'desc' => __( 'This may improve page load time by loading <code>pinit.js</code> independent of the rest of the page.', 'pib' ) . '</p>',
+-				'type' => 'checkbox'
+			)*/
 		)
 	);
 
@@ -132,7 +174,7 @@ function pib_register_settings() {
 	if ( false == get_option( 'pib_settings_styles' ) ) {
 		add_option( 'pib_settings_styles' );
 	}
-	
+
 	if( false == get_option( 'pib_settings_advanced' ) ){
 		add_option( 'pib_settings_advanced' );
 	}
@@ -193,7 +235,7 @@ function pib_register_settings() {
 			pib_get_settings_field_args( $option, 'styles' )
 		);
 	}
-	
+
 	/* Add the Advanced Settings section */
 	add_settings_section(
 		'pib_settings_advanced',
@@ -273,9 +315,10 @@ function pib_radio_callback( $args ) {
 			$checked = true;
 		elseif ( isset( $args['std'] ) && $args['std'] == $key && ! isset( $pib_options[ $args['id'] ] ) )
 			$checked = true;
-
+		
+		$html .= '<label for="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" class="pib-radio-label">';
 		$html .= '<input name="pib_settings_' . $args['section'] . '[' . $args['id'] . ']" id="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="radio" value="' . $key . '" ' . checked( true, $checked, false ) . '/>' . "\n";
-		$html .= '<label for="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>' . "\n";
+		$html .= $option . '</label>';
 	}
 
 	// Render and style description text underneath if it exists.
@@ -318,8 +361,9 @@ function pib_multicheck_callback( $args ) {
 
 	foreach ( $args['options'] as $key => $option ) {
 		if ( isset( $pib_options[$args['id']][$key] ) ) { $enabled = $option; } else { $enabled = NULL; }
+		$html .= '<label for="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" class="pib-checkbox-label">';
 		$html .= '<input name="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" id="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="checkbox" value="' . $option . '" ' . checked($option, $enabled, false) . '/>' . "\n";
-		$html .= '<label for="pib_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>' . "\n";
+		$html .= $option . '</label>';
 	}
 
 	// Render and style description text underneath if it exists.
@@ -401,6 +445,8 @@ function pib_number_callback( $args ) {
 
 /**
  * Textbox callback function
+ * Valid built-in size CSS class values:
+ * small-text, regular-text, large-text
  */
 function pib_text_callback( $args ) {
 	global $pib_options;
@@ -410,8 +456,8 @@ function pib_text_callback( $args ) {
 	else
 		$value = isset( $args['std'] ) ? $args['std'] : '';
 
-	$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : 'regular';
-	$html = "\n" . '<input type="text" class="' . $size . '-text" id="pib_settings_' . $args['section'] . '[' . $args['id'] . ']" name="pib_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>' . "\n";
+	$size = ( isset( $args['size'] ) && ! is_null( $args['size'] ) ) ? $args['size'] : '';
+	$html = "\n" . '<input type="text" class="' . $size . '" id="pib_settings_' . $args['section'] . '[' . $args['id'] . ']" name="pib_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>' . "\n";
 
 	// Render and style description text underneath if it exists.
 	if ( ! empty( $args['desc'] ) )

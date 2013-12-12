@@ -2,7 +2,7 @@
 Contributors: pderksen, nickyoung87
 Tags: pinterest, pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
 Requires at least: 3.5.2
-Tested up to: 3.7
+Tested up to: 3.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,6 +21,7 @@ No need to copy and paste code throughout your WordPress site.
 * Pre-select an image for the reader to pin.
 * Default to the first image in the post.
 * Specify a specific image to pin per post.
+* Pick from official "Pin It" button colors and sizes.
 * Hide the "Pin It" button on specific posts and pages.
 * Add a "Pin It" button to your sidebar or footer as a widget.
 * Place "Pin It" buttons anywhere using shortcodes.
@@ -34,8 +35,8 @@ No need to copy and paste code throughout your WordPress site.
 * Twitter, Facebook, Google+ & LinkedIn sharing buttons included.
 * Option to pin featured images.
 * Show or hide on custom post types.
-* WooCommerce compatibility
-* Customer support and automatic updates
+* WooCommerce compatibility.
+* Customer support and automatic updates.
 
 [Start Getting Pinned Like Crazy with "Pin It" Button Pro!](http://pinterestplugin.com/pin-it-button-pro/?utm_source=wordpress_org&utm_medium=link&utm_campaign=pin_it_button_lite)
 
@@ -120,6 +121,13 @@ CSS styling and shortcode help available within the plugin admin.
 7. Individual post (post meta) settings
 
 == Changelog ==
+
+= 2.0.2 =
+
+* Added options for colors, sizes and shapes based on Pinterest's official widget builder.
+* Added an option to show count bubble even for zero count pins.
+* Minor bug fixes.
+* Tested up to WordPress 3.8.
 
 = 2.0.1 =
 

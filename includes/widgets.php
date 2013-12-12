@@ -46,6 +46,9 @@ class PIB_Widget extends WP_Widget {
 		$align                  = empty( $instance['button_align'] ) ? 'none' : $instance['button_align'];
 		$pib_remove_div         = (bool) $instance['remove_div'];
 		$button_type            = empty ( $instance['button_type'] ) ? 'user_selects_image' : $instance['button_type'];
+		$size                   = ( ! empty( $instance['size'] ) ? $instance['size'] : 'small' );
+		$color                  = ( ! empty( $instance['color'] ) ? $instance['color'] : 'gray' );
+		$shape                  = ( ! empty( $instance['shape'] ) ? $instance['shape'] : 'rectangular' );
 		
 		// If the button type is set for users to select image then we need to overwrite any values from the widget that are used
 		// for displaying a a pre-selected image. These are not erased from the widget, but are just overwritten here.
@@ -55,7 +58,7 @@ class PIB_Widget extends WP_Widget {
 			$pib_description_widget    = '';
 		}
         
-		$base_btn = pib_button_base( $button_type, $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout );
+		$base_btn = pib_button_base( $button_type, $pib_url_of_webpage_widget, $pib_url_of_img_widget, $pib_description_widget, $count_layout, $size, $color, $shape );
 		
 		echo $before_widget;
         
@@ -98,6 +101,9 @@ class PIB_Widget extends WP_Widget {
 		$instance['button_align']              = $new_instance['align'];
         $instance['remove_div']                = ( $new_instance['remove_div'] ? 1 : 0 );
 		$instance['button_type']               = $new_instance['button_type'];
+		$instance['size']                      = $new_instance['size'];
+		$instance['color']                     = $new_instance['color'];
+		$instance['shape']                     = $new_instance['shape'];
         
 		return $instance;
 	}
@@ -113,7 +119,10 @@ class PIB_Widget extends WP_Widget {
 			'pib_url_of_img_widget'     => '',
 			'pib_description_widget'    => '',
 			'button_align'              => 'none',
-			'remove_div'                => 0
+			'remove_div'                => 0,
+			'size'                      => 'small',
+			'color'                     => 'gray',
+			'shape'                     => 'rectangular'
 		);
         
 		$instance = wp_parse_args( (array) $instance, $default );
@@ -135,6 +144,31 @@ class PIB_Widget extends WP_Widget {
 				<option value="none" <?php selected( $instance['count_layout'], 'none' ); ?>><?php _e( 'Not Shown', 'pib' ); ?></option>
 				<option value="horizontal" <?php selected( $instance['count_layout'], 'horizontal' ); ?>><?php _e( 'Beside the Button', 'pib' ); ?></option>
 				<option value="vertical" <?php selected( $instance['count_layout'], 'vertical' ); ?>><?php _e( 'Above the Button', 'pib' ); ?></option>
+			</select>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id( 'size' ); ?>"><?php _e( 'Size:', 'pib' ); ?></label>
+			<select name="<?php echo $this->get_field_name( 'size' ); ?>" id="<?php echo $this->get_field_id( 'size' ); ?>">
+				<option value="small" <?php selected( $instance['size'], 'small' ); ?>><?php _e( 'Small', 'pib' ); ?></option>
+				<option value="large" <?php selected( $instance['size'], 'large' ); ?>><?php _e( 'Large', 'pib' ); ?></option>
+			</select>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id( 'shape' ); ?>"><?php _e( 'Shape:', 'pib' ); ?></label>
+			<select name="<?php echo $this->get_field_name( 'shape' ); ?>" id="<?php echo $this->get_field_id( 'shape' ); ?>">
+				<option value="rectangular" <?php selected( $instance['shape'], 'rectangular' ); ?>><?php _e( 'Rectangular', 'pib' ); ?></option>
+				<option value="circular" <?php selected( $instance['shape'], 'circular' ); ?>><?php _e( 'Circular', 'pib' ); ?></option>
+			</select>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id( 'color' ); ?>"><?php _e( 'Color:', 'pib' ); ?></label>
+			<select name="<?php echo $this->get_field_name( 'color' ); ?>" id="<?php echo $this->get_field_id( 'color' ); ?>">
+				<option value="gray" <?php selected( $instance['color'], 'gray' ); ?>><?php _e( 'Gray', 'pib' ); ?></option>
+				<option value="red" <?php selected( $instance['color'], 'red' ); ?>><?php _e( 'Red', 'pib' ); ?></option>
+				<option value="white" <?php selected( $instance['color'], 'white' ); ?>><?php _e( 'White', 'pib' ); ?></option>
 			</select>
 		</p>
 
