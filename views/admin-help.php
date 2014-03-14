@@ -19,8 +19,7 @@ if ( ! defined( 'ABSPATH' ) )
 	<div id="pib-settings">
 		<div id="pib-settings-content">
 
-			<?php screen_icon( 'pinterest-32' ); ?>
-			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<h2><img src="<?php echo PIB_PLUGIN_URL; ?>assets/pinterest-icon-32.png" style="vertical-align: bottom;" /> <?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 			<p>
 				<?php _e( 'Plugin version', 'pib' ); ?>: <strong><?php echo PIB_VERSION; ?></strong>
@@ -207,6 +206,15 @@ if ( ! defined( 'ABSPATH' ) )
 				<li><code>div.pin-it-btn-wrapper-widget a { border: 1px solid red; }</code> - <?php _e( 'Add red border around widget button', 'pib' ); ?></li>
 			</ul>
 
+			<p>
+				<?php printf( __( 'Need more widgets? Check out our free <a href="%s">Pinterest Widgets</a> plugin.', 'pib' ),
+					add_query_arg( array(
+						'tab'  => 'search',
+						'type' => 'term',
+						's'    => urlencode('pinterest widgets')
+					), admin_url( 'plugin-install.php' ) )
+				); ?>
+			</p>
 			<p>
 				<?php printf( __( 'Visit the <a href="%s" target="_blank">Knowledgebase</a> for additional help.', 'pib' ), 'http://pinterestplugin.com/support' ); ?>
 			</p>

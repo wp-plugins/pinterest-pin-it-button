@@ -12,7 +12,12 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
-// Add Custom CSS.
+
+/**
+ * Add Custom CSS.
+ *
+ * @since 2.0.0
+ */
 function pib_add_custom_css() {
 	global $pib_options;
 
@@ -28,15 +33,18 @@ function pib_add_custom_css() {
 }
 add_action( 'wp_head', 'pib_add_custom_css' );
 
-// Function for rendering "Pin It" button base html.
-// HTML comes from Pinterest Widget Builder 7/10/2013.
-// http://business.pinterest.com/widget-builder/#do_pin_it_button
-// Sample HTML from widget builder:
-/*
-<a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="above">
-	<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
-</a>
-*/
+
+/**
+ * Function for rendering "Pin It" button base html.
+ * HTML comes from Pinterest Widget Builder 7/10/2013.
+ * http://business.pinterest.com/widget-builder/#do_pin_it_button
+ * Sample HTML from widget builder:
+ * <a href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&description=Next%20stop%3A%20Pinterest" data-pin-do="buttonPin" data-pin-config="above">
+ *		<img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+ * </a>
+ *
+ * @since 2.0.0
+ */
 function pib_button_base( $button_type, $post_url, $image_url, $description, $count_layout, $size, $color, $shape, $show_zero_count = null ) {
 	global $pib_options;
 	global $post;
@@ -46,7 +54,8 @@ function pib_button_base( $button_type, $post_url, $image_url, $description, $co
 	$btn_img_url = '//assets.pinterest.com/images/pidgets/pin_it_button.png';
 
 	// Add "Pin It" title attribute.
-	$inner_btn_html = '<img src="' . $btn_img_url . '" title="Pin It" />';
+	// Also add our own data attribute to track pin it button images.
+	$inner_btn_html = '<img src="' . $btn_img_url . '" title="Pin It" data-pib-button="true" />';
 
 	// Set data attribute for button style.
 	if ( $button_type == 'image_selected' )
@@ -108,9 +117,7 @@ function pib_button_base( $button_type, $post_url, $image_url, $description, $co
 		// Check main settings option and set accordingly
 		$display_zero = ( ! empty( $pib_options['show_zero_count'] ) ? 'data-pin-zero="true" ' : ' ' );
 	}
-	
-	
-	
+
 	// Full link html with data attributes.
 	// Add rel="nobox" to prevent lightbox popup.
 	$link_html = '<a href="' . $link_href . '" ' .
@@ -126,8 +133,13 @@ function pib_button_base( $button_type, $post_url, $image_url, $description, $co
 	return $link_html;
 }
 
-// Button HTML to render for pages, posts, and excerpts.
-function pib_button_html( $image_url = '' ) {
+/**
+ * Button HTML to render for pages, posts, and excerpts.
+ *
+ * @since 2.0.0
+ * 
+ */
+function pib_button_html( $image_url = '', $button_type = '' ) {
 	global $pib_options;
 	global $post;
 	$postID = $post->ID;
@@ -149,17 +161,37 @@ function pib_button_html( $image_url = '' ) {
 	$size = ( ! empty( $pib_options['data_pin_size'] ) ? $pib_options['data_pin_size'] : '' );
 	$color = ( ! empty( $pib_options['data_pin_color'] ) ? $pib_options['data_pin_color'] : '' );
 	$shape = ( ! empty( $pib_options['data_pin_shape'] ) ? $pib_options['data_pin_shape'] : '' );
+	
+	if( empty( $button_type  ) ) {
+		$button_type = $pib_options['button_type'];
+	}
 
-	$base_btn = pib_button_base( $pib_options['button_type'], $post_url, $image_url, $description, $count_layout, $size, $color, $shape );
+	$base_btn = pib_button_base( $button_type, $post_url, $image_url, $description, $count_layout, $size, $color, $shape );
 
 	// Don't wrap with div if using other sharing buttons or "remove div" is checked.
 	if ( ! empty( $pib_options['remove_div'] ) )
-		return $base_btn;
+		$html = $base_btn;
 	else
-		return '<div class="pin-it-btn-wrapper">' . $base_btn . '</div>'; // Surround with div tag
+		$html = '<div class="pin-it-btn-wrapper">' . $base_btn . '</div>'; // Surround with div tag
+	
+	
+	$before_html = '';
+	$after_html  = '';
+	
+	$before_html = apply_filters( 'pib_button_before', $before_html );
+	$html        = apply_filters( 'pib_button_html', $html );
+	$after_html  = apply_filters( 'pib_button_after', $after_html );
+	
+	
+	return $before_html . $html . $after_html;
 }
 
-//Render button HTML on pages with regular content.
+/**
+ * Render button HTML on pages with regular content.
+ *
+ * @since 2.0.0
+ * 
+ */
 function pib_render_content( $content ) {
 	global $pib_options;
 	global $post;
@@ -171,7 +203,7 @@ function pib_render_content( $content ) {
 	if (
 	   ( is_home() && ( ! empty( $pib_options['post_page_types']['display_home_page'] ) ) ) ||
 	   ( is_front_page() && ( ! empty( $pib_options['post_page_types']['display_front_page'] ) ) ) ||
-		( is_single() && ( ! empty( $pib_options['post_page_types']['display_posts'] ) ) ) ||
+	   ( is_single() && ( ! empty( $pib_options['post_page_types']['display_posts'] ) ) ) ||
 	   ( is_page() && ( ! empty( $pib_options['post_page_types']['display_pages'] ) ) && !is_front_page() ) ||
 
 	   //archive pages besides categories (tag, author, date, search)
@@ -190,9 +222,14 @@ function pib_render_content( $content ) {
 
 	return $content;
 }
-add_filter( 'the_content', 'pib_render_content' );
+add_filter( 'the_content', 'pib_render_content', 100 );
 
-// Render button HTML on pages with excerpts if option checked.
+/**
+ * Render button HTML on pages with excerpts if option checked.
+ *
+ * @since 2.0.0
+ * 
+ */
 function pib_render_content_excerpt( $content ) {
 	global $pib_options;
 	global $post;
@@ -217,4 +254,4 @@ function pib_render_content_excerpt( $content ) {
 
 	return $content;
 }
-add_filter( 'the_excerpt', 'pib_render_content_excerpt' );
+add_filter( 'the_excerpt', 'pib_render_content_excerpt', 100 );

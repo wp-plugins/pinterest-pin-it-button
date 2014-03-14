@@ -1,8 +1,8 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen, nickyoung87
-Tags: pinterest, pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
-Requires at least: 3.5.2
-Tested up to: 3.8
+Tags: pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
+Requires at least: 3.6.1
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,7 +66,7 @@ This plugin (as well as the Pro version) is in full compliance with the [officia
 
 This plugin utilizes the code output from the [official "Pin It" button widget builder](http://business.pinterest.com/widget-builder/#do_pin_it_button).
 
-Want to take a peek at the source? [Check out this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button).
+[Follow this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button).
 
 == Installation ==
 
@@ -74,7 +74,7 @@ You can install this plugin one of three ways:
 
 = 1. Admin Search =
 1. In your Admin, go to menu Plugins > Add.
-1. Search for `pin it button`.
+1. Search for `Pin It Button`.
 1. Find the plugin that's labeled `Pinterest "Pin It" Button` with "Pin It" in quotes.
 1. Look for the author name `Phil Derksen` on the plugin.
 1. Click to install.
@@ -122,6 +122,13 @@ CSS styling and shortcode help available within the plugin admin.
 
 == Changelog ==
 
+= 2.0.3 =
+
+* Added action and filter hooks for extensibility.
+* Fixed a bug with upgrade code being called multiple times.
+* Removed PressTrends integration.
+* Tested up to WordPress 3.9.
+
 = 2.0.2 =
 
 * Added options for colors, sizes and shapes based on Pinterest's official widget builder.
@@ -150,9 +157,11 @@ CSS styling and shortcode help available within the plugin admin.
 * Optional Presstrends anonymous usage tracking.
 
 = 1.4.3 =
+
 * Fixed bug where Create Pin popup wasn't working in some cases.
 
 = 1.4.2 =
+
 * Tested with WordPress 3.5.
 * Added: Option to save settings upon plugin uninstall.
 * Changed: Removed "Always show pin count" option as it's no longer supported by Pinterest.
@@ -164,15 +173,18 @@ CSS styling and shortcode help available within the plugin admin.
 * Fixed: Various minor bug fixes.
 
 = 1.4.1 =
+
 * Fixed: Various shortcode fixes.
 * Fixed: Moved some JavaScript files that were loaded in the footer to now load in the header to improve compatibility with themes not implementing wp_footer().
 * Fixed: Updated button CSS/styles to improve compatibility with more themes.
 
 = 1.4.0 =
+
 * Changed/Fixed: Iframe removed when button set to "User selects image". Fixes security issues and display errors on some web hosts.
 * Added: Displays new features available if upgrading "Pin It" Button Pro
 
 = 1.3.1 =
+
 * Changed: Modified button JavaScript to be in line with Pinterest's current button embed JavaScript
 * Changed: Split up internal code files for easier maintenance and updates
 * Fixed: Shortcode -- If the attributes "url", "image_url" and/or "description" aren't specified, it will try and use the post's custom page url, image url and/or description if found. If not found it will default to the post's url, first image in post and post title.
@@ -180,6 +192,7 @@ CSS styling and shortcode help available within the plugin admin.
 * Fixed: Uninstall now removes custom post meta fields
 
 = 1.3.0 =
+
 * Added: Added a Pin Count option (horizontal or vertical)
 * Added: Added new button style where image is pre-selected (like official Pinterest button)
 * Added: Added fields for specifying URL, image URL and description for new button style **image pre-selected**
@@ -194,9 +207,11 @@ CSS styling and shortcode help available within the plugin admin.
 * Fixed: Fixed bug where tag, author, date and search archive pages were not displaying the button
 
 = 1.2.1 =
+
 * Fixed: Fixed bug with hiding posts/pages/categories when upgrading from a previous version
 
 = 1.2.0 =
+
 * Added: Added option to hide button per page/post
 * Added: Added option to hide button per category
 * Added: Added widget to display "Pin It" button
@@ -204,37 +219,47 @@ CSS styling and shortcode help available within the plugin admin.
 * Fixed: Fixed CSS where some blogs weren't displaying the button properly
 
 = 1.1.3 =
+
 * Added: Added option to hide button on individual posts and pages (on post/page editing screen)
 
 = 1.1.2 =
+
 * Fixed: Removed use of session state storing for now as it caused errors for some
 
 = 1.1.1 =
+
 * Fixed: Updated jQuery coding method to avoid JavaScript conflicts with other plugins and themes some were getting
 
 = 1.1.0 =
+
 * Added: Added custom CSS area for advanced layout and styling
 * Added: Added checkbox option to remove the button's surrounding `<div>` tag
 * Added: Button image and style updated to match Pinterest's current embed code
 * Fixed: Changed the way the button click is called to solve pinning issues in Internet Explorer
 
 = 1.0.2 =
+
 * Added: Added checkbox option to display/hide button on post excerpts
 * Fixed: "Pin It" links generated by the shortcode should not show up when viewing the post in RSS readers
 
 = 1.0.1 =
+
 * Added: Added checkbox option to display/hide button on "front page" (sometimes different than home page)
 
 = 1.0.0 =
+
 * Added: Added checkbox options to select what types of pages the button should appear on
 * Added: Display options above and below content are now checkboxes (one or both can be selected)
 * Added: Added shortcode [pinit] to display button within content
 
 = 0.1.2 =
+
 * Changed: Moved javascript that fires on button click to a separate file
 
 = 0.1.1 =
+
 * Fixed style sheet reference
 
 = 0.1.0 =
+
 * Initial release

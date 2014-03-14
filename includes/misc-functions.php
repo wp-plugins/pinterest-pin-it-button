@@ -12,6 +12,18 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
+
+/* 
+ * Reusable variables
+ * 
+ * @since 2.0.3
+ */
+global $pib_vars;
+
+$pib_vars['cache_message']     = 'If you have caching enabled please empty it before viewing your changes.';
+$pib_vars['post_meta_message'] = '';
+
+
 /**
  * Google Analytics campaign URL.
  *
@@ -42,7 +54,6 @@ function pib_ga_campaign_url( $base_url, $source, $medium, $campaign ) {
  *
  * @since   2.0.0
  */
-
 function pib_rss_news() {
 	// Get RSS Feed(s).
 	include_once( ABSPATH . WPINC . '/feed.php' );

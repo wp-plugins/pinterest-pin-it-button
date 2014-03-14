@@ -12,8 +12,18 @@
 if ( ! defined( 'ABSPATH' ) )
 	exit;
 
+/**
+ *  Class functions for the Pin It Button widgets
+ *
+ * @since 2.0.0
+ */
 class PIB_Widget extends WP_Widget {
 	
+	/**
+	* Initialize the widget
+	*
+	* @since 2.0.0
+	*/
 	public function __construct() {
 		parent::__construct(
 			'pib_button',
@@ -26,7 +36,12 @@ class PIB_Widget extends WP_Widget {
 			array( 'width' => 400 )
 		);
 	}
-
+	
+	/**
+	* Public facing widget code
+	*
+	* @since 2.0.0
+	*/
 	public function widget( $args, $instance ) {
         global $pib_options;
 		extract( $args );
@@ -67,7 +82,7 @@ class PIB_Widget extends WP_Widget {
         }
 		
 		if ( $pib_remove_div ) {
-			echo $base_btn;
+			$html = $base_btn;
 		}
 		else {
 			
@@ -84,12 +99,23 @@ class PIB_Widget extends WP_Widget {
 			}
 			
 			// Surround with div tag
-			echo '<div class="pin-it-btn-wrapper-widget ' . $align_class . '">' . $base_btn . '</div>';
+			$html = '<div class="pin-it-btn-wrapper-widget ' . $align_class . '">' . $base_btn . '</div>';
 		}
+		
+		do_action( 'pib_widget_before' );
+		
+		echo apply_filters( 'pib_widget_html', $html );
+		
+		do_action( 'pib_widget_after' );
 		
 		echo $after_widget;
 	}
-
+	
+	/**
+	* Update the widget settings from user input
+	*
+	* @since 2.0.0
+	*/
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		
@@ -107,7 +133,12 @@ class PIB_Widget extends WP_Widget {
         
 		return $instance;
 	}
-
+	
+	/**
+	* Display widget settings in admin
+	*
+	* @since 2.0.0
+	*/
 	public function form( $instance ) {
         global $pib_options;
 		
@@ -226,5 +257,4 @@ class PIB_Widget extends WP_Widget {
         <?php
 	}
 }
-
 add_action( 'widgets_init', create_function( '', 'register_widget("PIB_Widget");' ) );
