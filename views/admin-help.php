@@ -9,8 +9,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 ?>
 
@@ -216,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) )
 				); ?>
 			</p>
 			<p>
-				<?php printf( __( 'Visit the <a href="%s" target="_blank">Knowledgebase</a> for additional help.', 'pib' ), 'http://pinterestplugin.com/support' ); ?>
+				<?php printf( __( 'Visit the <a href="%s" target="_blank">Knowledgebase</a> for additional help.', 'pib' ), PINPLUGIN_BASE_URL . 'support' ); ?>
 			</p>
 
 		</div><!-- #pib-settings-content -->

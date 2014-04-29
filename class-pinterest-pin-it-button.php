@@ -8,8 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 class Pinterest_Pin_It_Button {
 
@@ -27,7 +28,7 @@ class Pinterest_Pin_It_Button {
 	 * and README.txt changelog
 	 **************************************/
 
-	protected $version = '2.0.3';
+	protected $version = '2.0.4';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -115,7 +116,7 @@ class Pinterest_Pin_It_Button {
 	 */
 	public function check_wp_version() {
 		global $wp_version;
-		$required_wp_version = '3.5.2';
+		$required_wp_version = '3.6.1';
 		
 		if ( version_compare( $wp_version, $required_wp_version, '<' ) ) {
 			deactivate_plugins( PIB_MAIN_FILE ); 
@@ -147,20 +148,28 @@ class Pinterest_Pin_It_Button {
 	 */
 	public function setup_constants() {
 		// Plugin slug.
-		if ( ! defined( 'PIB_PLUGIN_SLUG' ) )
+		if ( ! defined( 'PIB_PLUGIN_SLUG' ) ) {
 			define( 'PIB_PLUGIN_SLUG', $this->plugin_slug );
+		}
 
 		// Plugin version.
-		if ( ! defined( 'PIB_VERSION' ) )
+		if ( ! defined( 'PIB_VERSION' ) ) {
 			define( 'PIB_VERSION', $this->version );
+		}
 
 		// Plugin title.
-		if ( ! defined( 'PIB_PLUGIN_TITLE' ) )
+		if ( ! defined( 'PIB_PLUGIN_TITLE' ) ) {
 			define( 'PIB_PLUGIN_TITLE', $this->get_plugin_title() );
+		}
 
 		// Plugin folder URL.
-		if ( ! defined( 'PIB_PLUGIN_URL' ) )
+		if ( ! defined( 'PIB_PLUGIN_URL' ) ) {
 			define( 'PIB_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+		}
+		
+		if( ! defined( 'PINPLUGIN_BASE_URL' ) ) {
+			define( 'PINPLUGIN_BASE_URL', 'http://pinplugins.com/' );
+		}
 	}
 
 	/**
@@ -251,11 +260,14 @@ class Pinterest_Pin_It_Button {
 	 */
 	public function enqueue_styles() {
 		global $pib_options;
-
-		// Check to see if setting to disable is true first.
-		if ( empty( $pib_options['disable_css'] ) ) {
-			wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
+		
+		if( ! in_array( 'no_buttons', pib_render_button() ) ) {
+			// Check to see if setting to disable is true first.
+			if ( empty( $pib_options['disable_css'] ) ) {
+				wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
+			}
 		}
+		
 	}
 
 	/**
@@ -265,12 +277,14 @@ class Pinterest_Pin_It_Button {
 	 */
 	public function enqueue_scripts() {
 		global $pib_options;
-
-		// If this option is empty then it means we can load the pinit.js, otherwise do not load it
-		if( empty( $pib_options['no_pinit_js'] ) ) {
-			// Enqueue Pinterest JS plugin boilerplate style. Don't tack on plugin version.
-			// We DO NOT include the plugin slug here. This is so that this can be uniform across all of our plugins
-			wp_enqueue_script( 'pinterest-pinit-js', '//assets.pinterest.com/js/pinit.js', array(), null, true );
+		
+		if( ! in_array( 'no_buttons', pib_render_button() ) ) {
+			// If this option is empty then it means we can load the pinit.js, otherwise do not load it
+			if( empty( $pib_options['no_pinit_js'] ) ) {
+				// Enqueue Pinterest JS plugin boilerplate style. Don't tack on plugin version.
+				// We DO NOT include the plugin slug here. This is so that this can be uniform across all of our plugins
+				wp_enqueue_script( 'pinterest-pinit-js', '//assets.pinterest.com/js/pinit.js', array(), null, true );
+			}
 		}
 	}
 
@@ -351,6 +365,8 @@ class Pinterest_Pin_It_Button {
 			'pib_url_of_img',
 			'pib_description'
 		);
+		
+		$post_meta_fields = apply_filters( 'pib_post_meta_fields', $post_meta_fields );
 
 		// Record sharing disable
 

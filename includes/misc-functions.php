@@ -9,8 +9,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 
 /* 
@@ -49,7 +50,7 @@ function pib_ga_campaign_url( $base_url, $source, $medium, $campaign ) {
 }
 
 /**
- * Render RSS items from pinterestplugin.com in unordered list.
+ * Render RSS items from pinplugins.com in unordered list.
  * http://codex.wordpress.org/Function_Reference/fetch_feed
  *
  * @since   2.0.0
@@ -59,7 +60,7 @@ function pib_rss_news() {
 	include_once( ABSPATH . WPINC . '/feed.php' );
 
 	// Get a SimplePie feed object from the specified feed source.
-	$rss = fetch_feed( 'http://pinterestplugin.com/feed/' );
+	$rss = fetch_feed( PINPLUGIN_BASE_URL . 'feed/' );
 
 	if ( ! is_wp_error( $rss ) ) {
 		// Checks that the object is created correctly.
@@ -138,4 +139,54 @@ function pib_is_article_rich_pins_active() {
  */
 function pib_is_wc_rich_pins_active() {
 	return class_exists( 'WooCommerce_Rich_Pins' );
+}
+
+
+/**
+ * Check if we should render the Pinterest button
+ *
+ * @since   2.0.2
+ *
+ * @return  boolean
+ */
+function pib_render_button() {
+	global $pib_options, $post;
+	
+	$return = array();
+	
+	//Determine if button displayed on current page from main admin settings
+	if (
+			( is_home() && ( ! empty( $pib_options['post_page_types']['display_home_page'] ) ) ) ||
+			( is_front_page() && ( ! empty( $pib_options['post_page_types']['display_front_page'] ) ) ) ||
+			( is_single() && ( ! empty( $pib_options['post_page_types']['display_posts'] ) ) ) ||
+			( is_page() && ( ! empty( $pib_options['post_page_types']['display_pages'] ) ) && !is_front_page() ) ||
+
+			//archive pages besides categories (tag, author, date, search)
+			//http://codex.wordpress.org/Conditional_Tags
+			( is_archive() && ( ! empty( $pib_options['post_page_types']['display_archives'] ) ) &&
+			   ( is_tag() || is_author() || is_date() || is_search() || is_category() )
+			)
+		) {
+			// Make sure the button is enabled for this post via post meta setting
+			if( ! ( get_post_meta( $post->ID, 'pib_sharing_disabled', 1 ) ) ) {
+				$return[] = 'button';
+			}
+			
+		}
+		
+	// Check if a shortcode exists
+	if( has_shortcode( $post->post_content, 'pinit' ) ) {
+		$return[] = 'shortcode';
+	}
+	
+	// Check if there is a widget
+	if( is_active_widget( false, false, 'pib_button', true ) ) {
+		$return[] = 'widget';
+	}
+	
+	if( empty( $return ) ) {
+		$return[] = 'no_buttons';
+	}
+	
+	return $return;
 }

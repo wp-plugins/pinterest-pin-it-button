@@ -9,8 +9,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 
 /**
@@ -20,15 +21,17 @@ if ( ! defined( 'ABSPATH' ) )
  */
 function pib_add_custom_css() {
 	global $pib_options;
+	
+	if( ! in_array( 'no_buttons', pib_render_button() ) ) {
+		// Only add the custom CSS if it actually exists.
+		if ( ! empty( $pib_options['custom_css'] ) ) {
+			$custom_css = trim( $pib_options['custom_css'] );
 
-	// Only add the custom CSS if it actually exists.
-	if ( ! empty( $pib_options['custom_css'] ) ) {
-		$custom_css = trim( $pib_options['custom_css'] );
-
-		echo "\n" .
-			'<style type="text/css">' . "\n" .
-			$custom_css . "\n" . // Render custom CSS.
-			'</style>' . "\n";
+			echo "\n" .
+				'<style type="text/css">' . "\n" .
+				$custom_css . "\n" . // Render custom CSS.
+				'</style>' . "\n";
+		}
 	}
 }
 add_action( 'wp_head', 'pib_add_custom_css' );
@@ -90,11 +93,21 @@ function pib_button_base( $button_type, $post_url, $image_url, $description, $co
 	// Set description to post title if still blank.
 	if ( empty( $description ) )
 		$description = get_the_title( $postID );
+	
+	$utm = '';
+	$utm_meta = get_post_meta( $post->ID, 'pib_utm_meta', true );
+	
+	if( ! empty( $utm_meta ) ) {
+		$utm = clean_and_encode_utm( $post_url, $utm_meta );
+	} else if( ! empty( $pib_options['utm_string'] ) ) {
+		$utm = clean_and_encode_utm( $post_url, $pib_options['utm_string'] );
+	}
+	
 
 	// Link href always needs all the parameters in it for the count bubble to work.
 	// Pinterest points out to use protocol-agnostic URL for popup.
 	$link_href = '//www.pinterest.com/pin/create/button/' .
-		'?url='         . rawurlencode( $post_url ) .
+		'?url='         . rawurlencode( $post_url ) . $utm .
 		'&media='       . rawurlencode( $image_url ) .
 		'&description=' . rawurlencode( wp_strip_all_tags( $description ) );
 	
@@ -200,18 +213,7 @@ function pib_render_content( $content ) {
 		return $content;
 	
 	//Determine if button displayed on current page from main admin settings
-	if (
-	   ( is_home() && ( ! empty( $pib_options['post_page_types']['display_home_page'] ) ) ) ||
-	   ( is_front_page() && ( ! empty( $pib_options['post_page_types']['display_front_page'] ) ) ) ||
-	   ( is_single() && ( ! empty( $pib_options['post_page_types']['display_posts'] ) ) ) ||
-	   ( is_page() && ( ! empty( $pib_options['post_page_types']['display_pages'] ) ) && !is_front_page() ) ||
-
-	   //archive pages besides categories (tag, author, date, search)
-	   //http://codex.wordpress.org/Conditional_Tags
-	   ( is_archive() && ( ! empty( $pib_options['post_page_types']['display_archives'] ) ) &&
-		  ( is_tag() || is_author() || is_date() || is_search() || is_category() )
-	   )
-	  ) {
+	if ( in_array( 'button', pib_render_button() ) ) {
 	   if ( ! empty( $pib_options['post_page_placement']['display_above_content'] ) ) {
 		  $content = pib_button_html() . $content;
 	   }
@@ -255,3 +257,6 @@ function pib_render_content_excerpt( $content ) {
 	return $content;
 }
 add_filter( 'the_excerpt', 'pib_render_content_excerpt', 100 );
+
+
+
