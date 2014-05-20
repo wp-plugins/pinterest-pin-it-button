@@ -122,6 +122,11 @@ CSS styling and shortcode help available within the plugin admin.
 
 == Changelog ==
 
+= 2.0.5 =
+
+* Fixed a bug with shortcode buttons not enqueueing CSS & JS correctly.
+* Fixed a bug with some characters (such as single quotes) rendering HTML codes in the pin description.
+
 = 2.0.4 =
 
 * Various performance enhancements.
