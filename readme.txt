@@ -1,8 +1,8 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen, nickyoung87
 Tags: pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
-Requires at least: 3.6.1
-Tested up to: 3.9
+Requires at least: 3.7.4
+Tested up to: 4.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -121,6 +121,11 @@ CSS styling and shortcode help available within the plugin admin.
 7. Individual post (post meta) settings
 
 == Changelog ==
+
+= 2.0.7 =
+
+* Tested with WordPress 4.0.
+* Button will now pin full size image instead of thumbnail.
 
 = 2.0.6 =
 
