@@ -28,7 +28,7 @@ class Pinterest_Pin_It_Button {
 	 * and README.txt changelog
 	 **************************************/
 
-	protected $version = '2.0.6';
+	protected $version = '2.0.7';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -201,6 +201,11 @@ class Pinterest_Pin_It_Button {
 
 		// Include the file to register all of the plugin settings.
 		include_once( 'includes/register-settings.php' );
+		
+		// Include simplehtmldom
+		if( ! class_exists( 'simple_html_dom_node' ) ) {
+			include_once( 'includes/simple_html_dom.php' );
+		}
 
 		// Load global options settings.
 		$pib_options = pib_get_settings();
@@ -290,12 +295,21 @@ class Pinterest_Pin_It_Button {
 	public function add_plugin_admin_menu() {
 		// Add main menu item
 		$this->plugin_screen_hook_suffix[] = add_menu_page(
-			$this->get_plugin_title() . __( ' Settings', 'pib' ),
+			$this->get_plugin_title() . ' ' . __( 'Settings', 'pib' ),
 			__( 'Pin It Button', 'pib' ),
 			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' ),
 			plugins_url( 'assets/pinterest-icon-16.png', __FILE__ )
+		);
+		
+		$this->plugin_screen_hook_suffix[] = add_submenu_page(
+			$this->plugin_slug,
+			$this->get_plugin_title() . ' ' . __( 'Settings', 'pib' ),
+			__( 'Settings', 'pib' ),
+			'manage_options',
+			$this->plugin_slug,
+			array( $this, 'display_plugin_admin_page' )
 		);
 
 		// Add Help submenu page
