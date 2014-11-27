@@ -28,7 +28,7 @@ class Pinterest_Pin_It_Button {
 	 * and README.txt changelog
 	 **************************************/
 
-	protected $version = '2.0.7';
+	protected $version = '2.0.8';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -75,6 +75,9 @@ class Pinterest_Pin_It_Button {
 	private function __construct() {
 		// Setup constants.
 		$this->setup_constants();
+		
+		// Load plugin text domain
+		add_action( 'plugins_loaded', array( $this, 'plugin_textdomain' ) );
 
 		// Run our upgrade checks first and update our version option.
 		if( ! get_option( 'pib_upgrade_has_run' ) ) {
@@ -105,8 +108,25 @@ class Pinterest_Pin_It_Button {
 		// Add plugin listing "Settings" action link.
 		add_filter( 'plugin_action_links_' . plugin_basename( plugin_dir_path( __FILE__ ) . $this->plugin_slug . '.php' ), array( $this, 'settings_link' ) );
 		
+		// Add upgrade link (if not already in Pro).
+		if ( ! class_exists( 'Pinterest_Pin_It_Button_Pro' ) ) {
+			add_filter( 'plugin_action_links_' . plugin_basename( plugin_dir_path( __FILE__ ) . $this->plugin_slug . '.php' ), array( $this, 'purchase_pro_link' ) );
+			add_action( 'init', array( $this, 'admin_upgrade_link' ) );
+		}
+		
 		// Check WP version
 		add_action( 'admin_init', array( $this, 'check_wp_version' ) );
+	}
+	
+	/**
+	 * Add "Upgrade to Pro" submenu link
+	 * 
+	 * @since 
+	 */
+	function admin_upgrade_link() {
+		if( is_admin() ) {
+			include_once( 'includes/upgrade-link.php' );
+		}
 	}
 	
 	/**
@@ -416,6 +436,13 @@ class Pinterest_Pin_It_Button {
 
 		return $links;
 	}
+	
+	public function purchase_pro_link( $links ) {
+		$pro_link = sprintf( '<a href="%s">%s</a>', pib_ga_campaign_url( PINPLUGIN_BASE_URL . 'pin-it-button-pro/', 'pib_lite_2', 'plugin_listing', 'pro_upgrade' ), __( 'Purchase Pro', 'sc' ) );
+		array_push( $links, $pro_link );
+		
+		return $links;
+	}
 
 	/**
 	 * Check if viewing one of this plugin's admin pages.
@@ -457,5 +484,16 @@ class Pinterest_Pin_It_Button {
 		// At this point show install notice. Show it only on the plugin screen.
 		if( get_current_screen()->id == 'plugins' )
 			include_once( 'views/admin-install-notice.php' );
+	}
+	
+	/**
+	 * Loads plugin text domain for i18n
+	 */
+	function plugin_textdomain() {
+		load_plugin_textdomain(
+			'pib',
+			false,
+			dirname( plugin_basename( PIB_MAIN_FILE ) ) . '/languages/'
+		);
 	}
 }
