@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<li><div class="dashicons dashicons-yes"></div> <?php _e( 'Use with custom post types', 'pib' ); ?></li>
 
 					<?php if ( pib_is_woo_commerce_active() ): ?>
-						<div class="dashicons dashicons-yes"></div> <?php _e( 'WooCommerce support', 'pib' ); ?></li>
+						<li><div class="dashicons dashicons-yes"></div> <?php _e( 'WooCommerce support', 'pib' ); ?></li>
 					<?php endif; ?>
 
 					<li><div class="dashicons dashicons-yes"></div> <?php _e( 'Automatic updates & email support', 'pib' ); ?></li>
@@ -44,11 +44,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<a href="<?php echo pib_ga_campaign_url( PINPLUGIN_BASE_URL . 'pin-it-button-pro/', 'pib_lite_2', 'sidebar_link', 'pro_upgrade' ); ?>"
 					   class="button-primary button-large" target="_blank">
 						<?php _e( 'Upgrade to Pro Now', 'pib' ); ?></a>
-				</div>
-
-				<!-- Black Friday 2014 Promo -->
-				<div class="centered">
-					<h3>Use the Black Friday discount code <span style="color:red;">BF2014</span> to get 30% off any license. Expires Friday, Dec. 5.</h3>
 				</div>
 			</div>
 		</div>
@@ -111,11 +106,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="postbox">
 		<div class="inside">
 			<p>
-				<?php _e( 'Now accepting 5-star reviews! It only takes seconds and means a lot.', 'pib' ); ?>
+				<?php _e( 'Your review helps more folks find our plugin. Thanks so much!', 'pib' ); ?>
 			</p>
 			<div class="centered">
-				<a href="http://wordpress.org/support/view/plugin-reviews/pinterest-pin-it-button" class="button-primary" target="_blank">
-					<?php _e( 'Rate this Plugin Now', 'pib' ); ?></a>
+				<a href="https://wordpress.org/support/view/plugin-reviews/pinterest-pin-it-button#postform" class="button-primary" target="_blank">
+					<?php _e( 'Review this Plugin Now', 'pib' ); ?></a>
 			</div>
 		</div>
 	</div>
@@ -127,13 +122,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<ul>
 				<li>
 					<div class="dashicons dashicons-arrow-right-alt2"></div>
-					<a href="<?php echo add_query_arg( 'page', PIB_PLUGIN_SLUG . '_help', admin_url( 'admin.php' ) ); ?>">
+					<a href="<?php echo esc_url( add_query_arg( 'page', PIB_PLUGIN_SLUG . '_help', admin_url( 'admin.php' ) ) ); ?>">
 						<?php _e( 'Shortcode & CSS Help', 'pib' ); ?></a>
 				</li>
 				<li>
 					<div class="dashicons dashicons-arrow-right-alt2"></div>
-					<a href="http://wordpress.org/support/plugin/pinterest-pin-it-button" target="_blank">
-						<?php _e( 'Community Support Forums', 'pib' ); ?></a>
+					<a href="https://wordpress.org/support/plugin/pinterest-pin-it-button" target="_blank">
+						<?php _e( 'Community support forums', 'pib' ); ?></a>
 				</li>
 				<li>
 					<div class="dashicons dashicons-arrow-right-alt2"></div>

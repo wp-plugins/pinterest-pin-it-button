@@ -1,9 +1,9 @@
 === Pinterest "Pin It" Button ===
 Contributors: pderksen, nickyoung87
 Tags: pinterest, pin it button, social, social media, image, images, photo, photos, pinterest pin it button, pin it, social button
-Requires at least: 3.8.5
-Tested up to: 4.1
-Stable tag: trunk
+Requires at least: 3.9.3
+Tested up to: 4.2
+Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,7 +66,7 @@ This plugin (as well as the Pro version) is in full compliance with the [officia
 
 This plugin utilizes the code output from the [official "Pin It" button widget builder](http://business.pinterest.com/widget-builder/#do_pin_it_button).
 
-[Follow this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button).
+[Follow this project on Github](https://github.com/pderksen/WP-Pinterest-Pin-It-Button)
 
 == Installation ==
 
@@ -121,6 +121,13 @@ CSS styling and shortcode help available within the plugin admin.
 7. Individual post (post meta) settings
 
 == Changelog ==
+
+= 2.0.9 - April 22, 2015 =
+
+* Updated calls to add_query_arg to prevent any possible XSS attacks.
+* Fixed bug with button showing up on WooCommerce Products.
+* Added option to always enqueue scripts & styles (enabled by default).
+* Tested up to WordPress 4.2.
 
 = 2.0.8 =
 

@@ -85,7 +85,8 @@ function pib_register_settings() {
 			'uninstall_save_settings' => array(
 				'id'   => 'uninstall_save_settings',
 				'name' => __( 'Save Settings', 'pib' ),
-				'desc' => __( 'Save your settings when uninstalling this plugin. Useful when upgrading or re-installing.', 'pib' ),
+				'desc' => __( 'Save your settings when uninstalling this plugin.', 'pib' ) . '<br/>' .
+				          '<p class="description">' . __( 'Useful when upgrading or re-installing.', 'pib' ) . '</p>',
 				'type' => 'checkbox'
 			)
 		),
@@ -125,7 +126,7 @@ function pib_register_settings() {
 				'id'   => 'custom_css',
 				'name' => __( 'Custom CSS', 'pib' ),
 				'desc' => __( 'Custom CSS can be used to override other CSS style rules.', 'pib' ) . '<br />' .
-					sprintf( __( 'Visit the <a href="%s">Help Section</a> for CSS override examples.', 'pib' ), add_query_arg( 'page', PIB_PLUGIN_SLUG . '_help', admin_url( 'admin.php' ) ) ),
+					sprintf( __( 'Visit the <a href="%s">Help Section</a> for CSS override examples.', 'pib' ), esc_url( add_query_arg( 'page', PIB_PLUGIN_SLUG . '_help', admin_url( 'admin.php' ) ) ) ),
 				'type' => 'textarea'
 			),
 			'remove_div' => array(
@@ -136,20 +137,27 @@ function pib_register_settings() {
 			),
 			'disable_css' => array(
 				'id'   => 'disable_css',
-				'name' => __( 'Disable CSS File Reference', 'pib' ),
-				'desc' => __( 'Advanced. Will prevent the plugin\'s CSS file from being referenced. Custom CSS above will still be included.', 'pib' ),
+				'name' => __( 'Disable Plugin CSS', 'pib' ),
+				'desc' => __( 'If this option is checked, this plugin\'s CSS file will not be referenced. The custom CSS above will still be included.', 'pib' ),
 				'type' => 'checkbox'
 			)
 		),
 
 		/* Advanced Settings */
 		'advanced' => array(
+			'always_enqueue' => array(
+				'id'   => 'always_enqueue',
+				'name' => __( 'Always Enqueue Scripts & Styles', 'pib' ),
+				'desc' => __( 'Enqueue this plugin\'s scripts and styles on every post and page.', 'pib' ) . '<br/>' .
+				          '<p class="description">' . __( 'Useful if using shortcodes in widgets or other non-standard locations.', 'pib' ) . '</p>',
+				'type' => 'checkbox'
+			),
 			'no_pinit_js' => array(
 				'id'   => 'no_pinit_js',
 				'name' => __( 'Disable <code>pinit.js</code>', 'pib' ),
-				'desc' => __( 'Disable output of <code>pinit.js</code>, the JavaScript file for all widgets from Pinterest.', 'pib' ) .
-					'<p class="description">' . __( 'Check this option if you have <code>pinit.js</code> referenced in another plugin, widget or your theme. ' .
-						'Ouputting <code>pinit.js</code> more than once on a page can cause conflicts.', 'pib' ) . '</p>',
+				'desc' => __( 'Disable output of <code>pinit.js</code>, the JavaScript file for all widgets from Pinterest.', 'pib' ) . '<br/>' .
+				          '<p class="description">' . __( 'Check this option if you have <code>pinit.js</code> referenced in another plugin, widget or your theme. ' .
+				                                          'Ouputting <code>pinit.js</code> more than once on a page can cause conflicts.', 'pib' ) . '</p>',
 				'type' => 'checkbox'
 			)
 		)
@@ -274,7 +282,8 @@ function pib_get_settings_field_args( $option, $section ) {
 		'section' => $section,
 		'size'    => isset( $option['size'] ) ? $option['size'] : null,
 		'options' => isset( $option['options'] ) ? $option['options'] : '',
-		'std'     => isset( $option['std'] ) ? $option['std'] : ''
+		'std'     => isset( $option['std'] ) ? $option['std'] : '',
+		'product' => isset( $option['product'] ) ? $option['product'] : '',
 	);
 
 	// Link label to input using 'label_for' argument if text, textarea, password, select, or variations of.
@@ -523,6 +532,7 @@ function pib_get_settings() {
 		$general['button_type']             = 'user_selects_image';
 		$general['count_layout']            = 'none';
 		$general['uninstall_save_settings'] = 1;
+		$general['always_enqueue']          = 1;
 
 		update_option( 'pib_settings_general', $general );
 
