@@ -28,7 +28,7 @@ class Pinterest_Pin_It_Button {
 	 * and README.txt changelog
 	 **************************************/
 
-	protected $version = '2.0.9';
+	protected $version = '2.1.0';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -92,7 +92,7 @@ class Pinterest_Pin_It_Button {
 		}
 
 		// Include required files.
-		add_action( 'init', array( $this, 'includes' ), 1 );
+		$this->includes();
 
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ), 2 );
@@ -463,7 +463,7 @@ class Pinterest_Pin_It_Button {
 	}
 	
 	public function purchase_pro_link( $links ) {
-		$pro_link = sprintf( '<a href="%s">%s</a>', pib_ga_campaign_url( PINPLUGIN_BASE_URL . 'pin-it-button-pro/', 'pib_lite_2', 'plugin_listing', 'pro_upgrade' ), __( 'Purchase Pro', 'sc' ) );
+		$pro_link = sprintf( '<a href="%s">%s</a>', pib_ga_campaign_url( PINPLUGIN_BASE_URL . 'pin-it-button-pro/', 'pib_lite_2', 'plugin_listing', 'pro_upgrade' ), __( 'Purchase Pro', 'pib' ) );
 		array_push( $links, $pro_link );
 		
 		return $links;
